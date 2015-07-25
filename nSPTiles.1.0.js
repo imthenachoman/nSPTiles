@@ -24,11 +24,11 @@
     // some constants
     // the site URL
     var SITE_URL = location.protocol + "//" + location.hostname + (_spPageContextInfo.webServerRelativeUrl === "/" ? "" : _spPageContextInfo.webServerRelativeUrl) + "/";
-    var ANIMATION_TIME = 250;
+    var ANIMATION_TIME = 100;
     var LIST_NAME = "nSPTiles";
 
     // CSS
-    var CSS_STYLE = ".nTilesWrapper,.nTilesContainer,.nTile,.nTileContentWrapper,.nTileBackground,.nTileHTMLContent{margin:0;padding:0;overflow:hidden}.nTilesWrapper{position:relative}.nTilesContainer{position:relative;display:inline-block}.nTile,.nTileContentWrapper,.nTileBackground,.nTileHTMLContent{position:absolute;top:0;left:0;bottom:0;right:0}.nTilePositionTable{position:absolute;display:table;width:100%;height:100%}.nTilePositionRow{display:table-row}.nTilePositionCell{display:table-cell;width:100%;height:100%}.nHoverOption1,.nTileHovering .nHoverOption2{display:inline-block!important}.nHoverOption2,.nTileHovering .nHoverOption1{display:none!important}.nTileSliderContent{position:absolute;height:100%;width:100%}.nTileLink{cursor:pointer}.nTileAdminLinks{position:absolute;top:0;right:0;padding:5px;display:none;z-index:50;background-color:#ff9;border:1px solid #000;filter:alpha(opacity=30);opacity:.3}.nTilesWrapper:hover .nTileAdminLinks{display:inline-block}.nTileAdminLinks:hover{filter:(alpha=100);opacity:1}.nTileGridBox{position:absolute;filter:alpha(opacity=30);opacity:.3;background-color:#ff0;z-index:100;top:0;left:0}.nTileGridBox.clicked{background-color:blue}.nTileOverlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:#0f0;filter:alpha(opacity=10);opacity:.1;z-index:95}#nTilesHelp{position:fixed;top:10px;left:10px;padding:5px;z-index:999999;background-color:#ffb;border:1px solid #000}#nTilesToolTip{font-family:'Lucida Console';position:fixed;top:0;left:0;padding:5px;z-index:999999;background-color:#ffb;border:1px solid #000}.nTileHoverBox{position:absolute;top:0;left:0;width:100%;height:100%;z-index:50;background-color:#ff0;filter:alpha(opacity=50);opacity:.5}.nTileFocus .nTileHoverBox{background-color:#0ff;font-weight:700;text-decoration:underline}";
+    var CSS_STYLE = ".nTilesWrapper,.nTilesContainer,.nTile,.nTileContentWrapper,.nTileBackground,.nTileHTMLContent{margin:0;padding:0;overflow:hidden}.nTilesWrapper{position:relative}.nTilesContainer{position:relative;display:inline-block}.nTile,.nTileContentWrapper,.nTileBackground,.nTileHTMLContent{position:absolute;top:0;left:0;bottom:0;right:0}.nTilePositionTable{position:absolute;display:table;width:100%;height:100%}.nTilePositionRow{display:table-row}.nTilePositionCell{display:table-cell;width:100%;height:100%}.nHoverOption1,.nTileHovering .nHoverOption2{display:inline-block!important}.nHoverOption2,.nTileHovering .nHoverOption1{display:none!important}.nTileSliderContent{position:absolute;height:100%;width:100%}.nTileLink{cursor:pointer}.nTileAdminLinks{position:absolute;top:0;right:0;padding:5px;display:none;z-index:50;background-color:#ff9;border:1px solid #000;filter:alpha(opacity=30);opacity:.3}.nTilesWrapper:hover .nTileAdminLinks{display:inline-block}.nTileAdminLinks:hover{filter:(alpha=100);opacity:1}.nTileGridBox{position:absolute;filter:alpha(opacity=30);opacity:.3;background-color:#f00;z-index:100;top:0;left:0}.nTileGridBox.nTileGridBoxClicked{background-color:blue}.nTileOverlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:#0f0;filter:alpha(opacity=10);opacity:.1;z-index:95}#nTilesHelp{position:fixed;top:10px;left:10px;padding:5px;z-index:999999;background-color:#ffb;border:1px solid #000}#nTilesToolTip{font-family:'Lucida Console';position:fixed;top:0;left:0;padding:5px;z-index:999999;background-color:#ffb;border:1px solid #000}.nTileHoverBox{position:absolute;top:0;left:0;width:100%;height:100%;z-index:50;background-color:#ff0;filter:alpha(opacity=50);opacity:.5}.nTileFocus .nTileHoverBox{background-color:#0ff;font-weight:700;text-decoration:underline}#nTilesHelp table{border-collapse:collapse}#nTilesHelp th, #nTilesHelp td{padding:5px}#nTilesHelp th{text-align:right}";
 
     // table settings
     var TABLE_FIELDS = [
@@ -53,46 +53,40 @@
             MaxLength: "255"
         },
         {
-            DisplayName: "tile width on grid",
+            DisplayName: "tile width",
             Type: "Number",
-            Description: "the number of horizontal grid boxes",
+            Description: "the width of the tile in px",
             Required: "TRUE",
             Min: "0",
-            Default: "2",
-            Validation:
-            {
-                Message: "Please enter a number greater than 0.",
-                Function: "=[tile width on grid]&gt;0"
-            }
+            Default: "100",
+            Decimals: "0"
         },
         {
-            DisplayName: "tile height on grid",
+            DisplayName: "tile height",
             Type: "Number",
-            Description: "the number of vertical grid boxes",
+            Description: "the height of the tile in px",
             Required: "TRUE",
             Min: "0",
-            Default: "2",
-            Validation:
-            {
-                Message: "Please enter a number greater than 0.",
-                Function: "=[tile height on grid]&gt;0"
-            }
+            Default: "100",
+            Decimals: "0"
         },
         {
             DisplayName: "tile left offset",
             Type: "Number",
-            Description: "number of grid boxes over from the right (0 = first column)",
+            Description: "the left offset of the tile in px",
             Required: "TRUE",
             Min: "0",
-            Default: "0"
+            Default: "0",
+            Decimals: "0"
         },
         {
             DisplayName: "tile top offset",
             Type: "Number",
-            Description: "number of grid boxes down from the top (0 = first row)",
+            Description: "the top offset of the tile in px",
             Required: "TRUE",
             Min: "0",
-            Default: "0"
+            Default: "0",
+            Decimals: "0"
         },
         {
             DisplayName: "tile border width",
@@ -493,18 +487,30 @@
             Choices: 100
         },
         {
+            DisplayName: "cc tile style",
+            Type: "Calculated",
+            ResultType: "Text",
+            Formula: '=CONCATENATE("width: ",[tile width],"px; height: ",[tile height],"px; top: ",[tile top offset],"px; left: ",[tile left offset],"px;")'
+        },
+        {
+            DisplayName: "cc tile content wrapper style",
+            Type: "Calculated",
+            ResultType: "Text",
+            Formula: '=CONCATENATE("margin: ",[tile border width],"px;")'
+        },
+        {
             DisplayName: "cc tile right edge",
             Type: "Calculated",
             ResultType: "Number",
             Decimals: "0",
-            Formula: "=[tile left offset]+[tile width on grid]"
+            Formula: "=[tile left offset]+[tile width]"
         },
         {
             DisplayName: "cc tile bottom edge",
             Type: "Calculated",
             ResultType: "Number",
             Decimals: "0",
-            Formula: "=[tile top offset]+[tile height on grid]"
+            Formula: "=[tile top offset]+[tile height]"
         },
         {
             DisplayName: "cc tile background class",
@@ -621,6 +627,12 @@
             Formula: '=IF(AND([heading content]&lt;&gt;"",[heading content on hover]&lt;&gt;""),[heading style]&amp;"; "&amp;IF([bold heading],"font-weight: bold; ","")&amp;IF([heading padding]&lt;&gt;"","padding: "&amp;[heading padding]&amp;"px; ","")&amp;IF([heading font size]&lt;&gt;"","font-size: "&amp;[heading font size]&amp;"px; ","")&amp;IF(AND([heading font color on hover]&lt;&gt;"",LEFT([heading font color on hover],1)&lt;&gt;"."),"color: "&amp;[heading font color on hover]&amp;"; ",""),"")'
         },
         {
+            DisplayName: "cc slider content style",
+            Type: "Calculated",
+            ResultType: "Text",
+            Formula: '=IF(NOT([is heading]),CONCATENATE("top: ",[tile height]-[tile border width]-[tile border width]-[slider heading height],"px;"),"")'
+        },
+        {
             DisplayName: "cc slider position style",
             Type: "Calculated",
             ResultType: "Text",
@@ -662,6 +674,7 @@
             ResultType: "Text",
             Formula: '=IF(AND(NOT([is heading]),[slider background color]&lt;&gt;"",[slider background color on hover]&lt;&gt;""),IF(AND([slider background opacity on hover]&lt;&gt;"",[slider background opacity on hover]&lt;&gt;"none"),"filter: alpha(opacity="&amp;[slider background opacity on hover]&amp;"); opacity: "&amp;[slider background opacity on hover]/100&amp;"; ","")&amp;IF(AND([slider background color on hover]&lt;&gt;"",LEFT([slider background color on hover],1)&lt;&gt;"."),"background-color: "&amp;[slider background color on hover]&amp;"; ",""),"")'
         }];
+    var fieldRefXML = "";
 
     // the object for the main functions
     var tiles = {};
@@ -715,38 +728,13 @@
             };
         }
 
-        var easingFunctions = {
-            one: function(t, b, c, d)
-            {
-                return -c * (t /= d) * (t - 2) + b;
-            },
-            two: function(t, b, c, d)
-            {
-                if ((t /= d) < (1 / 2.75))
-                {
-                    return c * (7.5625 * t * t) + b;
-                }
-                else if (t < (2 / 2.75))
-                {
-                    return c * (7.5625 * (t -= (1.5 / 2.75)) * t + 0.75) + b;
-                }
-                else if (t < (2.5 / 2.75))
-                {
-                    return c * (7.5625 * (t -= (2.25 / 2.75)) * t + 0.9375) + b;
-                }
-                else {
-                    return c * (7.5625 * (t -= (2.625 / 2.75)) * t + 0.984375) + b;
-                }
-            }
-        };
-
         return {
             stop: function(id)
             {
                 cancelAnimationFrame(animationIDTracker[id]);
                 delete animationIDTracker[id];
             },
-            start: function(duration, action, mode)
+            start: function(duration, action, animationType)
             {
                 var currentAnimationID = animationCounter++;
                 var start = +new Date();
@@ -761,7 +749,7 @@
                     }
                     else
                     {
-                        action(easingFunctions[mode ? "one" : "two"](elapsed, 0, 1, duration));
+                        action(animationTypes[animationType](elapsed, 0, 1, duration));
                         animationIDTracker[currentAnimationID] = requestAnimationFrame(step);
                     }
                 };
@@ -770,6 +758,47 @@
             }
         };
     })();
+    
+    var animationTypes = {
+        slide: function(t, b, c, d)
+        {
+            return -c * (t /= d) * (t - 2) + b;
+        },
+        bounce: function(t, b, c, d)
+        {
+            if ((t /= d) < (1 / 2.75))
+            {
+                return c * (7.5625 * t * t) + b;
+            }
+            else if (t < (2 / 2.75))
+            {
+                return c * (7.5625 * (t -= (1.5 / 2.75)) * t + 0.75) + b;
+            }
+            else if (t < (2.5 / 2.75))
+            {
+                return c * (7.5625 * (t -= (2.25 / 2.75)) * t + 0.9375) + b;
+            }
+            else {
+                return c * (7.5625 * (t -= (2.625 / 2.75)) * t + 0.984375) + b;
+            }
+        },
+        elastic: function(t, b, c, d)
+        {
+            var s = 1.70158;
+            var p = 0;
+            var a = c;
+            if (t === 0) return b;
+            if ((t /= d) == 1) return b + c;
+            if (!p) p = d * 0.3;
+            if (a < Math.abs(c))
+            {
+                a = c;
+                var s = p / 4;
+            }
+            else var s = p / (2 * Math.PI) * Math.asin(c / a);
+            return a * Math.pow(2, -10 * t) * Math.sin((t * d - s) * (2 * Math.PI) / p) + c + b;
+        }
+    };
 
     // helper function
     var createElement = function(tagName, parentNode, className, attributes)
@@ -894,21 +923,28 @@
 
         for(var i = 0, num = nTiles.length; i < num; ++i)
         {
-            nTiles[i].onclick = null;
-            nTiles[i].onmouseenter = null;
-            nTiles[i].onmouseleave = null;
+            nTiles[i].onclick = nTiles[i].onmouseenter = nTiles[i].onmouseleave = null;
         }
 
         // let the user know we're loading
         nTilesContainer.innerText = "Please wait while I reload the data...";
-
+        
+        if(fieldRefXML === "")
+        {
+            fieldRefXML = '<FieldRef Name="ID" />';
+            for(var i = 0, num = TABLE_FIELDS.length; i < num; ++i)
+            {
+                fieldRefXML += '<FieldRef Name="' + "n" + TABLE_FIELDS[i].DisplayName.replace(/\b\w/g, function(m){return m.toUpperCase();}).replace(/[^a-zA-Z]/g, "") + '" />';
+            }
+        }
+        
         // get the list items
         // the soap body to get the list items for the tile group we want
         var soapBody = '';
         soapBody += '<GetListItems xmlns="http://schemas.microsoft.com/sharepoint/soap/">';
         soapBody += '<listName>' + LIST_NAME + '</listName>';
         soapBody += '<query><Query><Where><And><Eq><FieldRef Name="Title"/><Value Type="Text">' + tilesData.groupName + '</Value></Eq><Eq><FieldRef Name="nActive"/><Value Type="Boolean">1</Value></Eq></And></Where></Query></query>';
-        soapBody += '<viewFields><ViewFields><FieldRef Name="ID" /><FieldRef Name="nTileWidthOnGrid" /><FieldRef Name="nTileHeightOnGrid" /><FieldRef Name="nTileLeftOffset" /><FieldRef Name="nTileTopOffset" /><FieldRef Name="nCcTileBottomEdge" /><FieldRef Name="nCcTileRightEdge" /><FieldRef Name="nTileBorderWidth" /><FieldRef Name="nTileZoomOnHover" /><FieldRef Name="nTileLinkType" /><FieldRef Name="nTileLinkURL" /><FieldRef Name="nTileImageURL" /><FieldRef Name="nTileImageURLOnHover" /><FieldRef Name="nIsHeading" /><FieldRef Name="nHeadingContent" /><FieldRef Name="nHeadingContentOnHover" /><FieldRef Name="nSliderHeadingHeight" /><FieldRef Name="nSliderBodyContent" /><FieldRef Name="nCcTileBackgroundClass" /><FieldRef Name="nCcTileBackgroundStyle" /><FieldRef Name="nCcTileBackgroundClassOnHover" /><FieldRef Name="nCcTileBackgroundStyleOnHover" /><FieldRef Name="nCcTileImagePositionStyle" /><FieldRef Name="nCcTileImageClass" /><FieldRef Name="nCcTileImageStyle" /><FieldRef Name="nCcTileImageClassOnHover" /><FieldRef Name="nCcTileImageStyleOnHover" /><FieldRef Name="nCcTileFAPositionStyle" /><FieldRef Name="nCcTileFAClass" /><FieldRef Name="nCcTileFAStyle" /><FieldRef Name="nCcTileFAClassOnHover" /><FieldRef Name="nCcTileFAStyleOnHover" /><FieldRef Name="nCcHeadingPositionStyle" /><FieldRef Name="nCcHeadingClass" /><FieldRef Name="nCcHeadingStyle" /><FieldRef Name="nCcHeadingClassOnHover" /><FieldRef Name="nCcHeadingStyleOnHover" /><FieldRef Name="nCcSliderBackgroundClass" /><FieldRef Name="nCcSliderBackgroundStyle" /><FieldRef Name="nCcSliderBackgroundClassOnHover" /><FieldRef Name="nCcSliderBackgroundStyleOnHover" /><FieldRef Name="nCcSliderPositionStyle" /><FieldRef Name="nCcSliderBodyClass" /><FieldRef Name="nCcSliderBodyStyle" /><FieldRef Name="nTileCustomID" /><FieldRef Name="nTileCustomClassEs" /></ViewFields></viewFields>';
+        soapBody += '<viewFields><ViewFields>' + fieldRefXML + '</ViewFields></viewFields>';
         soapBody += '<rowLimit>0</rowLimit>';
         soapBody += '</GetListItems>';
 
@@ -949,42 +985,24 @@
                     var row = rows[i];
 
                     var ID = row.getAttribute("ows_ID");
-                    var nTileWidthOnGrid = parseFloat(row.getAttribute("ows_nTileWidthOnGrid"));
-                    var nTileHeightOnGrid = parseFloat(row.getAttribute("ows_nTileHeightOnGrid"));
-                    var nTileLeftOffset = parseFloat(row.getAttribute("ows_nTileLeftOffset"));
-                    var nTileTopOffset = parseFloat(row.getAttribute("ows_nTileTopOffset"));
 
-                    var nCcTileBottomEdge = parseFloat(row.getAttribute("ows_nCcTileBottomEdge").replace(/^[a-z]*?;#/i, ""));
-                    var nCcTileRightEdge = parseFloat(row.getAttribute("ows_nCcTileRightEdge").replace(/^[a-z]*?;#/i, ""));
-                    var nTileBorderWidth = parseInt(row.getAttribute("ows_nTileBorderWidth"), 10);
+                    var nCcTileRightEdge = parseInt(row.getAttribute("ows_nCcTileRightEdge").replace(/^[a-z]*?;#/i, ""), 10);
+                    var nCcTileBottomEdge = parseInt(row.getAttribute("ows_nCcTileBottomEdge").replace(/^[a-z]*?;#/i, ""), 10);
+
                     var nTileZoomOnHover = row.getAttribute("ows_nTileZoomOnHover");
                     var nTileLinkType = row.getAttribute("ows_nTileLinkType");
-                    var nTileLinkURL = row.getAttribute("ows_nTileLinkURL") ? row.getAttribute("ows_nTileLinkURL").replace(/\s|\r|\n/g, "") : row.getAttribute("ows_nTileLinkURL");
                     var nTileImageURL = row.getAttribute("ows_nTileImageURL");
                     var nTileImageURLOnHover = row.getAttribute("ows_nTileImageURLOnHover") ? row.getAttribute("ows_nTileImageURLOnHover") : row.getAttribute("ows_nTileImageURLOnHover");
                     var nIsHeading = row.getAttribute("ows_nIsHeading");
                     var nHeadingContent = row.getAttribute("ows_nHeadingContent");
                     var nHeadingContentOnHover = row.getAttribute("ows_nHeadingContentOnHover");
-                    var nSliderHeadingHeight = parseInt(row.getAttribute("ows_nSliderHeadingHeight"), 10);
-                    var nSliderBodyContent = row.getAttribute("ows_nSliderBodyContent");
-
+                    
                     var nCcTileBackgroundClass = row.getAttribute("ows_nCcTileBackgroundClass").replace(/^[a-z]*?;#/i, "");
-                    var nCcTileBackgroundStyle = row.getAttribute("ows_nCcTileBackgroundStyle").replace(/^[a-z]*?;#/i, "");
                     var nCcTileBackgroundClassOnHover = row.getAttribute("ows_nCcTileBackgroundClassOnHover").replace(/^[a-z]*?;#/i, "");
-                    var nCcTileBackgroundStyleOnHover = row.getAttribute("ows_nCcTileBackgroundStyleOnHover").replace(/^[a-z]*?;#/i, "");
-
-                    var nCcTileImagePositionStyle = row.getAttribute("ows_nCcTileImagePositionStyle").replace(/^[a-z]*?;#/i, "");
-                    var nCcTileImageClass = row.getAttribute("ows_nCcTileImageClass").replace(/^[a-z]*?;#/i, "");
-                    var nCcTileImageStyle = row.getAttribute("ows_nCcTileImageStyle").replace(/^[a-z]*?;#/i, "");
-                    var nCcTileImageClassOnHover = row.getAttribute("ows_nCcTileImageClassOnHover").replace(/^[a-z]*?;#/i, "");
-                    var nCcTileImageStyleOnHover = row.getAttribute("ows_nCcTileImageStyleOnHover").replace(/^[a-z]*?;#/i, "");
-
-                    var nCcTileFAPositionStyle = row.getAttribute("ows_nCcTileFAPositionStyle").replace(/^[a-z]*?;#/i, "");
+                    
                     var nCcTileFAClass = row.getAttribute("ows_nCcTileFAClass").replace(/^[a-z]*?;#/i, "");
-                    var nCcTileFAStyle = row.getAttribute("ows_nCcTileFAStyle").replace(/^[a-z]*?;#/i, "");
                     var nCcTileFAClassOnHover = row.getAttribute("ows_nCcTileFAClassOnHover").replace(/^[a-z]*?;#/i, "");
-                    var nCcTileFAStyleOnHover = row.getAttribute("ows_nCcTileFAStyleOnHover").replace(/^[a-z]*?;#/i, "");
-
+                    
                     var nCcHeadingPositionStyle = row.getAttribute("ows_nCcHeadingPositionStyle").replace(/^[a-z]*?;#/i, "");
                     var nCcHeadingClass = row.getAttribute("ows_nCcHeadingClass").replace(/^[a-z]*?;#/i, "");
                     var nCcHeadingStyle = row.getAttribute("ows_nCcHeadingStyle").replace(/^[a-z]*?;#/i, "");
@@ -992,22 +1010,10 @@
                     var nCcHeadingStyleOnHover = row.getAttribute("ows_nCcHeadingStyleOnHover").replace(/^[a-z]*?;#/i, "");
 
                     var nCcSliderBackgroundClass = row.getAttribute("ows_nCcSliderBackgroundClass").replace(/^[a-z]*?;#/i, "");
-                    var nCcSliderBackgroundStyle = row.getAttribute("ows_nCcSliderBackgroundStyle").replace(/^[a-z]*?;#/i, "");
                     var nCcSliderBackgroundClassOnHover = row.getAttribute("ows_nCcSliderBackgroundClassOnHover").replace(/^[a-z]*?;#/i, "");
-                    var nCcSliderBackgroundStyleOnHover = row.getAttribute("ows_nCcSliderBackgroundStyleOnHover").replace(/^[a-z]*?;#/i, "");
-
-                    var nCcSliderPositionStyle = row.getAttribute("ows_nCcSliderPositionStyle").replace(/^[a-z]*?;#/i, "");
-                    var nCcSliderBodyClass = row.getAttribute("ows_nCcSliderBodyClass").replace(/^[a-z]*?;#/i, "");
-                    var nCcSliderBodyStyle = row.getAttribute("ows_nCcSliderBodyStyle").replace(/^[a-z]*?;#/i, "");
-
-                    var tileOuterHeight = nTileHeightOnGrid * tilesData.gridHeight;
-                    var tileOuterWidth = nTileWidthOnGrid * tilesData.gridWidth;
-
-                    var sliderPush = (tileOuterHeight - nTileBorderWidth - nTileBorderWidth) - nSliderHeadingHeight;
-                    var tileID = row.getAttribute("ows_nTileCustomID") || "nTile_" + ID;
+                    
                     var tileClass = (row.getAttribute("ows_nTileCustomClassEs") || "") + " nTile nTile_" + ID;
-                    var tileStyle = "width:" + tileOuterWidth + "px;height:" + tileOuterHeight + "px;top:" + (nTileTopOffset * tilesData.gridHeight) + "px;left:" + (nTileLeftOffset * tilesData.gridWidth) + "px;";
-
+                    
                     var tileOnMouseEnter = "nSPTiles.hover(true, this, '" + holderID + "', " + ID + ", '" + nIsHeading + "', '" + nTileZoomOnHover + "')";
                     var tileOnMouseLeave = "nSPTiles.hover(false, this, '" + holderID + "', " + ID + ", '" + nIsHeading + "', '" + nTileZoomOnHover + "')";
 
@@ -1015,7 +1021,7 @@
                     {
                         tileClass += " nTileLink";
                     }
-                    var tileOnClick = "nSPTiles.openLink(this, '" + nTileLinkType + "', '" + nTileLinkURL + "')";
+                    var tileOnClick = "nSPTiles.openLink(this, '" + nTileLinkType + "', '" + (row.getAttribute("ows_nTileLinkURL") ? row.getAttribute("ows_nTileLinkURL").replace(/\s|\r|\n/g, "") : row.getAttribute("ows_nTileLinkURL")) + "')";
 
                     if(maxRightEdge < nCcTileRightEdge)
                     {
@@ -1026,35 +1032,35 @@
                         maxBottomEdge = nCcTileBottomEdge;
                     }
 
-                    thisTileHTML += '<div class="nTileContentWrapper" style="margin:' + nTileBorderWidth + 'px">';
+                    thisTileHTML += '<div class="nTileContentWrapper" style="' + row.getAttribute("ows_nCcTileContentWrapperStyle").replace(/^[a-z]*?;#/i, "") + '">';
 
                     if(nCcTileBackgroundClass)
                     {
-                        thisTileHTML += '<div class="' + nCcTileBackgroundClass + '" style="' + nCcTileBackgroundStyle + '"></div>';
+                        thisTileHTML += '<div class="' + nCcTileBackgroundClass + '" style="' + (row.getAttribute("ows_nCcTileBackgroundStyle").replace(/^[a-z]*?;#/i, "")) + '"></div>';
                         if(nCcTileBackgroundClassOnHover)
                         {
-                            thisTileHTML += '<div class="' + nCcTileBackgroundClassOnHover + '" style="' + nCcTileBackgroundStyleOnHover + '"></div>';
+                            thisTileHTML += '<div class="' + nCcTileBackgroundClassOnHover + '" style="' + (row.getAttribute("ows_nCcTileBackgroundStyleOnHover").replace(/^[a-z]*?;#/i, "")) + '"></div>';
                         }
                     }
 
                     if(nTileImageURL)
                     {
-                        var thisTilePositionContent = '<img class="' + nCcTileImageClass + '" style="' + nCcTileImageStyle +'" src="' + nTileImageURL + '" />';
+                        var thisTilePositionContent = '<img class="' + (row.getAttribute("ows_nCcTileImageClass").replace(/^[a-z]*?;#/i, "")) + '" style="' + (row.getAttribute("ows_nCcTileImageStyle").replace(/^[a-z]*?;#/i, "")) +'" src="' + nTileImageURL + '" />';
                         if(nTileImageURLOnHover)
                         {
-                            thisTilePositionContent += '<img class="' + nCcTileImageClassOnHover + '" style="' + nCcTileImageStyleOnHover +'" src="' + nTileImageURLOnHover + '" />';
+                            thisTilePositionContent += '<img class="' + (row.getAttribute("ows_nCcTileImageClassOnHover").replace(/^[a-z]*?;#/i, "")) + '" style="' + (row.getAttribute("ows_nCcTileImageStyleOnHover").replace(/^[a-z]*?;#/i, "")) +'" src="' + nTileImageURLOnHover + '" />';
                         }
-                        thisTileHTML += makePositionHTML("nTileImagePositionWrapper", nCcTileImagePositionStyle, '<div>' + thisTilePositionContent + '</div>');
+                        thisTileHTML += makePositionHTML("nTileImagePositionWrapper", (row.getAttribute("ows_nCcTileImagePositionStyle").replace(/^[a-z]*?;#/i, "")), '<div>' + thisTilePositionContent + '</div>');
                     }
 
                     if(nCcTileFAClass)
                     {
-                        var thisTilePositionContent = '<span class="' + nCcTileFAClass  + '" style="' + nCcTileFAStyle +'"></span>';
+                        var thisTilePositionContent = '<span class="' + nCcTileFAClass  + '" style="' + (row.getAttribute("ows_nCcTileFAStyle").replace(/^[a-z]*?;#/i, "")) +'"></span>';
                         if(nCcTileFAClassOnHover)
                         {
-                            thisTilePositionContent += '<span class="' + nCcTileFAClassOnHover  + '" style="' + nCcTileFAStyleOnHover +'"></span>';
+                            thisTilePositionContent += '<span class="' + nCcTileFAClassOnHover  + '" style="' + (row.getAttribute("ows_nCcTileFAStyleOnHover").replace(/^[a-z]*?;#/i, "")) +'"></span>';
                         }
-                        thisTileHTML += makePositionHTML("nTileFAPositionWrapper", nCcTileFAPositionStyle, thisTilePositionContent);
+                        thisTileHTML += makePositionHTML("nTileFAPositionWrapper", (row.getAttribute("ows_nCcTileFAPositionStyle").replace(/^[a-z]*?;#/i, "")), thisTilePositionContent);
                     }
 
                     if(nIsHeading == "1")
@@ -1070,14 +1076,14 @@
                     else
                     {
                         tileClass += " nSliderTile";
-                        thisTileHTML += '<div class="nTileSliderContent" style="top:' + sliderPush + 'px">';
+                        thisTileHTML += '<div class="nTileSliderContent" style="' + (row.getAttribute("ows_nCcSliderContentStyle").replace(/^[a-z]*?;#/i, "")) + '">';
 
                         if(nCcSliderBackgroundClass)
                         {
-                            thisTileHTML += '<div class="' + nCcSliderBackgroundClass + '" style="' + nCcSliderBackgroundStyle + '"></div>';
+                            thisTileHTML += '<div class="' + nCcSliderBackgroundClass + '" style="' + (row.getAttribute("ows_nCcSliderBackgroundStyle").replace(/^[a-z]*?;#/i, "")) + '"></div>';
                             if(nCcSliderBackgroundClassOnHover)
                             {
-                                thisTileHTML += '<div class="' + nCcSliderBackgroundClassOnHover + '" style="' + nCcSliderBackgroundStyleOnHover + '"></div>';
+                                thisTileHTML += '<div class="' + nCcSliderBackgroundClassOnHover + '" style="' + (row.getAttribute("ows_nCcSliderBackgroundStyleOnHover").replace(/^[a-z]*?;#/i, "")) + '"></div>';
                             }
                         }
 
@@ -1086,19 +1092,19 @@
                         {
                             thisTilePositionContent1 += '<div class="' + nCcHeadingClassOnHover + '" style="' + nCcHeadingStyleOnHover + '">' + (nHeadingContentOnHover || "") + '</div>';
                         }
-                        var thisTilePositionContent2 = '<div class="' + nCcSliderBodyClass + '" style="' + nCcSliderBodyStyle + '">' + nSliderBodyContent + '</div>';
+                        var thisTilePositionContent2 = '<div class="' + (row.getAttribute("ows_nCcSliderBodyClass").replace(/^[a-z]*?;#/i, "")) + '" style="' + (row.getAttribute("ows_nCcSliderBodyStyle").replace(/^[a-z]*?;#/i, "")) + '">' + (row.getAttribute("ows_nSliderBodyContent")) + '</div>';
 
-                        thisTileHTML += makePositionHTML("nTileSliderPositionWrapper", nCcHeadingPositionStyle, thisTilePositionContent1, nCcSliderPositionStyle, thisTilePositionContent2);
+                        thisTileHTML += makePositionHTML("nTileSliderPositionWrapper", nCcHeadingPositionStyle, thisTilePositionContent1, (row.getAttribute("ows_nCcSliderPositionStyle").replace(/^[a-z]*?;#/i, "")), thisTilePositionContent2);
 
                         thisTileHTML += '</div>';
                     }
                     thisTileHTML += '</div>';
 
-                    tilesHTML += '<div id="' + tileID +'" class="' + tileClass + '" style="' + tileStyle + '" onmouseenter="' + tileOnMouseEnter + '" onmouseleave="' + tileOnMouseLeave + '" onclick="' + tileOnClick + '">' + thisTileHTML + '</div>';
+                    tilesHTML += '<div id="' + (row.getAttribute("ows_nTileCustomID") || "nTile_" + ID) +'" class="' + tileClass + '" style="' + row.getAttribute("ows_nCcTileStyle").replace(/^[a-z]*?;#/i, "") + '" onmouseenter="' + tileOnMouseEnter + '" onmouseleave="' + tileOnMouseLeave + '" onclick="' + tileOnClick + '">' + thisTileHTML + '</div>';
                 }
 
-                width = maxRightEdge * tilesData.gridWidth;
-                height = maxBottomEdge * tilesData.gridHeight;
+                width = maxRightEdge;
+                height = maxBottomEdge;
 
                 nTilesContainer.innerHTML = tilesHTML;
             }
@@ -1295,7 +1301,7 @@
         // if we're doing at least one animation then do it
         if(doZoom === "Yes" || doZoom === "1" || isHeading !== "Yes" && isHeading !== "1")
         {
-            tileData.animationID = animate.start(mode ? tilesData.animationTime : tilesData.animationTime * 2, function(rate)
+            tileData.animationID = animate.start(mode ? tilesData.animationTime : (tilesData.animationTime < 500 ? tilesData.animationTime * 2 : 1000), function(rate)
             {
                 if(nTileContentWrapper)
                 {
@@ -1305,26 +1311,26 @@
                 {
                     nTileSliderContent.style.top = currentTop + (rate * topDifference) + "px";
                 }
-            }, mode);
+            }, mode ? "slide" : tilesData.animationType);
         }
     };
 
     // save tiles data
-    tiles.setup = function(holderID, groupName, gridWidth, gridHeight, animationTime)
+    tiles.setup = function(holderID, groupName, configOptions)
     {
+        configOptions = configOptions || {};
         tilesTracker[holderID] = {
-            "holderID" : holderID, // the ID of the tils wrapper
-            "groupName" : groupName, // the group name of the tiles in this wrapper
-            "gridHeight" : gridHeight || 50, // the px width
-            "gridWidth" : gridWidth || 50, // the px height
-            "animationTime" : animationTime || ANIMATION_TIME, // the animation time
-            "tilesWrapper" : document.getElementById(holderID), // the actual DOM wrapper element
-            "tiles" : {} // tile specific data cache
+            holderID: holderID, // the ID of the tils wrapper
+            groupName: groupName, // the group name of the tiles in this wrapper
+            animationTime: parseInt(configOptions.animationTime, 10) || ANIMATION_TIME, // the animation time for this group
+            animationType: configOptions.animationType && configOptions.animationType in animationTypes && configOptions.animationType || "slide", // the animation to use
+            tilesWrapper: document.getElementById(holderID), // the actual DOM wrapper element
+            tiles: {} // tile specific data cache
         };
     };
 
     // initialize tiles
-    tiles.init = function(holderID, groupName, gridWidth, gridHeight, animationTime)
+    tiles.init = function(holderID, groupName, configOptions)
     {
         // the the wrapper/holder
         var holder = document.getElementById(holderID);
@@ -1332,7 +1338,7 @@
         if(holder)
         {
             // save the tile data
-            tiles.setup(holderID, groupName, gridWidth, gridHeight, animationTime);
+            tiles.setup(holderID, groupName, configOptions);
 
             // create the container
             holder.className += (holder.className ? " " : "") + "nTilesWrapper";
@@ -1482,12 +1488,12 @@
                     ExecuteOrDelayUntilScriptLoaded(function()
                     {
                         var clientContext = new SP.ClientContext.get_current();
-                        this.list = clientContext.get_web().get_lists().getByTitle(LIST_NAME);
+                        var list = clientContext.get_web().get_lists().getByTitle(LIST_NAME);
                         clientContext.load(list);
                         clientContext.load(list, 'EffectiveBasePermissions');
                         clientContext.executeQueryAsync(Function.createDelegate(this, function()
                         {
-                            if(this.list.get_effectiveBasePermissions().has(SP.PermissionKind.editListItems))
+                            if(list.get_effectiveBasePermissions().has(SP.PermissionKind.editListItems))
                             {
                                 //holder.onmouseenter = function(){ tiles.showAdmin(this); };
                                 //holder.onmouseleave = function(){ tiles.showAdmin(this, true); };
@@ -1513,7 +1519,7 @@
             {
                 document.addEventListener('DOMContentLoaded', function()
                 {
-                    tiles.init(holderID, groupName, gridWidth, gridHeight, animationTime);
+                    tiles.init(holderID, groupName, configOptions);
                 });
             }
             else
@@ -1522,7 +1528,7 @@
                 {
                     if(document.readyState != 'loading')
                     {
-                        tiles.init(holderID, groupName, gridWidth, gridHeight, animationTime);
+                        tiles.init(holderID, groupName, configOptions);
                     }
                 });
             }
@@ -1538,12 +1544,13 @@
         //tiles.showAdmin = emptyFunction;
 
         // get some data and create DOM elements
+        var nTileGridBoxDimensions = {width: 100, height: 100};
         var tilesData = tilesTracker[holderID];
         var nTilesWrapper = tilesData.tilesWrapper;
 
         var nTileOverlay = createElement("div", nTilesWrapper, "nTileOverlay");
-        var nTileGridBox = createElement("div", nTilesWrapper, "nTileGridBox", { "style" : "width: " + tilesData.gridWidth + "px; height: " + tilesData.gridHeight + "px;"});
-        var nTilesHelp = createElement("div", document.body, null, {"id" : "nTilesHelp", "innerHTML" : "<b>Click</b> where you want the <u>top left</u> of the tile to be.<br /><br />Press <u>escape</u> to cancel."});
+        var nTileGridBox = createElement("div", nTilesWrapper, "nTileGridBox", { "style" : "width: " + nTileGridBoxDimensions.width + "px; height: " + nTileGridBoxDimensions.height + "px;"}); // here
+        var nTilesHelp = createElement("div", document.body, null, {"id" : "nTilesHelp", "innerHTML" : "<b>Click</b> where you want the <u>top left</u> of the tile to be.<br /><br /><table><tr><td colspan='2'>box dimensions:</td></tr><tr><th>width</th><td><a href='#'>" + nTileGridBoxDimensions.width + "</a></td></tr><tr><th>height</th><td><a href='#'>" + nTileGridBoxDimensions.height + "</a></td></tr><tr><td colspan='2'>click on the # to change</td></tr></table><br />Press <u>escape</u> to cancel."});
         var nTilesToolTip = createElement("div", document.body, null, {"id" : "nTilesToolTip", "innerHTML" : 'left&nbsp;&nbsp;&nbsp;: <span id="nTilesToolTipLeft"></span><br />top&nbsp;&nbsp;&nbsp;&nbsp;: <span id="nTilesToolTipTop"></span><br />--<br />width&nbsp;&nbsp;: <span id="nTilesToolTipWidth"></span><br />height&nbsp;: <span id="nTilesToolTipHeight"></span>'});
 
         var nTilesToolTipLeft = document.getElementById("nTilesToolTipLeft");
@@ -1552,15 +1559,36 @@
         var nTilesToolTipHeight = document.getElementById("nTilesToolTipHeight");
 
         var currentHeight = nTilesWrapper.offsetHeight;
+        
+        var changeDimensions = function(a, which)
+        {
+            var newDimension = prompt("Please enter a new " + which + ":", nTileGridBoxDimensions[which]);
+            if(newDimension === null) return;
+            if(isNaN(newDimension))
+            {
+                alert("Please enter a valid number.");
+                changeDimensions(a, which);
+            }
+            else
+            {
+                nTileGridBoxDimensions[which] = parseInt(newDimension, 10);
+                a.innerText = nTileGridBoxDimensions[which];
+                nTileGridBox.style[which] = nTileGridBoxDimensions[which] + "px";
+            }
+        };
+        
+        var nTilesHelpA = nTilesHelp.querySelectorAll("a");
+        nTilesHelpA[0].onclick = function(){ changeDimensions(this, "width"); };
+        nTilesHelpA[1].onclick = function(){ changeDimensions(this, "height"); };
+        
 
         // if we're done or cancelling undo stuff
         var end = function()
         {
-            document.onkeyup = null;
+            document.onkeyup = nTilesHelpA[0].onclick = nTilesHelpA[1].onclick = nTileGridBox.onclick = nTilesWrapper.onmousemove = null;
 
-            nTileGridBox.onclick = null;
-            nTilesWrapper.onmousemove = null;
-
+            deleteElement(nTilesHelpA[0]);
+            deleteElement(nTilesHelpA[1]);
             deleteElement(nTileOverlay);
             deleteElement(nTileGridBox);
             deleteElement(nTilesHelp);
@@ -1586,7 +1614,7 @@
         nTileGridBox.onclick = function()
         {
             // the user clicked the start of where they want the tile
-            nTileGridBox.className += " clicked";
+            nTileGridBox.className += " nTileGridBoxClicked";
             var tileLeftOffset = nTilesToolTipLeft.innerText;
             var tileTopOffset = nTilesToolTipTop.innerText;
 
@@ -1599,10 +1627,10 @@
                 addEditDeleteTile(action, {
                     "ID" : action == "New" ? "New" : selectedTileID,
                     "Title" : tilesData.groupName,
-                    "nTileWidthOnGrid" : tileWidth,
-                    "nTileHeightOnGrid" : tileHeight,
-                    "nTileLeftOffset" : tileLeftOffset,
-                    "nTileTopOffset" : tileTopOffset
+                    "nTileWidth" : tileWidth * nTileGridBoxDimensions.width,
+                    "nTileHeight" : tileHeight * nTileGridBoxDimensions.height,
+                    "nTileLeftOffset" : tileLeftOffset * nTileGridBoxDimensions.width,
+                    "nTileTopOffset" : tileTopOffset * nTileGridBoxDimensions.height
                 }, function(status)
                 {
                     end();
@@ -1628,8 +1656,8 @@
             nTilesWrapper.onmousemove = function(e)
             {
                 var c = getMousePositionProperties(e, nTilesWrapper);
-                var width = Math.floor(c.elementX / tilesData.gridWidth) - tileLeftOffset + 1;
-                var height = Math.floor(c.elementY / tilesData.gridHeight) - tileTopOffset + 1;
+                var width = Math.floor(c.elementX / nTileGridBoxDimensions.width) - tileLeftOffset + 1;
+                var height = Math.floor(c.elementY / nTileGridBoxDimensions.height) - tileTopOffset + 1;
 
                 nTilesToolTip.style.top = c.pageY + 25 + "px";
                 nTilesToolTip.style.left = c.pageX + 25 + "px";
@@ -1639,23 +1667,28 @@
 
                 if(width > 0 && height > 0)
                 {
-                    nTileGridBox.style.width = width * tilesData.gridWidth + "px";
-                    nTileGridBox.style.height = height * tilesData.gridHeight + "px";
+                    nTileGridBox.style.width = width * nTileGridBoxDimensions.width + "px";
+                    nTileGridBox.style.height = height * nTileGridBoxDimensions.height + "px";
                 }
             };
 
-            nTilesHelp.innerHTML = "<b>Click</b> where you want the <u>bottom right</u> of the tile to be.<br /><br />Press <u>escape</u> to cancel.";
+            nTilesHelp.querySelector("u").innerText = "bottom right";
+            deleteElement(nTilesHelp.querySelector("table").rows[3]);
+            nTilesHelpA[0].removeAttribute("href");
+            nTilesHelpA[1].removeAttribute("href");
+            nTilesHelpA[0].onclick = nTilesHelpA[1].onclick = null;
+            
         };
 
         // let the user select where the tile should start
         nTilesWrapper.onmousemove = function(e)
         {
             var c = getMousePositionProperties(e, nTilesWrapper);
-            var top = Math.floor(c.elementY / tilesData.gridHeight);
-            var left = Math.floor(c.elementX / tilesData.gridWidth);
+            var top = Math.floor(c.elementY / nTileGridBoxDimensions.height);
+            var left = Math.floor(c.elementX / nTileGridBoxDimensions.width);
 
-            nTileGridBox.style.top = top * tilesData.gridHeight + "px";
-            nTileGridBox.style.left = left * tilesData.gridWidth + "px";
+            nTileGridBox.style.top = top * nTileGridBoxDimensions.height + "px";
+            nTileGridBox.style.left = left * nTileGridBoxDimensions.width + "px";
 
             nTilesToolTip.style.top = c.pageY + 25 + "px";
             nTilesToolTip.style.left= c.pageX + 25 + "px";
@@ -1715,10 +1748,10 @@
                 tile.className += " nTileFocus";
                 nTilesToolTip.style.display = "block";
                 nTilesToolTipID.innerText = tileID;
-                nTilesToolTipLeft.innerText = tile.style.left.replace("px", "") / tilesData.gridWidth;
-                nTilesToolTipTop.innerText = tile.style.top.replace("px", "") / tilesData.gridHeight;
-                nTilesToolTipWidth.innerText = tile.style.width.replace("px", "") / tilesData.gridWidth;
-                nTilesToolTipHeight.innerText = tile.style.height.replace("px", "") / tilesData.gridHeight;
+                nTilesToolTipLeft.innerText = tile.style.left.replace("px", "");
+                nTilesToolTipTop.innerText = tile.style.top.replace("px", "");
+                nTilesToolTipWidth.innerText = tile.style.width.replace("px", "");
+                nTilesToolTipHeight.innerText = tile.style.height.replace("px", "");
             }
             else
             {
@@ -1817,3 +1850,36 @@
     }
     return tiles;
 })();
+
+/*
+ *
+ * TERMS OF USE - EASING EQUATIONS
+ *
+ * Open source under the BSD License.
+ *
+ * Copyright © 2001 Robert Penner
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ *
+ * Redistributions of source code must retain the above copyright notice, this list of
+ * conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, this list
+ * of conditions and the following disclaimer in the documentation and/or other materials
+ * provided with the distribution.
+ *
+ * Neither the name of the author nor the names of contributors may be used to endorse
+ * or promote products derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ */
