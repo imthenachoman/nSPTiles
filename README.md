@@ -24,6 +24,8 @@ After I started using SPJS-Tiles more and more I had a need for some enhancement
 
  - GUI to help with tile placement when creating/moving tiles
  - GUI to help picking the right tile when you want to edit or delete one
+ - uses SharePoint's built-in list system to house tile data so the rest of the configuration is super easy
+ - multiple tile groups so you can show different tiles on different pages/sections 
  - tiles can be rendered by calling JavaScript in a CEWP or by using a provided DVWP
  - tiles can be links
  - each tile can have:
@@ -48,9 +50,39 @@ Screenshot | Description
 
 ## How To Use
 
+These instructions assume you know your way around SharePoint: how to upload files and edit them, add CEWPs and edit their configuration options, etc...
+
 ### Compatibility
 
-I only have access to a SharePoint 2010 Foundation server along with IE 11, Chrome and FireFox and **nSPTiles** works fine on those. 
+I only have access to a SharePoint 2010 Foundation server along with IE 11, Chrome, and FireFox and **nSPTiles** works fine on those. 
 
 If anyone is able to test on other SharePoint installations and/or browsers I would appreciate feedback.
 
+### Files
+
+\# | File | Purpose
+--- | --- | ---
+1 | [`nSPTiles.1.0.js`](https://raw.githubusercontent.com/imthenachoman/nSPTiles/master/nSPTiles.1.0.js) or [`nSPTiles.1.0.min.js`](https://raw.githubusercontent.com/imthenachoman/nSPTiles/master/nSPTiles.1.0.min.js) | the main JavaScript file for **nSPTiles**
+2 | [`nSPTiles.1.0.html`](https://raw.githubusercontent.com/imthenachoman/nSPTiles/master/nSPTiles.1.0.html) | the HTML file to add to a `CEWP` to create the `nSPTiles` list and render tiles
+3 | [`nSPTiles.1.0.webpart`](https://raw.githubusercontent.com/imthenachoman/nSPTiles/master/nSPTiles.1.0.webpart) | a `DVWP` file that can be uploaded and added as a WebPart
+
+* I'll use the `#` as reference below.
+
+### Configure // Use
+
+Before you can use **nSPTiles** a SharePoint list has to be created. To do this:
+
+ 1. download and upload `1` and `2` to your SharePoint site
+ 2. edit `2`:
+	- update the `src` to path of `1`
+	- (optional) update the `href` for Font-Awesome
+	- (optional) update the `id` of the `div` and first paramater in the `nSPTiles.init` call (e.g. `nachoSlider`)
+	- update the 2nd parameter in the `nSPTiles.init` call to what you want your first tile group to be called (e.g. `test 1`)
+ 3. create a WebPart page on your SharePoint site
+ 4. add a CEWP to the WebPart page
+ 5. point the CEWP to the path of `2`
+ 6. refresh the page
+
+If everything worked properly you should see a message like the first [screenshot](#screenshots). Follow the instructions to create the list.
+
+When it is done creating the list if you hover over the `div` where the tiles are (or will be) then you'll see admin links that will let you add, move, edit, or delete tiles.
