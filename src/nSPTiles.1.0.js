@@ -1325,7 +1325,7 @@ var nSPTiles = nSPTiles || (function()
             animationTime: parseInt(configOptions.animationTime, 10) || ANIMATION_TIME, // the animation time for this group
             animationType: configOptions.animationType && configOptions.animationType in animationTypes && configOptions.animationType || "slide", // the animation to use
             tilesWrapper: document.getElementById(holderID), // the actual DOM wrapper element
-            gridBoxDimensions: {width: 100, height: 100},
+            gridBoxDimensions: {width: 25, height: 25},
             tiles: {} // tile specific data cache
         };
     };
