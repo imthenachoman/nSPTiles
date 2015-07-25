@@ -17,7 +17,7 @@
  * animations - http://www.sitepoint.com/simple-animations-using-requestanimationframe/
  * jquery easing functions - https://github.com/danro/jquery-easing/blob/master/jquery.easing.js
  */
- var nSPTiles = nSPTiles || (function()
+var nSPTiles = nSPTiles || (function()
 {
     "use strict";
 
