@@ -26,8 +26,8 @@
         <property name="Description" type="string" />
         <property name="AllowClose" type="bool">True</property>
         <property name="ShowWithSampleData" type="bool">False</property>
-        <property name="ParameterBindings" type="string">&lt;ParameterBinding Name="nSPTilesJSPath" Location="None" DefaultValue="/Site Stuff/nSPTiles/nSPTiles.1.0.js"/&gt;
-&lt;ParameterBinding Name="FontAwesomeCSSPath" Location="None" DefaultValue="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/&gt;
+        <property name="ParameterBindings" type="string">&lt;ParameterBinding Name="nSPTilesJSPath" Location="None" DefaultValue="nSPTiles.1.0.js"/&gt;
+&lt;ParameterBinding Name="FontAwesomeCSSPath" Location="None" DefaultValue="font-awesome.min.css"/&gt;
 &lt;ParameterBinding Name="GroupName" Location="None" DefaultValue="test 1"/&gt;
 &lt;ParameterBinding Name="AnimationSpeedInMillisecond" Location="None" DefaultValue="100"/&gt;
 &lt;ParameterBinding Name="AnimationType" Location="None" DefaultValue="bounce"/&gt;</property>
