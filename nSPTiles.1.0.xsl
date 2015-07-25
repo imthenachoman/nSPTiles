@@ -4,20 +4,17 @@
     <!-- https://msdn.microsoft.com/en-us/library/dd583143%28v=office.11%29.aspx and https://msdn.microsoft.com/en-us/library/office/ff806158%28v=office.14%29.aspx -->
     <xsl:param name="ListUrlDir_FALSE" />
     <!-- all the input settings -->
-    <xsl:param name="nSPTilesJSPath" />
-    <xsl:param name="FontAwesomeCSSPath" />
-    <xsl:param name="GroupName" />
-    <xsl:param name="GridSizeHorizontalPixel">50</xsl:param>
-    <xsl:param name="GridSizeVerticalPixel">50</xsl:param>
+    <xsl:param name="nSPTilesJSPath">/Site Stuff/nSPTiles/nSPTiles.1.0.js</xsl:param>
+    <xsl:param name="FontAwesomeCSSPath">//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css</xsl:param>
+    <xsl:param name="GroupName">test 1</xsl:param>
     <xsl:param name="AnimationSpeedInMillisecond">100</xsl:param>
+    <xsl:param name="AnimationType">slide</xsl:param>
     <xsl:variable name="TileGroupID" select="concat('nTiles_', translate($GroupName, translate($GroupName, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ''), ''))" />
     
-    <!-- start from the root node -->
     <xsl:template match="/" xmlns:x="http://www.w3.org/2001/XMLSchema" xmlns:d="http://schemas.microsoft.com/sharepoint/dsp" xmlns:asp="http://schemas.microsoft.com/ASPNET/20" xmlns:__designer="http://schemas.microsoft.com/WebParts/v2/DataView/designer" xmlns:SharePoint="Microsoft.SharePoint.WebControls">
         <xsl:call-template name="tiles" />
     </xsl:template>
     
-    <!-- for debug purposes -->
     <xsl:template name="debug">
         <ul>
             <xsl:for-each select="/dsQueryResponse/Rows/Row">
@@ -31,6 +28,29 @@
                 </li>
             </xsl:for-each>
         </ul>
+    </xsl:template>
+    
+    <!-- function to make position html -->
+    <xsl:template name="makePositionHTML">
+        <xsl:param name="className" />
+        <xsl:param name="row1Style" />
+        <xsl:param name="cell1Content" />
+        <xsl:param name="row2Style" />
+        <xsl:param name="cell2Content" />
+        <div class="nTilePositionTable {$className}">
+            <div class="nTilePositionRow nTilePositionRow1">
+                <div class="nTilePositionCell" style="{$row1Style}">
+                    <xsl:copy-of select="$cell1Content" />
+                </div>
+            </div>
+            <xsl:if test="$row2Style != ''">
+                <div class="nTilePositionRow nTilePositionRow2">
+                    <div class="nTilePositionCell" style="{$row2Style}">
+                        <xsl:copy-of select="$cell2Content" />
+                    </div>
+                </div>
+            </xsl:if>
+        </div>
     </xsl:template>
     
     <!-- main tiles template for generating the necessary HTML -->
@@ -52,7 +72,7 @@
                     <!-- we have at least one tile to render -->
                     <xsl:variable name="maxRightEdge" select="ddwrt:Max(/dsQueryResponse/Rows/Row/@nCcTileRightEdge)" />
                     <xsl:variable name="maxBottomEdge" select="ddwrt:Max(/dsQueryResponse/Rows/Row/@nCcTileBottomEdge)" />
-                    <div class="nTilesContainer" style="height: {$maxBottomEdge * $GridSizeVerticalPixel}px; width: {$maxRightEdge * $GridSizeHorizontalPixel}px">
+                    <div class="nTilesContainer" style="height: {$maxBottomEdge}px; width: {$maxRightEdge}px">
                         <xsl:apply-templates select="/dsQueryResponse/Rows" />
                     </div>
                 </xsl:when>
@@ -64,20 +84,20 @@
         </div>
         <!-- save configuration data for access in the JS -->
         <script type="text/javascript">
-            nSPTiles.setup('<xsl:value-of select="$TileGroupID" />', '<xsl:value-of select="$GroupName" />', <xsl:value-of select="$GridSizeHorizontalPixel" />, <xsl:value-of select="$GridSizeVerticalPixel" />, <xsl:value-of select="$AnimationSpeedInMillisecond" />);
+            nSPTiles.setup('<xsl:value-of select="$TileGroupID" />', '<xsl:value-of select="$GroupName" />', {animationTime:<xsl:value-of select="$AnimationSpeedInMillisecond" />,animationType:'<xsl:value-of select="$AnimationType" />'});
         </script>
     </xsl:template>
     
     <!-- the template for each tile -->
     <xsl:template match="Row">
-        <div id="nTile_{@ID}" style="width: {@nTileWidthOnGrid * $GridSizeHorizontalPixel}px; height: {@nTileHeightOnGrid * $GridSizeVerticalPixel}px; top: {@nTileTopOffset * $GridSizeVerticalPixel}px; left: {@nTileLeftOffset * $GridSizeHorizontalPixel}px;" onmouseenter="nSPTiles.hover(true, this, '{$TileGroupID}', {@ID}, '{@nIsHeading}', '{@nTileZoomOnHover}');" onmouseleave="nSPTiles.hover(false, this, '{$TileGroupID}', {@ID}, '{@nIsHeading}', '{@nTileZoomOnHover}');" onclick="nSPTiles.openLink(this, '{@nTileLinkType}', &#x27;{translate(@nTileLinkURL, '&#xD;&#xA;', '')}&#x27;)">
+        <div id="nTile_{@ID}" style="{@nCcTileStyle}" onmouseenter="nSPTiles.hover(true, this, '{$TileGroupID}', {@ID}, '{@nIsHeading}', '{@nTileZoomOnHover}');" onmouseleave="nSPTiles.hover(false, this, '{$TileGroupID}', {@ID}, '{@nIsHeading}', '{@nTileZoomOnHover}');" onclick="nSPTiles.openLink(this, '{@nTileLinkType}', &#x27;{translate(@nTileLinkURL, '&#xD;&#xA;', '')}&#x27;)">
             <xsl:if test="@nTileCustomID != ''">
                 <xsl:attribute name="id"><xsl:value-of select="@nTileCustomID" /></xsl:attribute>
             </xsl:if>
             <xsl:attribute name="class">
                 <xsl:value-of select="@nTileCustomClassEs" /> nTile nTile_<xsl:value-of select="@ID" /><xsl:if test="@nTileLinkType != 'none'"> nTileLink</xsl:if><xsl:choose><xsl:when test="@nIsHeading = 'Yes'"> nHeadingTile</xsl:when><xsl:otherwise> nSliderTile</xsl:otherwise></xsl:choose>
             </xsl:attribute>
-            <div class="nTileContentWrapper" style="margin: {@nTileBorderWidth}px;">
+            <div class="nTileContentWrapper" style="{@nCcTileContentWrapperStyle}">
                 <!-- do we have a tile background color -->
                 <xsl:if test="@nCcTileBackgroundClass != ''">
                     <div class="{@nCcTileBackgroundClass}" style="{@nCcTileBackgroundStyle}"></div>
@@ -128,7 +148,7 @@
                         </xsl:call-template>
                     </xsl:when>
                     <xsl:otherwise>
-                        <div class="nTileSliderContent" style="top: {((@nTileHeightOnGrid * $GridSizeVerticalPixel) - @nTileBorderWidth - @nTileBorderWidth) - @nSliderHeadingHeight}px">
+                        <div class="nTileSliderContent" style="{@nCcSliderContentStyle}">
                              <!-- do we have a slider background color -->
                             <xsl:if test="@nCcSliderBackgroundClass != ''">
                                 <div class="{@nCcSliderBackgroundClass}" style="{@nCcSliderBackgroundStyle}"></div>
@@ -154,29 +174,6 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </div>
-        </div>
-    </xsl:template>
-    
-    <!-- function to make position html -->
-    <xsl:template name="makePositionHTML">
-        <xsl:param name="className" />
-        <xsl:param name="row1Style" />
-        <xsl:param name="cell1Content" />
-        <xsl:param name="row2Style" />
-        <xsl:param name="cell2Content" />
-        <div class="nTilePositionTable {$className}">
-            <div class="nTilePositionRow nTilePositionRow1">
-                <div class="nTilePositionCell" style="{$row1Style}">
-                    <xsl:copy-of select="$cell1Content" />
-                </div>
-            </div>
-            <xsl:if test="$row2Style != ''">
-                <div class="nTilePositionRow nTilePositionRow2">
-                    <div class="nTilePositionCell" style="{$row2Style}">
-                        <xsl:copy-of select="$cell2Content" />
-                    </div>
-                </div>
-            </xsl:if>
         </div>
     </xsl:template>
 </xsl:stylesheet>
