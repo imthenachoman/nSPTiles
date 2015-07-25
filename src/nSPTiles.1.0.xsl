@@ -4,8 +4,8 @@
     <!-- https://msdn.microsoft.com/en-us/library/dd583143%28v=office.11%29.aspx and https://msdn.microsoft.com/en-us/library/office/ff806158%28v=office.14%29.aspx -->
     <xsl:param name="ListUrlDir_FALSE" />
     <!-- all the input settings -->
-    <xsl:param name="nSPTilesJSPath">/Site Stuff/nSPTiles/nSPTiles.1.0.js</xsl:param>
-    <xsl:param name="FontAwesomeCSSPath">//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css</xsl:param>
+    <xsl:param name="nSPTilesJSPath">nSPTiles.1.0.js</xsl:param>
+    <xsl:param name="FontAwesomeCSSPath">font-awesome.min.css</xsl:param>
     <xsl:param name="GroupName">test 1</xsl:param>
     <xsl:param name="AnimationSpeedInMillisecond">100</xsl:param>
     <xsl:param name="AnimationType">slide</xsl:param>
