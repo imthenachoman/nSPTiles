@@ -1325,6 +1325,7 @@ var nSPTiles = nSPTiles || (function()
             animationTime: parseInt(configOptions.animationTime, 10) || ANIMATION_TIME, // the animation time for this group
             animationType: configOptions.animationType && configOptions.animationType in animationTypes && configOptions.animationType || "slide", // the animation to use
             tilesWrapper: document.getElementById(holderID), // the actual DOM wrapper element
+            gridBoxDimensions: {width: 100, height: 100},
             tiles: {} // tile specific data cache
         };
     };
@@ -1544,13 +1545,12 @@ var nSPTiles = nSPTiles || (function()
         //tiles.showAdmin = emptyFunction;
 
         // get some data and create DOM elements
-        var nTileGridBoxDimensions = {width: 100, height: 100};
         var tilesData = tilesTracker[holderID];
         var nTilesWrapper = tilesData.tilesWrapper;
 
         var nTileOverlay = createElement("div", nTilesWrapper, "nTileOverlay");
-        var nTileGridBox = createElement("div", nTilesWrapper, "nTileGridBox", { "style" : "width: " + nTileGridBoxDimensions.width + "px; height: " + nTileGridBoxDimensions.height + "px;"}); // here
-        var nTilesHelp = createElement("div", document.body, null, {"id" : "nTilesHelp", "innerHTML" : "<b>Click</b> where you want the <u>top left</u> of the tile to be.<br /><br /><table><tr><td colspan='2'>box dimensions:</td></tr><tr><th>width</th><td><a href='#'>" + nTileGridBoxDimensions.width + "</a></td></tr><tr><th>height</th><td><a href='#'>" + nTileGridBoxDimensions.height + "</a></td></tr><tr><td colspan='2'>click on the # to change</td></tr></table><br />Press <u>escape</u> to cancel."});
+        var nTileGridBox = createElement("div", nTilesWrapper, "nTileGridBox", { "style" : "width: " + tilesData.gridBoxDimensions.width + "px; height: " + tilesData.gridBoxDimensions.height + "px;"}); // here
+        var nTilesHelp = createElement("div", document.body, null, {"id" : "nTilesHelp", "innerHTML" : "<b>Click</b> where you want the <u>top left</u> of the tile to be.<br /><br /><table><tr><td colspan='2'>box dimensions:</td></tr><tr><th>width</th><td><a href='#'>" + tilesData.gridBoxDimensions.width + "</a></td></tr><tr><th>height</th><td><a href='#'>" + tilesData.gridBoxDimensions.height + "</a></td></tr><tr><td colspan='2'>click on the # to change</td></tr></table><br />Press <u>escape</u> to cancel."});
         var nTilesToolTip = createElement("div", document.body, null, {"id" : "nTilesToolTip", "innerHTML" : 'left&nbsp;&nbsp;&nbsp;: <span id="nTilesToolTipLeft"></span><br />top&nbsp;&nbsp;&nbsp;&nbsp;: <span id="nTilesToolTipTop"></span><br />--<br />width&nbsp;&nbsp;: <span id="nTilesToolTipWidth"></span><br />height&nbsp;: <span id="nTilesToolTipHeight"></span>'});
 
         var nTilesToolTipLeft = document.getElementById("nTilesToolTipLeft");
@@ -1562,7 +1562,7 @@ var nSPTiles = nSPTiles || (function()
         
         var changeDimensions = function(a, which)
         {
-            var newDimension = prompt("Please enter a new " + which + ":", nTileGridBoxDimensions[which]);
+            var newDimension = prompt("Please enter a new " + which + ":", tilesData.gridBoxDimensions[which]);
             if(newDimension === null) return;
             if(isNaN(newDimension))
             {
@@ -1571,10 +1571,11 @@ var nSPTiles = nSPTiles || (function()
             }
             else
             {
-                nTileGridBoxDimensions[which] = parseInt(newDimension, 10);
-                a.innerText = nTileGridBoxDimensions[which];
-                nTileGridBox.style[which] = nTileGridBoxDimensions[which] + "px";
+                tilesData.gridBoxDimensions[which] = parseInt(newDimension, 10);
+                a.innerText = tilesData.gridBoxDimensions[which];
+                nTileGridBox.style[which] = tilesData.gridBoxDimensions[which] + "px";
             }
+            return false;
         };
         
         var nTilesHelpA = nTilesHelp.querySelectorAll("a");
@@ -1627,10 +1628,10 @@ var nSPTiles = nSPTiles || (function()
                 addEditDeleteTile(action, {
                     "ID" : action == "New" ? "New" : selectedTileID,
                     "Title" : tilesData.groupName,
-                    "nTileWidth" : tileWidth * nTileGridBoxDimensions.width,
-                    "nTileHeight" : tileHeight * nTileGridBoxDimensions.height,
-                    "nTileLeftOffset" : tileLeftOffset * nTileGridBoxDimensions.width,
-                    "nTileTopOffset" : tileTopOffset * nTileGridBoxDimensions.height
+                    "nTileWidth" : tileWidth * tilesData.gridBoxDimensions.width,
+                    "nTileHeight" : tileHeight * tilesData.gridBoxDimensions.height,
+                    "nTileLeftOffset" : tileLeftOffset * tilesData.gridBoxDimensions.width,
+                    "nTileTopOffset" : tileTopOffset * tilesData.gridBoxDimensions.height
                 }, function(status)
                 {
                     end();
@@ -1656,8 +1657,8 @@ var nSPTiles = nSPTiles || (function()
             nTilesWrapper.onmousemove = function(e)
             {
                 var c = getMousePositionProperties(e, nTilesWrapper);
-                var width = Math.floor(c.elementX / nTileGridBoxDimensions.width) - tileLeftOffset + 1;
-                var height = Math.floor(c.elementY / nTileGridBoxDimensions.height) - tileTopOffset + 1;
+                var width = Math.floor(c.elementX / tilesData.gridBoxDimensions.width) - tileLeftOffset + 1;
+                var height = Math.floor(c.elementY / tilesData.gridBoxDimensions.height) - tileTopOffset + 1;
 
                 nTilesToolTip.style.top = c.pageY + 25 + "px";
                 nTilesToolTip.style.left = c.pageX + 25 + "px";
@@ -1667,8 +1668,8 @@ var nSPTiles = nSPTiles || (function()
 
                 if(width > 0 && height > 0)
                 {
-                    nTileGridBox.style.width = width * nTileGridBoxDimensions.width + "px";
-                    nTileGridBox.style.height = height * nTileGridBoxDimensions.height + "px";
+                    nTileGridBox.style.width = width * tilesData.gridBoxDimensions.width + "px";
+                    nTileGridBox.style.height = height * tilesData.gridBoxDimensions.height + "px";
                 }
             };
 
@@ -1684,11 +1685,11 @@ var nSPTiles = nSPTiles || (function()
         nTilesWrapper.onmousemove = function(e)
         {
             var c = getMousePositionProperties(e, nTilesWrapper);
-            var top = Math.floor(c.elementY / nTileGridBoxDimensions.height);
-            var left = Math.floor(c.elementX / nTileGridBoxDimensions.width);
+            var top = Math.floor(c.elementY / tilesData.gridBoxDimensions.height);
+            var left = Math.floor(c.elementX / tilesData.gridBoxDimensions.width);
 
-            nTileGridBox.style.top = top * nTileGridBoxDimensions.height + "px";
-            nTileGridBox.style.left = left * nTileGridBoxDimensions.width + "px";
+            nTileGridBox.style.top = top * tilesData.gridBoxDimensions.height + "px";
+            nTileGridBox.style.left = left * tilesData.gridBoxDimensions.width + "px";
 
             nTilesToolTip.style.top = c.pageY + 25 + "px";
             nTilesToolTip.style.left= c.pageX + 25 + "px";
