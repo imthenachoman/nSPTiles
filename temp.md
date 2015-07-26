@@ -16,7 +16,7 @@ http://imthenachoman.github.io/nSPTiles/
 	 6. [Use A CEWP To Render Tiles](#use-a-cewp-to-render-tiles)
 	 7. [CEWP JavaScript Reference](#cewp-javascript-reference)
 	 8. [Use a DVWP To Render Tiles](#use-a-dvwp-to-render-tiles)
-	 9. [DVWP Paramater Reference](#dvw-paramater-reference)
+	 9. [DVWP Paramater Reference](#dvwp-paramater-reference)
 	 10. [nSPTiles List Reference](#nsptiles-list-reference)
 
 ## Overview
@@ -88,7 +88,7 @@ The very first time you use **nSPTiles** follow the [CEWP](#use-a-cewp-to-render
  2. make sure to provide the correct path to `nSPTiles.1.0.min.js` or `nSPTiles.1.0.js`
  3. (*optional*) update the path to the Font-Awesome CSS if you want to use Font-Awesome
  4. update the `id` of the `div` where you want the tiles to be rendered in (`nachoTiles` in the above example)
- 5. in the `nSPTiles.init` call update the parameters as necessary (check [below](#cewp-javascript-configuration) for details)
+ 5. in the `nSPTiles.init` call update the parameters as necessary (check [below](#cewp-javascript-reference) for details)
  6. save everything and reload the page
 
 \*\*\* *The first time you use* ***nSPTiles*** *you will see a message like this. Follow the instructions to create the `nSPTiles` list.* \*\*\*
@@ -201,7 +201,7 @@ is heading | heading tiles have no slider
 heading content | text content to use for the tile or slider heading (can use HTML)
 heading font color | heading font color (check [here](#color) for details)
 heading content on hover | same as above but for when the mouse is over the tile
-heading font color on hover | same as above but for when the mouse is over the tile (check [here](#color) for details)
+heading font color on hover | same as above but for when the mouse is over the tile
 heading position | placement of the heading content within the tile (check [here](#position) for details)
 heading padding | padding for the heading
 heading font size | font size for the heading
@@ -215,7 +215,7 @@ slider body padding | padding for the slider content
 slider body font size | font size for the slider content
 slider body font color | slider content font color (check [here](#color) for details)
 slider body style | additional/custom styles to apply to the slider content
-slider background color | background color to use for the slider
+slider background color | background color to use for the slider (check [here](#color) for details)
 slider background opacity | opacity for the slider background
 slider background color on hover | same as above but for when the mouse is over the tile
 slider background opacity on hover | same as above but for when the mouse is over the tile 
