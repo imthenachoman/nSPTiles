@@ -1,0 +1,165 @@
+﻿.nTilesWrapper,.nTilesContainer,.nTile,.nTileContentWrapper,.nTileBackground,.nTileHTMLContent
+{
+    margin:0;
+    padding:0;
+    overflow:hidden
+}
+
+.nTilesWrapper
+{
+    position:relative
+}
+
+.nTilesContainer
+{
+    position:relative;
+    display:inline-block
+}
+
+.nTile,.nTileContentWrapper,.nTileBackground,.nTileHTMLContent
+{
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0
+}
+
+.nTilePositionTable
+{
+    position:absolute;
+    display:table;
+    width:100%;
+    height:100%
+}
+
+.nTilePositionRow
+{
+    display:table-row
+}
+
+.nTilePositionCell
+{
+    display:table-cell;
+    width:100%;
+    height:100%
+}
+
+.nHoverOption1,.nTileHovering .nHoverOption2
+{
+    display:inline-block!important
+}
+
+.nHoverOption2,.nTileHovering .nHoverOption1
+{
+    display:none!important
+}
+
+.nTileSliderContent
+{
+    position:absolute;
+    height:100%;
+    width:100%
+}
+
+.nTileLink
+{
+    cursor:pointer
+}
+
+.nTileAdminLinks
+{
+    position:absolute;
+    top:0;
+    right:0;
+    padding:5px;
+    display:none;
+    z-index:50;
+    background-color:#ff9;
+    border:1px solid #000;
+    filter:alpha(opacity=30);
+    opacity:.3
+}
+
+.nTilesWrapper:hover .nTileAdminLinks
+{
+    display:inline-block
+}
+
+.nTileAdminLinks:hover
+{
+    filter:(alpha=100);
+    opacity:1
+}
+
+.nTileGridBox
+{
+    position:absolute;
+    filter:alpha(opacity=30);
+    opacity:.3;
+    background-color:#ff0;
+    z-index:100;
+    top:0;
+    left:0
+}
+
+.nTileGridBox.clicked
+{
+    background-color:blue
+}
+
+.nTileOverlay
+{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:#0f0;
+    filter:alpha(opacity=10);
+    opacity:.1;
+    z-index:95
+}
+
+#nTilesHelp
+{
+    position:fixed;
+    top:10px;
+    left:10px;
+    padding:5px;
+    z-index:999999;
+    background-color:#ffb;
+    border:1px solid #000
+}
+
+#nTilesToolTip
+{
+    font-family:'Lucida Console';
+    position:fixed;
+    top:0;
+    left:0;
+    padding:5px;
+    z-index:999999;
+    background-color:#ffb;
+    border:1px solid #000
+}
+
+.nTileHoverBox
+{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:50;
+    background-color:#ff0;
+    filter:alpha(opacity=50);
+    opacity:.5
+}
+
+.nTileFocus .nTileHoverBox
+{
+    background-color:#0ff;
+    font-weight:700;
+    text-decoration:underline
+}

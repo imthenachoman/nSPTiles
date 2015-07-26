@@ -4,11 +4,12 @@
     <!-- https://msdn.microsoft.com/en-us/library/dd583143%28v=office.11%29.aspx and https://msdn.microsoft.com/en-us/library/office/ff806158%28v=office.14%29.aspx -->
     <xsl:param name="ListUrlDir_FALSE" />
     <!-- all the input settings -->
-    <xsl:param name="nSPTilesJSPath">nSPTiles.1.0.js</xsl:param>
-    <xsl:param name="FontAwesomeCSSPath">font-awesome.min.css</xsl:param>
+    <xsl:param name="nSPTilesJSPath">/Site Stuff/nSPTiles/nSPTiles.1.0.js</xsl:param>
+    <xsl:param name="FontAwesomeCSSPath">//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css</xsl:param>
     <xsl:param name="GroupName">test 1</xsl:param>
     <xsl:param name="AnimationSpeedInMillisecond">100</xsl:param>
-    <xsl:param name="AnimationType">slide</xsl:param>
+    <xsl:param name="AnimationTypeOn">slide</xsl:param>
+    <xsl:param name="AnimationTypeOff">slide</xsl:param>
     <xsl:variable name="TileGroupID" select="concat('nTiles_', translate($GroupName, translate($GroupName, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ''), ''))" />
     
     <xsl:template match="/" xmlns:x="http://www.w3.org/2001/XMLSchema" xmlns:d="http://schemas.microsoft.com/sharepoint/dsp" xmlns:asp="http://schemas.microsoft.com/ASPNET/20" xmlns:__designer="http://schemas.microsoft.com/WebParts/v2/DataView/designer" xmlns:SharePoint="Microsoft.SharePoint.WebControls">
@@ -33,11 +34,12 @@
     <!-- function to make position html -->
     <xsl:template name="makePositionHTML">
         <xsl:param name="className" />
+        <xsl:param name="tableStyle" />
         <xsl:param name="row1Style" />
         <xsl:param name="cell1Content" />
         <xsl:param name="row2Style" />
         <xsl:param name="cell2Content" />
-        <div class="nTilePositionTable {$className}">
+        <div class="nTilePositionTable {$className}" style="{$tableStyle}">
             <div class="nTilePositionRow nTilePositionRow1">
                 <div class="nTilePositionCell" style="{$row1Style}">
                     <xsl:copy-of select="$cell1Content" />
@@ -68,7 +70,7 @@
             </xsl:if>
             <!-- render tiles -->
             <xsl:choose>
-                <xsl:when test="count(/dsQueryResponse/Rows/Row) > 0">
+                <xsl:when test="count(/dsQueryResponse/Rows/Row) &gt; 0">
                     <!-- we have at least one tile to render -->
                     <xsl:variable name="maxRightEdge" select="ddwrt:Max(/dsQueryResponse/Rows/Row/@nCcTileRightEdge)" />
                     <xsl:variable name="maxBottomEdge" select="ddwrt:Max(/dsQueryResponse/Rows/Row/@nCcTileBottomEdge)" />
@@ -84,7 +86,12 @@
         </div>
         <!-- save configuration data for access in the JS -->
         <script type="text/javascript">
-            nSPTiles.setup('<xsl:value-of select="$TileGroupID" />', '<xsl:value-of select="$GroupName" />', {animationTime:<xsl:value-of select="$AnimationSpeedInMillisecond" />,animationType:'<xsl:value-of select="$AnimationType" />'});
+            nSPTiles.setup('<xsl:value-of select="$TileGroupID" />', '<xsl:value-of select="$GroupName" />', {animationTime:<xsl:value-of select="$AnimationSpeedInMillisecond" />,animationTypeOn:'<xsl:value-of select="$AnimationTypeOn" />',animationTypeOff:'<xsl:value-of select="$AnimationTypeOff" />'});
+            var toFixHTML = document.getElementById("<xsl:value-of select="$TileGroupID" />").querySelectorAll(".nTileSlider");
+            for(var i = 0, num = toFixHTML.length; i &lt; num; ++i)
+            {
+                toFixHTML[i].innerHTML = toFixHTML[i].innerText;
+            }
         </script>
     </xsl:template>
     
@@ -95,7 +102,7 @@
                 <xsl:attribute name="id"><xsl:value-of select="@nTileCustomID" /></xsl:attribute>
             </xsl:if>
             <xsl:attribute name="class">
-                <xsl:value-of select="@nTileCustomClassEs" /> nTile nTile_<xsl:value-of select="@ID" /><xsl:if test="@nTileLinkType != 'none'"> nTileLink</xsl:if><xsl:choose><xsl:when test="@nIsHeading = 'Yes'"> nHeadingTile</xsl:when><xsl:otherwise> nSliderTile</xsl:otherwise></xsl:choose>
+                <xsl:value-of select="@nTileCustomClassEs" /> nTile nTile_<xsl:value-of select="@ID" /><xsl:if test="@nTileLinkType != 'none'"> nTileLink</xsl:if><xsl:choose><xsl:when test="@nIsHeading = 'Yes' or @nIsHeading = '1'"> nHeadingTile</xsl:when><xsl:otherwise> nSliderTile</xsl:otherwise></xsl:choose>
             </xsl:attribute>
             <div class="nTileContentWrapper" style="{@nCcTileContentWrapperStyle}">
                 <!-- do we have a tile background color -->
@@ -109,6 +116,7 @@
                 <xsl:if test="@nTileImageURL != ''">
                     <xsl:call-template name="makePositionHTML">
                         <xsl:with-param name="className">nTileImagePositionWrapper</xsl:with-param>
+                        <xsl:with-param name="tableStyle" select="@nCcTileImageAndFaTableStyle" />
                         <xsl:with-param name="row1Style" select="@nCcTileImagePositionStyle" />
                         <xsl:with-param name="cell1Content">
                             <div>
@@ -124,6 +132,7 @@
                 <xsl:if test="@nCcTileFAClass != ''">
                     <xsl:call-template name="makePositionHTML">
                         <xsl:with-param name="className">nTileFAPositionWrapper</xsl:with-param>
+                        <xsl:with-param name="tableStyle" select="@nCcTileImageAndFaTableStyle" />
                         <xsl:with-param name="row1Style" select="@nCcTileFAPositionStyle" />
                         <xsl:with-param name="cell1Content">
                             <span class="{@nCcTileFAClass}" style="{@nCcTileFAStyle}"></span>
@@ -135,14 +144,14 @@
                 </xsl:if>
                 <!-- do we have a heading or a slider -->
                 <xsl:choose>
-                    <xsl:when test="@nIsHeading = 'Yes'">
+                    <xsl:when test="@nIsHeading = 'Yes' or @nIsHeading = '1'">
                         <xsl:call-template name="makePositionHTML">
-                            <xsl:with-param name="className">nHeadingTile</xsl:with-param>
+                            <xsl:with-param name="className">nTileHeadingPositionWrapper</xsl:with-param>
                             <xsl:with-param name="row1Style" select="@nCcHeadingPositionStyle" />
                             <xsl:with-param name="cell1Content">
-                                <div class="{@nCcHeadingClass}" style="{@nCcHeadingStyle}"><xsl:value-of select="@nHeadingContent" /></div>
+                                <div class="{@nCcHeadingClass}" style="{@nCcHeadingStyle}"><xsl:value-of select="@nHeadingContent" disable-output-escaping="yes" /></div>
                                 <xsl:if test="@nHeadingContentOnHover != ''">
-                                    <div class="{@nCcHeadingClassOnHover}" style="{@nCcHeadingStyleOnHover}"><xsl:value-of select="@nHeadingContentOnHover" /></div>
+                                    <div class="{@nCcHeadingClassOnHover}" style="{@nCcHeadingStyleOnHover}"><xsl:value-of select="@nHeadingContentOnHover" disable-output-escaping="yes" /></div>
                                 </xsl:if>
                             </xsl:with-param>
                         </xsl:call-template>
@@ -160,14 +169,14 @@
                                 <xsl:with-param name="className">nTileSliderPositionWrapper</xsl:with-param>
                                 <xsl:with-param name="row1Style" select="@nCcHeadingPositionStyle" />
                                 <xsl:with-param name="cell1Content">
-                                    <div class="{@nCcHeadingClass}" style="{@nCcHeadingStyle}"><xsl:value-of select="@nHeadingContent" /></div>
+                                    <div class="{@nCcHeadingClass}" style="{@nCcHeadingStyle}"><xsl:value-of select="@nHeadingContent" disable-output-escaping="yes" /></div>
                                     <xsl:if test="@nHeadingContentOnHover != ''">
-                                        <div class="{@nCcHeadingClassOnHover}" style="{@nCcHeadingStyleOnHover}"><xsl:value-of select="@nHeadingContentOnHover" /></div>
+                                        <div class="{@nCcHeadingClassOnHover}" style="{@nCcHeadingStyleOnHover}"><xsl:value-of select="@nHeadingContentOnHover" disable-output-escaping="yes" /></div>
                                     </xsl:if>
                                 </xsl:with-param>
                                 <xsl:with-param name="row2Style" select="@nCcSliderPositionStyle" />
                                 <xsl:with-param name="cell2Content">
-                                    <div class="{@nCcSliderBodyClass}" style="{@nCcSliderBodyStyle}"><xsl:value-of select="@nSliderBodyContent" /></div>
+                                    <div class="{@nCcSliderBodyClass}" style="{@nCcSliderBodyStyle}" ><xsl:value-of select="@nSliderBodyContent" disable-output-escaping="yes" /></div>
                                 </xsl:with-param>
                             </xsl:call-template>
                         </div>
