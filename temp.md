@@ -192,7 +192,7 @@ tile FA style on hover | same as above but for when the mouse is over the tile
 tile FA opacity on hover | same as above but for when the mouse is over the tile
 tile FA position | placement for the Font-Awesome icon within the tile (check here for details)
 tile FA padding | padding for the Font-Awesome icon
-tile link type | the type of link to make the tile<br /><br /><ul><li>**none** - a</li></ul>
+tile link type | the type of link to make the tile<br /><br /><table><tr><th>none</th><td>no link</td></tr><tr><th>current window</th><td>link will open in the current page</td></tr><tr><th>new window</th><td>link will open in a new window</td></tr><tr><th>dialog</th><td>link will open in a SharePoint 2010 dialog</td></tr><tr><th>dialog (refresh window after save)</th><td>link will open in a SharePoint 2010 dialog and the entire page will be reloaded if a save is done in the dialog</td></tr><tr><th>dialog (refresh tiles after save)</th><td>link will open in a SharePoint 2010 dialog and just the tiles will be reloaded if a save is done in the dialog</td></tr></table>
 tile Link URL | 
 is heading | 
 heading content | 
