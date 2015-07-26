@@ -130,7 +130,7 @@ Examples:
 
 ### GUI
 
-If you have permissions to add items to the `nSPTiles` list then when you hover over the area where the tiles are (or should/would be) then you'll see admin links that will let you add, move, edit, or delete tiles. The add and move options will let you use a GUI to draw where you want the tile to be within the container.
+If you have permissions to add items to the `nSPTiles` list then when you hover over the area where the tiles are (or should/would be) then you'll see admin links that will let you **add**, **move**, **edit**, or **delete** tiles. The **add** and **move** options will let you use a GUI to draw where you want the tile to be within the container. The **move**, **edit**, and **delete** options will let you select a tile you want to work on.
 
 ![enter image description here](https://cloud.githubusercontent.com/assets/83817/8887700/874a9c2c-325b-11e5-870f-3b0ba78ded20.PNG)
 
