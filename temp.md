@@ -170,7 +170,7 @@ tile left offset | how far from the left the tile should be in pixels
 tile top offset | how far from the top the tile should be in pixels
 tile border width | if you want an empty gap/white-space beteween tiles
 tile zoom on hover | zoom effect for the tile by temporarilly making the tile border width 0 when the mouse is over the tile 
-tile background color | background color for the tile (check here for details)
+tile background color | background color for the tile (check [here](#color) for details)
 tile background opacity | opacity for the background
 tile background color on hover | same as above but for when the mouse is over the tile
 tile background opacity on hover | same as above but for when the mouse is over the tile
@@ -178,28 +178,28 @@ tile image URL | URL of an image to show on the tile
 tile image opacity | opacity for the tile image
 tile image URL on hover | same as above but for when the mouse is over the tile
 tile image opacity on hover | same as above but for when the mouse is over the tile
-tile image position | placement for the image within the tile (check here for details)
+tile image position | placement for the image within the tile (check [here](#position) for details)
 tile image width | width of the image
 tile image height | height of the image in pixels
 tile image padding | padding for the image in pixels
 tile FA class | Font-Awesome icon to use (check http://fortawesome.github.io/Font-Awesome/icons/ for details)
-tile FA color | color to use for the Font-Awesome icon (check here for details)
+tile FA color | color to use for the Font-Awesome icon (check [here](#color) for details)
 tile FA style | style to apply to the Font-Awesome icon
 tile FA opacity | opacity for the Font-Awesome icon
 tile FA class on hover | same as above but for when the mouse is over the tile
 tile FA color on hover | same as above but for when the mouse is over the tile
 tile FA style on hover | same as above but for when the mouse is over the tile
 tile FA opacity on hover | same as above but for when the mouse is over the tile
-tile FA position | placement for the Font-Awesome icon within the tile (check here for details)
+tile FA position | placement for the Font-Awesome icon within the tile (check [here](#position) for details)
 tile FA padding | padding for the Font-Awesome icon
 tile link type | type of link to make the tile:<br /><br /><table><tr><th>none</th><td>no link</td></tr><tr><th>current window</th><td>link will open in the current page</td></tr><tr><th>new window</th><td>link will open in a new window</td></tr><tr><th>dialog</th><td>link will open in a SharePoint 2010 dialog</td></tr><tr><th>dialog (refresh window after save)</th><td>link will open in a SharePoint 2010 dialog and the entire page will be reloaded if a save is done in the dialog</td></tr><tr><th>dialog (refresh tiles after save)</th><td>link will open in a SharePoint 2010 dialog and just the tiles will be reloaded if a save is done in the dialog</td></tr></table>
 tile Link URL | URL for the link
 is heading | heading tiles have no slider
 heading content | text content to use for the tile or slider heading (can use HTML)
-heading font color | heading font color (check here for details)
+heading font color | heading font color (check [here](#color) for details)
 heading content on hover | same as above but for when the mouse is over the tile
-heading font color on hover | same as above but for when the mouse is over the tile (check here for details)
-heading position | placement of the heading content within the tile (check here for details)
+heading font color on hover | same as above but for when the mouse is over the tile (check [here](#color) for details)
+heading position | placement of the heading content within the tile (check [here](#position) for details)
 heading padding | padding for the heading
 heading font size | font size for the heading
 bold heading | should the heading be bolded
@@ -207,10 +207,10 @@ heading style | additional/custom styles to apply to the heading
 slider heading height | how tall/high do you want the slider to 'peak' from the bottom of the tile
 tile image and FA slider heading push | for non-heading tiles, if the tile image or tile Font-Awesome icon are placed on the bottom then should they be pushed up so they are on top of the slider heading
 slider body content | text content to use for the slider body (can use HTML)
-slider body position | placement of the slider body content within the slider (check here for details)
+slider body position | placement of the slider body content within the slider (check [here](#position) for details)
 slider body padding | padding for the slider content
 slider body font size | font size for the slider content
-slider body font color | slider content font color (check here for details)
+slider body font color | slider content font color (check [here](#color) for details)
 slider body style | additional/custom styles to apply to the slider content
 slider background color | background color to use for the slider
 slider background opacity | opacity for the slider background
@@ -218,6 +218,32 @@ slider background color on hover | same as above but for when the mouse is over 
 slider background opacity on hover | same as above but for when the mouse is over the tile 
 
 <a name="position">**Position Options**</a>
+
+The various options that have a related position option allow you to have control of placement within the tile. The choices are:
+
+ - top left
+ - top center
+ - top right
+ - middle left
+ - middle center
+ - middle right
+ - bottom left
+ - bottom center
+ - bottom right
+
+<a name="color">**Color Options**</a>
+
+For the various options that have a color option you can specify a color using an HTML/CSS friendly color name or a CSS class name prefixed with a `.`.
+
+Using a class name makes it easier if you have pre-defined CSS classes in a style-sheet with the colors you want. Keep in mind CSS class definitions that apply other non-color settings could have undesirable effects.
+
+Examples:
+
+ - `#ff00ff`, `#f0f0f0`
+ - `#f0f`, `#ff0`
+ - `rgb(0, 100, 200)`
+ - `yellow`
+ - `.themeColor1`, `.themeColor2`, `.themeColor2` (notice the `.` before the class name)
 
 ## Compatibility
 
