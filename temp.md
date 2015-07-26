@@ -8,13 +8,16 @@ http://imthenachoman.github.io/nSPTiles/
 
 ## Table of Contents
 
- 1. Overview
-	 2. Features
-	 3. Screenshots
- 4. How To Use
-	 5. Compatibility
-	 6. Configuration / Installation
-	 7. 
+ 1. [Overview](#overview)
+	 2. [How It Works](#how-it-works)
+	 3. [Features](#features)
+	 4. [Screenshots](#screenshots)
+ 5. [How To Use](#how-to-use)
+	 6. [Use A CEWP To Render Tiles](#use-a-cewp-to-render-tiles)
+	 7. [CEWP JavaScript Reference](#cewp-javascript-reference)
+	 8. [Use a DVWP To Render Tiles](#use-a-dvwp-to-render-tiles)
+	 9. [DVWP Paramater Reference](#dvw-paramater-reference)
+	 10. [nSPTiles List Reference](#nsptiles-list-reference)
 
 ## Overview
 
@@ -92,7 +95,7 @@ The very first time you use **nSPTiles** follow the [CEWP](#use-a-cewp-to-render
 
 ![enter image description here](https://cloud.githubusercontent.com/assets/83817/8887698/8747710a-325b-11e5-8107-1c97315c14d6.PNG)
 
-### CEWP JavaScript Configuration
+### CEWP JavaScript Reference
 
 The `nSPTiles.init` function takes three parameters:
 
@@ -143,7 +146,7 @@ Examples:
     <ParameterBinding Name="AnimationTypeOff" Location="None" DefaultValue="bounce"/>
     ```
 
-Paramater Reference:
+### DVWP Paramater Reference
 
 parameter name | required | explanation
 --- | --- | ---
@@ -154,7 +157,7 @@ AnimationSpeedInMillisecond | optional | the number of milliseconds tile animati
 AnimationTypeOn | optional | the type of animation to use when the mouse enters a tile; check [above](#animationTypeOn) for options
 AnimationTypeOff | optional | the type of animation to use when the mouse enters a tile; check [above](#animationTypeOn) for options
 
-### List Reference
+### nSPTiles List Reference
 
 Here are all the tile options and what they mean. Each one maps to a column/field in the `nSPTiles` list. Not all fields are required and not all fields are relevant depending on other settings.
 
