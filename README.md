@@ -43,6 +43,7 @@ After I started using [SPJS-Tiles](http://spjsblog.com/2013/11/13/sharepoint-201
  - you can specify a location within the tile for the tile image, Font-Awesome icon, heading text and slider text without having to use custom CSS
  - there are numerous pre-set styling options but you can also style anything however you like using your own CSS
  - **nSPTiles** is self-contained and does not need any additional JavaScript libraries like jQuery
+ - three tile animation options (slide, bounce and elastic)
 
 ### Screenshots
 
@@ -93,11 +94,31 @@ If everything worked properly you should see a message like the first [screensho
 
 When it is done creating the list if you hover over the `div` where the tiles are (or will be) then you'll see admin links that will let you add, move, edit, or delete tiles.
 
-You can use a CEWP or a DVWP to show tiles on a page.
+You can use a [CEWP](#cewp) or a [DVWP](#dvwp) to show tiles on a page.
 
 ### CEWP
 
-To use a CEWP follow the same instructions in Configuration / Installation
+To use a CEWP follow the same instructions in [Configuration / Installation](#configuration--installation). The `nSPTiles.init` function takes three parameters:
+
+    nSPTiles.init(ID, groupName)
+ 
+ -- OR --
+ 
+     nSPTiles.init(ID, groupName, configOptions)
+
+parameter | required | explanation
+--- | --- | ---
+`ID` | yes | the ID of the `div` where you want the tiles to be created
+`groupName` | yes | the name of the tiles group to use
+`configOptions` | optional | a configuration object<table><tr><th>option</th></tr><tr><td>a</td></tr></table>
+
+a configuration object with these options:
+
+option | type | explanation
+--- | --- | ---
+`animationTime` | number | 
+`animationType` | string | 
+
 
 ### DVWP
 
