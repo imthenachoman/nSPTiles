@@ -41,8 +41,8 @@ After the list is created you can add items to the list. Each item in the list i
 
  - **nSPTiles** is self-contained and does not need any additional JavaScript libraries like jQuery
  - uses SharePoint's built-in list system
- - GUI to help with tile placement
- - CEWP/JavaScript or DVWP for rendering
+ - [GUI](#gui) to help with tile placement
+ - [CEWP/JavaScript](#use-a-cewp-to-render-tiles) or [DVWP](#use-a-dvwp-to-render-tiles) for rendering
  - each tile can have:
   - a link
   - a background color
@@ -51,10 +51,10 @@ After the list is created you can add items to the list. Each item in the list i
   - a tile heading
   - slider text that slides up on hover
   - different color/image/FA/heading when the mouse is over a tile (hovering)
- - quickly specify placement for tile image, Font-Awesome icon, heading text and slider text without custom CSS
+ - quickly specify [placement](#position) for tile image, Font-Awesome icon, heading text and slider text without custom CSS
  - numerous pre-set styling options
  - additional styling can be applied with custom CSS
- - three tile animation options (slide, bounce and elastic)
+ - three tile [animation](#animationTypeOn) options (slide, bounce and elastic)
 
 ### Screenshots
 
