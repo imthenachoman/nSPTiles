@@ -90,8 +90,6 @@ The very first time you use **nSPTiles** follow the [CEWP](#use-a-cewp-to-render
 
 ![enter image description here](https://cloud.githubusercontent.com/assets/83817/8887698/8747710a-325b-11e5-8107-1c97315c14d6.PNG)
 
-<img src="https://cloud.githubusercontent.com/assets/83817/8887698/8747710a-325b-11e5-8107-1c97315c14d6.PNG" border="10" />
-
 ### CEWP JavaScript Configuration
 
 The `nSPTiles.init` function takes three parameters:
@@ -108,11 +106,18 @@ parameter | required | explanation
 --- | --- | ---
 `ID` | yes | the ID of the `div` where you want the tiles to be created
 `groupName` | yes | the name of the tiles group to use
-`configOptions` | optional | a configuration object with the following options:<br /><br /><table><thead><tr><th>option</th><th>explanation</th></tr></thead><tbody><tr><th>animationTime</th><td>the number of milliseconds tile animations should take</td></tr><tr><th>animationTypeOn</th><td>the type of animationt to use when the mouse enters a tile (for zooming and sliding); options are:<ul><li>slide</li><li>bounce</li><li>elastic</li></ul></td></tr><tr><th>animationTypeOff</th><td>the animation type to use when the mouse leaves a tile; same options as above</td></tr></tbody></table>
+`configOptions` | optional | a configuration object with the following options:<br /><br /><table><thead><tr><th>option</th><th>type</th></tr></thead><tbody><tr><th>animationTime</th><td>number</td><td>the number of milliseconds tile animations should take</td></tr><tr><th>animationTypeOn</th><td>string</td><td>the type of animationt to use when the mouse enters a tile (for zooming and sliding); options are:<ul><li>slide</li><li>bounce</li><li>elastic</li></ul></td></tr><tr><th>animationTypeOff</th><td>string</td><td>the animation type to use when the mouse leaves a tile; same options as above</td></tr></tbody></table>
 
 Examples:
 
-
+    nSPTiles.init("nachoTiles", "group 1", {animationTime: 250});
+    nSPTiles.init("nachoTiles", "group 2", {animationTypeOn: "bounce"});
+    nSPTiles.init("nachoTiles", "group 3", {animationTypeOff: "slide"});
+    nSPTiles.init("nachoTiles", "group 4", {
+	    animationTime: 250,
+	    animationTypeOn: "bounce",
+	    animationTypeOff: "elastic"
+    });
 
 ### Use a DVWP To Render Tiles
 
