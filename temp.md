@@ -132,10 +132,10 @@ Examples:
  1. extract the `nSPTiles.1.0.webpart` file from nSPTiles.1.0.zip to your computer somewhere
  2. add a WebPart to the page like you normally would
  3. in the section where you would select a WebPart to add upload the `nSPTiles.1.0.webpart` file and add it to the page (after it uploads you may have to go back to the add a WebPart wizard)
- 4. edit the `nSPTiles` webpart and under `Parameters Editor` change the `DefaultValue` for each option:
+ 4. edit the `nSPTiles` webpart and under `Parameters Editor` change the `DefaultValue` for each line:
 
     ```xml
-        <ParameterBinding Name="nSPTilesJSPath" Location="None" DefaultValue="nSPTiles.1.0.js"/>
+    <ParameterBinding Name="nSPTilesJSPath" Location="None" DefaultValue="nSPTiles.1.0.js"/>
     <ParameterBinding Name="FontAwesomeCSSPath" Location="None" DefaultValue="font-awesome.min.css"/>
     <ParameterBinding Name="GroupName" Location="None" DefaultValue="group one"/>
     <ParameterBinding Name="AnimationSpeedInMillisecond" Location="None" DefaultValue="100"/>
@@ -145,7 +145,7 @@ Examples:
 
 Paramater Reference:
 
-parameter | required | explanation
+parameter name | required | explanation
 --- | --- | ---
 nSPTilesJSPath | yes | the path to `nSPTiles.1.0.min.js` or `nSPTiles.1.0.js`
 FontAwesomeCSSPath | optional | the path to the Font-Awesome CSS
@@ -153,6 +153,102 @@ GroupName | yes | the name of the tiles group to use
 AnimationSpeedInMillisecond | optional | the number of milliseconds tile animations should take
 AnimationTypeOn | optional | the type of animation to use when the mouse enters a tile; check [above](#animationTypeOn) for options
 AnimationTypeOff | optional | the type of animation to use when the mouse enters a tile; check [above](#animationTypeOn) for options
+
+### List Reference
+
+Here are all the tile options and what they mean. Each one maps to a column/field in the `nSPTiles` list.
+
+option (field/column name) | description
+--- | ---
+group name | the group this tile belongs to
+active | inactive tiles are not rendered
+tile custom ID | lets you override the default tile ID of "nTile_ID" where ID is the ID of item in the list
+tile custom class(es) | if you want to add custom classes to the main `div` of the tile
+tile width | the width of the tile in pixels
+tile height | the height of the tile in pixels
+tile left offset | how far from the left the tile should be in pixels
+tile top offset | how far from the top the tile should be in pixels
+tile border width | if you want an empty gap/white-space beteween tiles
+tile zoom on hover | zoom effect for the tile by temporarilly making the tile border width 0 when the mouse is over the tile 
+tile background color | background color for the tile (check here for details)
+tile background opacity | opacity for the background
+tile background color on hover | same as above but for when the mouse is over the tile
+tile background opacity on hover | same as above but for when the mouse is over the tile
+tile image URL | the URL of an image to show on the tile
+tile image opacity | 
+tile image URL on hover | 
+tile image opacity on hover | 
+tile image position | 
+tile image width | 
+tile image height | 
+tile image padding | 
+tile FA class | 
+tile FA color | 
+tile FA style | 
+tile FA opacity | 
+tile FA class on hover | 
+tile FA color on hover | 
+tile FA style on hover | 
+tile FA opacity on hover | 
+tile FA position | 
+tile FA padding | 
+tile link type | 
+tile Link URL | 
+is heading | 
+heading content | 
+heading font color | 
+heading content on hover | 
+heading font color on hover | 
+heading position | 
+heading padding | 
+heading font size | 
+bold heading | 
+heading style | 
+slider heading height | 
+tile image and FA slider heading push | 
+slider body content | 
+slider body position | 
+slider body padding | 
+slider body font size | 
+slider body font color | 
+slider body style | 
+slider background color | 
+slider background opacity | 
+slider background color on hover | 
+slider background opacity on hover | 
+cc tile style | 
+cc tile content wrapper style | 
+cc tile right edge | 
+cc tile bottom edge | 
+cc tile background class | 
+cc tile background style | 
+cc tile background class on hover | 
+cc tile background style on hover | 
+cc tile image and fa table style | 
+cc tile image position style | 
+cc tile image class | 
+cc tile image style | 
+cc tile image class on hover | 
+cc tile image style on hover | 
+cc tile FA position style | 
+cc tile FA class | 
+cc tile FA style | 
+cc tile FA class on hover | 
+cc tile FA style on hover | 
+cc heading position style | 
+cc heading class | 
+cc heading style | 
+cc heading class on hover | 
+cc heading style on hover | 
+cc slider content style | 
+cc slider position style | 
+cc slider body class | 
+cc slider body style | 
+cc slider background class | 
+cc slider background style | 
+cc slider background class on hover | 
+cc slider background style on hover | 
+
 
 ## Compatibility
 
