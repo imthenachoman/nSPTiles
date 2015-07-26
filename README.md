@@ -1,8 +1,10 @@
 # nSPTiles
 
-**nSPTiles** is JavaScript library for SharePoint to create Windows style live tiles complete with a GUI for tile creation.
+**nSPTiles** is an customizable and easy to use JavaScript library for Windows style live tiles for SharePoint complete with an admin GUI.
 
 http://imthenachoman.github.io/nSPTiles/
+
+![screenshot](https://cloud.githubusercontent.com/assets/83817/8892362/e50bd494-3322-11e5-9b36-fb0aebf98a1d.PNG)
 
 ## Table of Contents
 
@@ -18,11 +20,11 @@ http://imthenachoman.github.io/nSPTiles/
 
 You know those live tiles that Windows 8+ has? **nSPTiles** is a library that lets you create something like them in SharePoint.
 
-**nSPTiles** is my my own version of (and wouldn't have been possible without) the [SPJS-Tiles](http://spjsblog.com/2013/11/13/sharepoint-2013-style-tiles/ "SPJS-Tiles") created by [Alexander Bautz](http://spjsblog.com/about/ "about Alexander Bautz"). You can find his at http://spjsblog.com/2013/11/13/sharepoint-2013-style-tiles/.
+**nSPTiles** is my my own version of (and wouldn't have been possible without) [SPJS-Tiles](http://spjsblog.com/2013/11/13/sharepoint-2013-style-tiles/ "SPJS-Tiles") by [Alexander Bautz](http://spjsblog.com/about/ "about Alexander Bautz"). You can find his at http://spjsblog.com/2013/11/13/sharepoint-2013-style-tiles/.
 
-After I started using SPJS-Tiles more and more I had a need for some enhancements and additional features -- specifically a DVWP way to render the tiles so they load faster. And so I set out to address my needs and ended up with **nSPTiles**.
+After I started using [SPJS-Tiles](http://spjsblog.com/2013/11/13/sharepoint-2013-style-tiles/) more and more I had a need for some enhancements and additional features -- specifically a DVWP way to render the tiles so they load faster. And so I set out to address my needs and ended up with **nSPTiles**.
 
-*(todo: I'll add a screenshot of a completed tile group when I get a moment)*
+
 
 ### Features
 
@@ -37,8 +39,8 @@ After I started using SPJS-Tiles more and more I had a need for some enhancement
   - a tile image
   - a [Font-Awesome](http://fortawesome.github.io/Font-Awesome/ "Font-Awesome") icon (*requires FA be [configured](http://fortawesome.github.io/Font-Awesome/get-started/))
   - a tile heading
-  - a slider content that slides up on hover
- - you can specify a location within the tile for the tile image, Font-Awesome icon, heading text and slider text without having to specify custom CSS
+  - slider content that slides up on hover
+ - you can specify a location within the tile for the tile image, Font-Awesome icon, heading text and slider text without having to use custom CSS
  - there are numerous pre-set styling options but you can also style anything however you like using your own CSS
  - **nSPTiles** is self-contained and does not need any additional JavaScript libraries like jQuery
 
@@ -57,7 +59,7 @@ Screenshot | Description
 
 These instructions assume you know your way around SharePoint (how to upload files and edit them, add CEWPs and edit their configuration options, call JavaScript functions, etc...)
 
-## Compatibility
+### Compatibility
 
 I have tested **nSPTiles** in the following environments as these are all I have access to.
 
@@ -71,19 +73,19 @@ If anyone is able to test on other SharePoint installations and/or browsers I wo
 ### Configuration / Installation
 
  1. download the [nSPTiles.1.0.zip](https://github.com/imthenachoman/nSPTiles/blob/master/nSPTiles.1.0.zip?raw=true), extract the files to a document library in your SharePoint site
- 2. add a CEWP to a WebPart page and add code like below (either directly in the CEWP source editor or link to an HTML file)
+ 2. add a CEWP to a WebPart page and add code like below (either directly in the CEWP source code editor or link to an HTML file)
 
     ```
     <script src="nSPTiles.1.0.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="font-awesome.min.css">
-    <div id="nachoSlider"></div>
+    <div id="nachoTiles"></div>
     <script type="text/javascript">
-        nSPTiles.init("nachoSlider", "group one");
+        nSPTiles.init("nachoTiles", "group one");
     </script>
     ```
  3. make sure to provide the correct path to `nSPTiles.1.0.min.js` or `nSPTiles.1.0.js`
  4. (*optional*) update the path to the Font-Awesome CSS if you want to use Font-Awesome
- 5. update the `id` of the `div` as you want
+ 5. update the `id` of the `div` as you want (`nachoTiles` in the above example)
  6. in the `nSPTiles.init` call update the parameters as necessary (check here for details)
  7. save everything and reload the page
 
@@ -91,8 +93,11 @@ If everything worked properly you should see a message like the first [screensho
 
 When it is done creating the list if you hover over the `div` where the tiles are (or will be) then you'll see admin links that will let you add, move, edit, or delete tiles.
 
-Once the list has been created you can add as many as you like 
+You can use a CEWP or a DVWP to show tiles on a page.
 
+### CEWP
+
+To use a CEWP follow the same instructions in Configuration / Installation
 
 ### DVWP
 
