@@ -43,7 +43,7 @@ After the list is created you can add items to the list. Each item in the list i
  - uses SharePoint's built-in list system
  - [GUI](#gui) to help with tile placement
  - [CEWP/JavaScript](#use-a-cewp-to-render-tiles) or [DVWP](#use-a-dvwp-to-render-tiles) for rendering
- - each tile can have:
+ - each tile can [have](#nsptiles-list-reference):
   - a link
   - a background color
   - a tile image
@@ -115,7 +115,7 @@ parameter | required | explanation
 --- | --- | ---
 `ID` | yes | the ID of the `div` where you want the tiles to be created
 `groupName` | yes | the name of the tiles group to use
-`configOptions` | optional | a configuration object with the following options:<br /><br /><table><tbody><tr><th>animationTime</th><td>number</td><td>the number of milliseconds tile animations should take</td></tr><tr><th><a name="animationTypeOn"></a>animationTypeOn</th><td>string</td><td>the type of animation to use when the mouse enters a tile (for zooming and sliding); options are:<br /><br /><ul><li>slide</li><li>bounce</li><li>elastic</li></ul></td></tr><tr><th>animationTypeOff</th><td>string</td><td>the type of animation to use when the mouse leaves a tile; same options as above</td></tr></tbody></table>
+`configOptions` | optional | a configuration object with the following options:<br /><br /><table><tbody><tr><th>animationTime</th><td>number</td><td>the number of milliseconds tile animations should take</td></tr><tr><th><a name="animationTypeOn"></a>animationTypeOn</th><td>string</td><td>the type of animation to use when the mouse enters a tile (for [zooming](#zoom) and sliding); options are:<br /><br /><ul><li>slide</li><li>bounce</li><li>elastic</li></ul></td></tr><tr><th>animationTypeOff</th><td>string</td><td>the type of animation to use when the mouse leaves a tile; same options as above</td></tr></tbody></table>
 
 Examples:
 
@@ -184,7 +184,7 @@ tile height | height of the tile in pixels
 tile left offset | how far from the left the tile should be in pixels
 tile top offset | how far from the top the tile should be in pixels
 tile border width | if you want an empty gap/white-space beteween tiles
-tile zoom on hover | zoom effect for the tile by temporarilly making the tile border width 0 when the mouse is over the tile 
+<a name="zoom">tile zoom on hover</a> | zoom effect for the tile by temporarilly making the tile border width 0 when the mouse is over the tile 
 tile background color | background color for the tile (check [here](#color) for details)
 tile background opacity | opacity for the background
 tile background color on hover | same as above but for when the mouse is over the tile
