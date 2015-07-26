@@ -90,6 +90,8 @@ The very first time you use **nSPTiles** follow the [CEWP](#use-a-cewp-to-render
 
 ![enter image description here](https://cloud.githubusercontent.com/assets/83817/8887698/8747710a-325b-11e5-8107-1c97315c14d6.PNG)
 
+<img src="https://cloud.githubusercontent.com/assets/83817/8887698/8747710a-325b-11e5-8107-1c97315c14d6.PNG" border="10" />
+
 ### CEWP JavaScript Configuration
 
 The `nSPTiles.init` function takes three parameters:
