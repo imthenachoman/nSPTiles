@@ -184,7 +184,7 @@ tile height | height of the tile in pixels
 tile left offset | how far from the left the tile should be in pixels
 tile top offset | how far from the top the tile should be in pixels
 tile border width | if you want an empty gap/white-space beteween tiles
-<a name="zoom">tile zoom on hover</a> | zoom effect for the tile by temporarilly making the tile border width 0 when the mouse is over the tile 
+tile zoom on hover | <a name="zoom">zoom</a> effect for the tile by temporarilly making the tile border width 0 when the mouse is over the tile 
 tile background color | background color for the tile (check [here](#color) for details)
 tile background opacity | opacity for the background
 tile background color on hover | same as above but for when the mouse is over the tile
