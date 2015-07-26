@@ -156,7 +156,7 @@ AnimationTypeOff | optional | the type of animation to use when the mouse enters
 
 ### List Reference
 
-Here are all the tile options and what they mean. Each one maps to a column/field in the `nSPTiles` list.
+Here are all the tile options and what they mean. Each one maps to a column/field in the `nSPTiles` list. Not all fields are required and not all fields are relevant depending on other settings.
 
 option (field/column name) | description
 --- | ---
@@ -175,30 +175,30 @@ tile background opacity | opacity for the background
 tile background color on hover | same as above but for when the mouse is over the tile
 tile background opacity on hover | same as above but for when the mouse is over the tile
 tile image URL | the URL of an image to show on the tile
-tile image opacity | 
-tile image URL on hover | 
-tile image opacity on hover | 
-tile image position | 
-tile image width | 
-tile image height | 
-tile image padding | 
-tile FA class | 
-tile FA color | 
-tile FA style | 
-tile FA opacity | 
-tile FA class on hover | 
-tile FA color on hover | 
-tile FA style on hover | 
-tile FA opacity on hover | 
-tile FA position | 
-tile FA padding | 
-tile link type | 
+tile image opacity | opacity for the tile image
+tile image URL on hover | same as above but for when the mouse is over the tile
+tile image opacity on hover | same as above but for when the mouse is over the tile
+tile image position | placement for the image within the tile (check here for details)
+tile image width | the width of the image
+tile image height | the height of the image in pixels
+tile image padding | the padding for the image in pixels
+tile FA class | the Font-Awesome icon to use (check http://fortawesome.github.io/Font-Awesome/icons/ for details)
+tile FA color | the color to use for the Font-Awesome icon (check here for details)
+tile FA style | style to apply to the Font-Awesome icon
+tile FA opacity | opacity for the Font-Awesome icon
+tile FA class on hover | same as above but for when the mouse is over the tile
+tile FA color on hover | same as above but for when the mouse is over the tile
+tile FA style on hover | same as above but for when the mouse is over the tile
+tile FA opacity on hover | same as above but for when the mouse is over the tile
+tile FA position | placement for the Font-Awesome icon within the tile (check here for details)
+tile FA padding | padding for the Font-Awesome icon
+tile link type | the type of link to make the tile<br /><br /><ul><li>**none** - a</li></ul>
 tile Link URL | 
 is heading | 
 heading content | 
 heading font color | 
-heading content on hover | 
-heading font color on hover | 
+heading content on hover | same as above but for when the mouse is over the tile
+heading font color on hover | same as above but for when the mouse is over the tile
 heading position | 
 heading padding | 
 heading font size | 
@@ -214,40 +214,8 @@ slider body font color |
 slider body style | 
 slider background color | 
 slider background opacity | 
-slider background color on hover | 
-slider background opacity on hover | 
-cc tile style | 
-cc tile content wrapper style | 
-cc tile right edge | 
-cc tile bottom edge | 
-cc tile background class | 
-cc tile background style | 
-cc tile background class on hover | 
-cc tile background style on hover | 
-cc tile image and fa table style | 
-cc tile image position style | 
-cc tile image class | 
-cc tile image style | 
-cc tile image class on hover | 
-cc tile image style on hover | 
-cc tile FA position style | 
-cc tile FA class | 
-cc tile FA style | 
-cc tile FA class on hover | 
-cc tile FA style on hover | 
-cc heading position style | 
-cc heading class | 
-cc heading style | 
-cc heading class on hover | 
-cc heading style on hover | 
-cc slider content style | 
-cc slider position style | 
-cc slider body class | 
-cc slider body style | 
-cc slider background class | 
-cc slider background style | 
-cc slider background class on hover | 
-cc slider background style on hover | 
+slider background color on hover | same as above but for when the mouse is over the tile
+slider background opacity on hover | same as above but for when the mouse is over the tile 
 
 
 ## Compatibility
