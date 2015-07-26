@@ -77,7 +77,7 @@ The very first time you use **nSPTiles** follow the [CEWP](#use-a-cewp-to-render
 
  1. add a CEWP to a WebPart page and add code like below (either directly in the CEWP source code editor or link to an HTML file)
 
-    ```
+    ```html
     <script src="nSPTiles.1.0.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="font-awesome.min.css">
     <div id="nachoTiles"></div>
