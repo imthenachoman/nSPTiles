@@ -15,9 +15,11 @@ http://imthenachoman.github.io/nSPTiles/
  5. [How To Use](#how-to-use)
 	 6. [Use A CEWP To Render Tiles](#use-a-cewp-to-render-tiles)
 	 7. [CEWP JavaScript Reference](#cewp-javascript-reference)
-	 8. [Use a DVWP To Render Tiles](#use-a-dvwp-to-render-tiles)
-	 9. [DVWP Paramater Reference](#dvwp-paramater-reference)
-	 10. [nSPTiles List Reference](#nsptiles-list-reference)
+	 8. [GUI](#gui)
+	 9. [Use a DVWP To Render Tiles](#use-a-dvwp-to-render-tiles)
+	 10. [DVWP Paramater Reference](#dvwp-paramater-reference)
+	 11. [nSPTiles List Reference](#nsptiles-list-reference)
+ 11. [Compatibility](#compatibility)
 
 ## Overview
 
@@ -95,6 +97,8 @@ The very first time you use **nSPTiles** follow the [CEWP](#use-a-cewp-to-render
 
 ![enter image description here](https://cloud.githubusercontent.com/assets/83817/8887698/8747710a-325b-11e5-8107-1c97315c14d6.PNG)
 
+Now you can use the [GUI](#gui) to add/move/edit/delete tiles.
+
 ### CEWP JavaScript Reference
 
 The `nSPTiles.init` function takes three parameters:
@@ -124,6 +128,12 @@ Examples:
 	    animationTypeOff: "elastic"
     });
 
+### GUI
+
+If you have permissions to add items to the `nSPTiles` list then when you hover over the area where the tiles are (or should/would be) then you'll see admin links that will let you add, move, edit, or delete tiles. The add and move options will let you use a GUI to draw where you want the tile to be within the container.
+
+![enter image description here](https://cloud.githubusercontent.com/assets/83817/8887700/874a9c2c-325b-11e5-870f-3b0ba78ded20.PNG)
+
 ### Use a DVWP To Render Tiles
 
 \*\*\*\*\*\* **IMPORTANT** \*\*\*\*\*\*
@@ -145,6 +155,8 @@ Examples:
     <ParameterBinding Name="AnimationTypeOn" Location="None" DefaultValue="slide"/>
     <ParameterBinding Name="AnimationTypeOff" Location="None" DefaultValue="bounce"/>
     ```
+
+Now you can use the [GUI](#gui) to add/move/edit/delete tiles.
 
 ### DVWP Paramater Reference
 
