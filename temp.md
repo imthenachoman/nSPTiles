@@ -29,9 +29,9 @@ After I started using [SPJS-Tiles](http://spjsblog.com/2013/11/13/sharepoint-201
 
 ### How It Works
 
-The first time you use **nSPTiles** a SharePoint list is created. The list will be used to hold the tile data. It has numerous fields/columns for the various tile options/settings. There are also numerous calculated columns that are used by **nSPTiles**.
+The first time you use **nSPTiles** a SharePoint list is created. The list will be used to hold the tile data. It has numerous fields/columns for the various tile options/settings. There are also numerous calculated columns that are used internally by **nSPTiles**.
 
-After the list is created you can add items to the list. Each item in the list is a different tile. Tiles can be grouped by using the same `group name`. This way you can render different tiles on different pages/sections.
+After the list is created you can add items to the list. Each item in the list is a different tile. Tiles can be grouped by using the same [`group name`](#groupName). This way you can render different tiles on different pages/sections.
 
 ***It is important that you do not change any of the list settings,       especially the calculated columns.***
 
@@ -163,7 +163,7 @@ Here are all the tile options and what they mean. Each one maps to a column/fiel
 
 option (field/column name) | description
 --- | ---
-group name | group this tile belongs to
+<a name="groupName">group name</a> | group this tile belongs to
 active | inactive tiles are not rendered
 tile custom ID | lets you override the default tile ID of "nTile_ID" where ID is the ID of item in the list
 tile custom class(es) | if you want to add custom classes to the main `div` of the tile
