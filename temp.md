@@ -217,7 +217,7 @@ slider background opacity | opacity for the slider background
 slider background color on hover | same as above but for when the mouse is over the tile
 slider background opacity on hover | same as above but for when the mouse is over the tile 
 
-<a name="position">Position Options</a>
+<a name="position">**Position Options**</a>
 
 ## Compatibility
 
