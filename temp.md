@@ -160,12 +160,12 @@ Here are all the tile options and what they mean. Each one maps to a column/fiel
 
 option (field/column name) | description
 --- | ---
-group name | the group this tile belongs to
+group name | group this tile belongs to
 active | inactive tiles are not rendered
 tile custom ID | lets you override the default tile ID of "nTile_ID" where ID is the ID of item in the list
 tile custom class(es) | if you want to add custom classes to the main `div` of the tile
-tile width | the width of the tile in pixels
-tile height | the height of the tile in pixels
+tile width | width of the tile in pixels
+tile height | height of the tile in pixels
 tile left offset | how far from the left the tile should be in pixels
 tile top offset | how far from the top the tile should be in pixels
 tile border width | if you want an empty gap/white-space beteween tiles
@@ -174,16 +174,16 @@ tile background color | background color for the tile (check here for details)
 tile background opacity | opacity for the background
 tile background color on hover | same as above but for when the mouse is over the tile
 tile background opacity on hover | same as above but for when the mouse is over the tile
-tile image URL | the URL of an image to show on the tile
+tile image URL | URL of an image to show on the tile
 tile image opacity | opacity for the tile image
 tile image URL on hover | same as above but for when the mouse is over the tile
 tile image opacity on hover | same as above but for when the mouse is over the tile
 tile image position | placement for the image within the tile (check here for details)
-tile image width | the width of the image
-tile image height | the height of the image in pixels
-tile image padding | the padding for the image in pixels
-tile FA class | the Font-Awesome icon to use (check http://fortawesome.github.io/Font-Awesome/icons/ for details)
-tile FA color | the color to use for the Font-Awesome icon (check here for details)
+tile image width | width of the image
+tile image height | height of the image in pixels
+tile image padding | padding for the image in pixels
+tile FA class | Font-Awesome icon to use (check http://fortawesome.github.io/Font-Awesome/icons/ for details)
+tile FA color | color to use for the Font-Awesome icon (check here for details)
 tile FA style | style to apply to the Font-Awesome icon
 tile FA opacity | opacity for the Font-Awesome icon
 tile FA class on hover | same as above but for when the mouse is over the tile
@@ -192,31 +192,32 @@ tile FA style on hover | same as above but for when the mouse is over the tile
 tile FA opacity on hover | same as above but for when the mouse is over the tile
 tile FA position | placement for the Font-Awesome icon within the tile (check here for details)
 tile FA padding | padding for the Font-Awesome icon
-tile link type | the type of link to make the tile<br /><br /><table><tr><th>none</th><td>no link</td></tr><tr><th>current window</th><td>link will open in the current page</td></tr><tr><th>new window</th><td>link will open in a new window</td></tr><tr><th>dialog</th><td>link will open in a SharePoint 2010 dialog</td></tr><tr><th>dialog (refresh window after save)</th><td>link will open in a SharePoint 2010 dialog and the entire page will be reloaded if a save is done in the dialog</td></tr><tr><th>dialog (refresh tiles after save)</th><td>link will open in a SharePoint 2010 dialog and just the tiles will be reloaded if a save is done in the dialog</td></tr></table>
-tile Link URL | 
-is heading | 
-heading content | 
-heading font color | 
+tile link type | type of link to make the tile:<br /><br /><table><tr><th>none</th><td>no link</td></tr><tr><th>current window</th><td>link will open in the current page</td></tr><tr><th>new window</th><td>link will open in a new window</td></tr><tr><th>dialog</th><td>link will open in a SharePoint 2010 dialog</td></tr><tr><th>dialog (refresh window after save)</th><td>link will open in a SharePoint 2010 dialog and the entire page will be reloaded if a save is done in the dialog</td></tr><tr><th>dialog (refresh tiles after save)</th><td>link will open in a SharePoint 2010 dialog and just the tiles will be reloaded if a save is done in the dialog</td></tr></table>
+tile Link URL | URL for the link
+is heading | heading tiles have no slider
+heading content | text content to use for the tile or slider heading (can use HTML)
+heading font color | heading font color (check here for details)
 heading content on hover | same as above but for when the mouse is over the tile
-heading font color on hover | same as above but for when the mouse is over the tile
-heading position | 
-heading padding | 
-heading font size | 
-bold heading | 
-heading style | 
-slider heading height | 
-tile image and FA slider heading push | 
-slider body content | 
-slider body position | 
-slider body padding | 
-slider body font size | 
-slider body font color | 
-slider body style | 
-slider background color | 
-slider background opacity | 
+heading font color on hover | same as above but for when the mouse is over the tile (check here for details)
+heading position | placement of the heading content within the tile (check here for details)
+heading padding | padding for the heading
+heading font size | font size for the heading
+bold heading | should the heading be bolded
+heading style | additional/custom styles to apply to the heading
+slider heading height | how tall/high do you want the slider to 'peak' from the bottom of the tile
+tile image and FA slider heading push | for non-heading tiles, if the tile image or tile Font-Awesome icon are placed on the bottom then should they be pushed up so they are on top of the slider heading
+slider body content | text content to use for the slider body (can use HTML)
+slider body position | placement of the slider body content within the slider (check here for details)
+slider body padding | padding for the slider content
+slider body font size | font size for the slider content
+slider body font color | slider content font color (check here for details)
+slider body style | additional/custom styles to apply to the slider content
+slider background color | background color to use for the slider
+slider background opacity | opacity for the slider background
 slider background color on hover | same as above but for when the mouse is over the tile
 slider background opacity on hover | same as above but for when the mouse is over the tile 
 
+<a name="position">Position Options</a>
 
 ## Compatibility
 
