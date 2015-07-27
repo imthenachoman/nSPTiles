@@ -79,7 +79,7 @@ The very first time you use **nSPTiles** follow the [CEWP](#use-a-cewp-to-render
 
 ### Use A CEWP To Render Tiles
 
-\*\*\* *If this is the first time you're using **nSPTiles** then download [`nSPTiles.1.0.min.js`](https://raw.githubusercontent.com/imthenachoman/nSPTiles/master/nSPTiles.1.0.min.js) and upload it to a document library in your SharePoint site. You'll need to know the path to the file later.* \*\*\*
+\*\*\* *If this is the first time you're using **nSPTiles** then download this [`zip file`](https://github.com/imthenachoman/nSPTiles/zipball/master) and upload `nSPTiles.1.0.min.js` it to a document library in your SharePoint site. You'll need to know the path to the file later.* \*\*\*
 
  1. add a CEWP to a WebPart page and add code like below (either directly in the CEWP source code editor or link to an HTML file)
 
@@ -146,10 +146,9 @@ If you have permissions to add items to the `nSPTiles` list then when you hover 
 
 \*\*\*\*\*\* **IMPORTANT** \*\*\*\*\*\*
 
- 1. download [`nSPTiles.1.0.webpart`](https://raw.githubusercontent.com/imthenachoman/nSPTiles/master/nSPTiles.1.0.webpart) file from nSPTiles.1.0.zip to your computer somewhere
- 2. add a WebPart to the page like you normally would
- 3. in the section where you would select a WebPart to add upload the `nSPTiles.1.0.webpart` file and add it to the page (after it uploads you may have to go back to the add a WebPart wizard)
- 4. edit the `nSPTiles` webpart and under `Parameters Editor` change the `DefaultValue` for each line:
+ 1. add a WebPart to the page like you normally would
+ 2. in the section where you would select a WebPart to add upload the `nSPTiles.1.0.webpart` file (from the zip file you downloaded earlier) and add it to the page (after it uploads you may have to go back to the add a WebPart wizard)
+ 3. edit the `nSPTiles` webpart and under `Parameters Editor` change the `DefaultValue` for each line:
 
     ```xml
     <ParameterBinding Name="nSPTilesJSPath" Location="None" DefaultValue="nSPTiles.1.0.min.js"/>
