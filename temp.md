@@ -20,6 +20,8 @@ http://imthenachoman.github.io/nSPTiles/
 	 10. [DVWP Paramater Reference](#dvwp-paramater-reference)
 	 11. [nSPTiles List Reference](#nsptiles-list-reference)
  11. [Compatibility](#compatibility)
+ 12. [Change Log](#change-log)
+ 13. [Support](#support)
 
 ## Overview
 
@@ -270,3 +272,17 @@ SharePoint Version | IE | Chrome | FireFox
 2010 Server | IE 11 | Chrome 44 | -
 
 If anyone is able to test on other SharePoint installations and/or browsers I would appreciate feedback.
+
+### Change Log
+
+version | updates
+--- | ---
+1.0 | initial release
+
+### Support
+
+If you are familiar with [GitHub](https://github.com) and know how to submit issues then please do so at https://github.com/imthenachoman/nSPTiles/issues. Or if you prefer you can e-mail me at imthenachoman (at) gmail (dot) com
+
+### License
+
+[MIT License](https://github.com/imthenachoman/nSPTiles/blob/master/LICENSE) https://github.com/imthenachoman/nSPTiles/blob/master/LICENSE
