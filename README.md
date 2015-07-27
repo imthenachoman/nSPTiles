@@ -278,7 +278,7 @@ SharePoint Version | IE | Chrome | FireFox
 2010 Foundation | IE 11 | Chrome 44 | Firefox 39
 2010 Server | IE 11 | Chrome 44 | -
 
-If anyone is able to test on other SharePoint installations and/or browsers I would appreciate feedback.
+If anyone is able to test on other SharePoint installations and/or browsers, or knows where I can access/test on other SharePoint installations, I would appreciate feedback.
 
 ### Change Log
 
