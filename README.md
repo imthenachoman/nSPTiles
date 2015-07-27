@@ -79,7 +79,7 @@ The very first time you use **nSPTiles** follow the [CEWP](#use-a-cewp-to-render
 
 ### Use A CEWP To Render Tiles
 
-\*\*\* *If this is the first time you're using **nSPTiles** then download this [`zip file`](https://github.com/imthenachoman/nSPTiles/zipball/master) and upload `nSPTiles.1.0.min.js` it to a document library in your SharePoint site. You'll need to know the path to the file later.* \*\*\*
+\*\*\* *If this is the first time you're using* ***nSPTiles*** *then download this [`zip file`](https://github.com/imthenachoman/nSPTiles/zipball/master) and upload `nSPTiles.1.0.min.js` it to a document library in your SharePoint site. You'll need to know the path to the file later.* \*\*\*
 
  1. add a CEWP to a WebPart page and add code like below (either directly in the CEWP source code editor or link to an HTML file)
 
