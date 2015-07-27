@@ -79,7 +79,7 @@ The very first time you use **nSPTiles** follow the [CEWP](#use-a-cewp-to-render
 
 ### Use A CEWP To Render Tiles
 
-\*\*\* *If this is the first time you're using* ***nSPTiles*** *then download this [`zip file`](https://github.com/imthenachoman/nSPTiles/zipball/master) and upload `nSPTiles.1.0.min.js` it to a document library in your SharePoint site. You'll need to know the path to the file later.* \*\*\*
+\*\*\* *If this is the first time you're using* ***nSPTiles*** *then download this [zip file](https://github.com/imthenachoman/nSPTiles/zipball/master) and upload `nSPTiles.1.0.min.js` it to a document library in your SharePoint site. You'll need to know the path to the file later.* \*\*\*
 
 Using a CEWP uses client-side JavaScript to pull information from the `nSPTiles` list using SharePoint's REST API. The code is configured to run on page load which means the tiles will be visible before the page is drawn, however, it does add a slight delay to the page load.
 
