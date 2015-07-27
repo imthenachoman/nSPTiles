@@ -21,7 +21,7 @@ http://imthenachoman.github.io/nSPTiles/
 	 11. [nSPTiles List Reference](#nsptiles-list-reference)
  11. [Compatibility](#compatibility)
  12. [Change Log](#change-log)
- 13. [Support / Issues / Contact / Help](#support-issues-contact-help)
+ 13. [Support / Issues / Contact / Help](#support--issues--contact--help)
  14. [References, Acknowledgement, and Gratitude](#references-acknowledgement-and-gratitude)
  15. [License](#license)
 
