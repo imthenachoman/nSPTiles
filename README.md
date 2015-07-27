@@ -289,7 +289,8 @@ version | updates
 
 ### To Do / Enhancement Requests
 
- - [ ] realtime preview of tiles for the data sheet view of the `nSPTiles` list so you can see in realtime the effect of your changes
+ - [x] publish initial 1.0 release
+ - [ ] real-time preview of tiles in the data sheet view of the `nSPTiles` list so you can see the effect of your changes immediately
  - [ ] ...waiting for ideas/enhancement from users
 
 ### Support / Issues / Contact / Help
