@@ -81,6 +81,8 @@ The very first time you use **nSPTiles** follow the [CEWP](#use-a-cewp-to-render
 
 \*\*\* *If this is the first time you're using* ***nSPTiles*** *then download this [`zip file`](https://github.com/imthenachoman/nSPTiles/zipball/master) and upload `nSPTiles.1.0.min.js` it to a document library in your SharePoint site. You'll need to know the path to the file later.* \*\*\*
 
+Using a CEWP uses client-side JavaScript to pull information from the `nSPTiles` list using SharePoint's REST API. The code is configured to run on page load which means the tiles will be visible before the page is drawn, however, it does add a slight delay to the page load.
+
  1. add a CEWP to a WebPart page and add code like below (either directly in the CEWP source code editor or link to an HTML file)
 
     ```html
@@ -145,6 +147,10 @@ If you have permissions to add items to the `nSPTiles` list then when you hover 
 **DO NOT add the DVWP WebPart to a page until [you've used a CEWP](#use-a-cewp-to-render-tiles) at least once so the `nSPTiles` list has been created.**
 
 \*\*\*\*\*\* **IMPORTANT** \*\*\*\*\*\*
+
+With a DVWP SharePoint pulls the tile data on the server side in an XML format, before it it send to the browser, and my XSL transforms it into the necessary HTML. Because it is done server-side the page load should be slightl faster.
+
+Using a DVWP uses JavaScript to pull information from the `nSPTiles` list using SharePoint's REST API. The code is configured to run on page load which means the tiles will be visible before the page is drawn, however, it does add a slight delay to the page load.
 
  1. add a WebPart to the page like you normally would
  2. in the section where you would select a WebPart to add upload the `nSPTiles.1.0.webpart` file (from the zip file you downloaded earlier) and add it to the page (after it uploads you may have to go back to the add a WebPart wizard)
