@@ -1,6 +1,6 @@
 # nSPTiles
 
-http://imthenachoman.github.io/nSPTiles/
+http://nsptiles.js.org || http://imthenachoman.github.io/nSPTiles/
 
 **nSPTiles** is an easy to use JavaScript library for Windows style live tiles for SharePoint with numerous styling options and an admin GUI.
 
