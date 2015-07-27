@@ -21,7 +21,7 @@ http://imthenachoman.github.io/nSPTiles/
 	 11. [nSPTiles List Reference](#nsptiles-list-reference)
  11. [Compatibility](#compatibility)
  12. [Change Log](#change-log)
- 13. [Support](#support)
+ 13. [Support / Issues / Contact / Help](#support-issues-contact-help)
  14. [References, Acknowledgement, and Gratitude](#references-acknowledgement-and-gratitude)
  15. [License](#license)
 
@@ -281,7 +281,7 @@ version | updates
 --- | ---
 1.0 | initial release
 
-### Support
+### Support / Issues / Contact / Help
 
 If you are familiar with [GitHub](https://github.com) and know how to submit issues then please do so at https://github.com/imthenachoman/nSPTiles/issues. Or if you prefer you can e-mail me at imthenachoman (at) gmail (dot) com
 
