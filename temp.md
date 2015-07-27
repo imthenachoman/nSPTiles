@@ -22,6 +22,8 @@ http://imthenachoman.github.io/nSPTiles/
  11. [Compatibility](#compatibility)
  12. [Change Log](#change-log)
  13. [Support](#support)
+ 14. [References, Acknowledgement, and Gratitude](#references-acknowledgement-and-gratitude)
+ 15. [License](#license)
 
 ## Overview
 
@@ -286,7 +288,7 @@ If you are familiar with [GitHub](https://github.com) and know how to submit iss
 ### References, Acknowledgement, and Gratitude
 
  - [SPJS-Tiles](http://spjsblog.com/2013/11/13/sharepoint-2013-style-tiles/ "SPJS-Tiles") (http://spjsblog.com/2013/11/13/sharepoint-2013-style-tiles/) by [Alexander Bautz](http://spjsblog.com/about/ "about Alexander Bautz") for creating the original tiling system for SharePoint
- - [cross-browser requestAnimationFrame](https://gist.github.com/paulirish/1579671) (https://gist.github.com/paulirish/1579671)
+ - [cross-browser requestAnimationFrame](https://gist.github.com/paulirish/1579671) (https://gist.github.com/paulirish/1579671) by Erik Möller
  - [generic animation using requestAnimationFrame](http://www.sitepoint.com/simple-animations-using-requestanimationframe/) (http://www.sitepoint.com/simple-animations-using-requestanimationframe/) by Dmitri Lau
  - [jQuery's easing functions](https://github.com/danro/jquery-easing/blob/master/jquery.easing.js) (https://github.com/danro/jquery-easing/blob/master/jquery.easing.js) by George McGinley Smith
 
