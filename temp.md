@@ -285,4 +285,4 @@ If you are familiar with [GitHub](https://github.com) and know how to submit iss
 
 ### License
 
-[MIT License](https://github.com/imthenachoman/nSPTiles/blob/master/LICENSE) https://github.com/imthenachoman/nSPTiles/blob/master/LICENSE
+[MIT License](https://github.com/imthenachoman/nSPTiles/blob/master/LICENSE) -  https://github.com/imthenachoman/nSPTiles/blob/master/LICENSE
