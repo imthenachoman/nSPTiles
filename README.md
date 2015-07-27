@@ -21,9 +21,10 @@ http://nsptiles.js.org || http://imthenachoman.github.io/nSPTiles/
 	 11. [nSPTiles List Reference](#nsptiles-list-reference)
  11. [Compatibility](#compatibility)
  12. [Change Log](#change-log)
- 13. [Support / Issues / Contact / Help](#support--issues--contact--help)
- 14. [References, Acknowledgement, and Gratitude](#references-acknowledgement-and-gratitude)
- 15. [License](#license)
+ 13. [To Do](#to-do)
+ 14. [Support / Issues / Contact / Help](#support--issues--contact--help)
+ 15. [References, Acknowledgement, and Gratitude](#references-acknowledgement-and-gratitude)
+ 16. [License](#license)
 
 ## Overview
 
@@ -285,6 +286,11 @@ If anyone is able to test on other SharePoint installations and/or browsers, or 
 version | updates
 --- | ---
 1.0 | initial release
+
+### To Do / Enhancement Requests
+
+ - [ ] realtime preview of tiles for the data sheet view of the `nSPTiles` list so you can see in realtime the effect of your changes
+ - [ ] ...waiting for ideas/enhancement from users
 
 ### Support / Issues / Contact / Help
 
