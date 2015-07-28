@@ -289,9 +289,11 @@ version | updates
 
 ### To Do / Enhancement Requests
 
- - [x] publish initial 1.0 release
- - [ ] real-time preview of tiles in the data sheet view of the `nSPTiles` list so you can see the effect of your changes immediately
- - [ ] ...waiting for ideas/enhancement from users
+ 1. [x] publish initial 1.0 release
+ 2. [ ] allow an alternate WebURL to use `nSPTiles` from a different SP site
+ 3. [ ] allow running a custom function on tile click (can be used to run custom code to do things like Piwik click tracking)
+ 4. [ ] real-time preview of tiles in the data sheet view of the `nSPTiles` list so you can see the effect of your changes immediately
+ 5. [ ] ...waiting for ideas/enhancement from users
 
 ### Support / Issues / Contact / Help
 
