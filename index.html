@@ -5,7 +5,7 @@
     <title>nSPTiles by imthenachoman</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
@@ -156,7 +156,7 @@
 <h3>
 <a id="use-a-cewp-to-render-tiles" class="anchor" href="#use-a-cewp-to-render-tiles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use A CEWP To Render Tiles</h3>
 
-<p>*** <em>If this is the first time you're using</em> <strong><em>nSPTiles</em></strong> <em>then download <a href="https://github.com/imthenachoman/nSPTiles/zipball/master">this zip file</a>, extract it's contents, and upload <code>nSPTiles.1.0.min.js</code> to a document library in your SharePoint site. You'll need to know the path to <code>nSPTiles.1.0.min.js</code> later.</em> ***</p>
+<p>*** <em>If this is the first time you're using</em> <strong><em>nSPTiles</em></strong> <em>then download <a href="https://github.com/imthenachoman/nSPTiles/zipball/master">this zip file</a>, extract it's contents, and upload <code>nSPTiles.min.js</code> to a document library in your SharePoint site. You'll need to know the path to <code>nSPTiles.1.0.min.js</code> later.</em> ***</p>
 
 <p>Using a CEWP uses client-side JavaScript to pull information from the <code>nSPTiles</code> list using SharePoint's REST API. The code is configured to run on page load which means the tiles will be visible before the page is drawn, however, it does add a slight delay to the page load.</p>
 
@@ -284,7 +284,7 @@ nSPTiles.init("nachoTiles", "group 4", {
 
 <ol>
 <li>add a WebPart to the page like you normally would</li>
-<li>in the section where you would select a WebPart to add upload the <code>nSPTiles.1.0.webpart</code> file (from the <a href="https://github.com/imthenachoman/nSPTiles/zipball/master">zip file</a> you downloaded <a href="#use-a-cewp-to-render-tiles">earlier</a>) and add it to the page (after it uploads you may have to go back to the add a WebPart wizard)</li>
+<li>in the section where you would select a WebPart to add upload the <code>nSPTiles.webpart</code> file (from the <a href="https://github.com/imthenachoman/nSPTiles/zipball/master">zip file</a> you downloaded <a href="#use-a-cewp-to-render-tiles">earlier</a>) and add it to the page (after it uploads you may have to go back to the add a WebPart wizard)</li>
 <li>
 <p>edit the <code>nSPTiles</code> webpart and under <code>Parameters Editor</code> change the <code>DefaultValue</code> for each line:</p>
 
@@ -745,4 +745,3 @@ nSPTiles.init("nachoTiles", "group 4", {
   
   </body>
 </html>
-
