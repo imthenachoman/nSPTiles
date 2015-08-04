@@ -80,7 +80,7 @@ The very first time you use **nSPTiles** follow the [CEWP](#use-a-cewp-to-render
 
 ### Use A CEWP To Render Tiles
 
-\*\*\* *If this is the first time you're using* ***nSPTiles*** *then download [this zip file](https://github.com/imthenachoman/nSPTiles/zipball/master), extract it's contents, and upload `nSPTiles.1.0.min.js` to a document library in your SharePoint site. You'll need to know the path to `nSPTiles.1.0.min.js` later.* \*\*\*
+\*\*\* *If this is the first time you're using* ***nSPTiles*** *then download [this zip file](https://github.com/imthenachoman/nSPTiles/zipball/master), extract it's contents, and upload `nSPTiles.min.js` to a document library in your SharePoint site. You'll need to know the path to `nSPTiles.1.0.min.js` later.* \*\*\*
 
 Using a CEWP uses client-side JavaScript to pull information from the `nSPTiles` list using SharePoint's REST API. The code is configured to run on page load which means the tiles will be visible before the page is drawn, however, it does add a slight delay to the page load.
 
@@ -154,7 +154,7 @@ With a DVWP SharePoint pulls the tile data on the server side in an XML format, 
 Using a DVWP uses JavaScript to pull information from the `nSPTiles` list using SharePoint's REST API. The code is configured to run on page load which means the tiles will be visible before the page is drawn, however, it does add a slight delay to the page load.
 
  1. add a WebPart to the page like you normally would
- 2. in the section where you would select a WebPart to add upload the `nSPTiles.1.0.webpart` file (from the [zip file](https://github.com/imthenachoman/nSPTiles/zipball/master) you downloaded [earlier](#use-a-cewp-to-render-tiles)) and add it to the page (after it uploads you may have to go back to the add a WebPart wizard)
+ 2. in the section where you would select a WebPart to add upload the `nSPTiles.webpart` file (from the [zip file](https://github.com/imthenachoman/nSPTiles/zipball/master) you downloaded [earlier](#use-a-cewp-to-render-tiles)) and add it to the page (after it uploads you may have to go back to the add a WebPart wizard)
  3. edit the `nSPTiles` webpart and under `Parameters Editor` change the `DefaultValue` for each line:
 
     ```xml
