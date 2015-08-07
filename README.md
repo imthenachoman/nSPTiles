@@ -80,7 +80,7 @@ The very first time you use **nSPTiles** follow the [CEWP](#use-a-cewp-to-render
 
 ### Use A CEWP To Render Tiles
 
-\*\*\* *If this is the first time you're using* ***nSPTiles*** *then download [this zip file](https://github.com/imthenachoman/nSPTiles/zipball/master), extract it's contents, and upload `nSPTiles.min.js` to a document library in your SharePoint site. You'll need to know the path to `nSPTiles.1.0.min.js` later.* \*\*\*
+\*\*\* *If this is the first time you're using* ***nSPTiles*** *then download [nSPTiles.min.js](http://imthenachoman.github.io/nSPTiles/files/nSPTiles.min.js) and upload it to a document library in your SharePoint site. You'll need to know it's path later.* \*\*\*
 
 Using a CEWP uses client-side JavaScript to pull information from the `nSPTiles` list using SharePoint's REST API. The code is configured to run on page load which means the tiles will be visible before the page is drawn, however, it does add a slight delay to the page load.
 
@@ -143,104 +143,21 @@ If you have permissions to add items to the `nSPTiles` list then when you hover 
 
 ### Use a DVWP To Render Tiles
 
-\*\*\*\*\*\* **IMPORTANT** \*\*\*\*\*\*
-
-**DO NOT add the DVWP WebPart to a page until [you've used a CEWP](#use-a-cewp-to-render-tiles) at least once so the `nSPTiles` list has been created.**
-
-\*\*\*\*\*\* **IMPORTANT** \*\*\*\*\*\*
-
-With a DVWP SharePoint pulls the tile data on the server side in an XML format, before it it send to the browser, and my XSL transforms it into the necessary HTML. Because it is done server-side the page load should be slightl faster.
-
-Using a DVWP uses JavaScript to pull information from the `nSPTiles` list using SharePoint's REST API. The code is configured to run on page load which means the tiles will be visible before the page is drawn, however, it does add a slight delay to the page load.
-
- 1. add a WebPart to the page like you normally would
- 2. in the section where you would select a WebPart to add upload the `nSPTiles.webpart` file (from the [zip file](https://github.com/imthenachoman/nSPTiles/zipball/master) you downloaded [earlier](#use-a-cewp-to-render-tiles)) and add it to the page (after it uploads you may have to go back to the add a WebPart wizard)
- 3. edit the `nSPTiles` webpart and under `Parameters Editor` change the `DefaultValue` for each line:
-
-    ```xml
-    <ParameterBinding Name="nSPTilesJSPath" Location="None" DefaultValue="nSPTiles.1.0.min.js"/>
-    <ParameterBinding Name="FontAwesomeCSSPath" Location="None" DefaultValue="font-awesome.min.css"/>
-    <ParameterBinding Name="GroupName" Location="None" DefaultValue="group one"/>
-    <ParameterBinding Name="AnimationSpeedInMillisecond" Location="None" DefaultValue="100"/>
-    <ParameterBinding Name="AnimationTypeOn" Location="None" DefaultValue="slide"/>
-    <ParameterBinding Name="AnimationTypeOff" Location="None" DefaultValue="bounce"/>
-    ```
-
-Now you can use the [GUI](#gui) to add/move/edit/delete tiles.
+UNDER CONSTRUCTION
 
 ### DVWP Paramater Reference
 
-parameter name | required | explanation
---- | --- | ---
-nSPTilesJSPath | yes | the path to `nSPTiles.1.0.min.js`
-FontAwesomeCSSPath | optional | the path to the Font-Awesome CSS
-GroupName | yes | the name of the tiles group to use
-AnimationSpeedInMillisecond | optional | the number of milliseconds tile animations should take
-AnimationTypeOn | optional | the type of animation to use when the mouse enters a tile; check [above](#animationTypeOn) for options
-AnimationTypeOff | optional | the type of animation to use when the mouse enters a tile; check [above](#animationTypeOn) for options
+UNDER CONSTRUCTION
 
 ### nSPTiles List Reference
+
+UNDER CONSTRUCTION
 
 Here are all the tile options and what they mean. Each one maps to a column/field in the `nSPTiles` list. Not all fields are required and not all fields are relevant depending on other settings.
 
 option (field/column name) | description
 --- | ---
-<a name="groupName">group name</a> | group this tile belongs to
-active | inactive tiles are not rendered
-tile custom ID | lets you override the default tile ID of "nTile_ID" where ID is the ID of item in the list
-tile custom class(es) | if you want to add custom classes to the main `div` of the tile
-tile width | width of the tile in pixels
-tile height | height of the tile in pixels
-tile left offset | how far from the left the tile should be in pixels
-tile top offset | how far from the top the tile should be in pixels
-tile border width | if you want an empty gap/white-space beteween tiles
-tile zoom on hover | <a name="zoom">zoom</a> effect for the tile by temporarilly making the tile border width 0 when the mouse is over the tile 
-tile background color | background color for the tile (check [here](#color) for details)
-tile background opacity | opacity for the background
-tile background color on hover | same as above but for when the mouse is over the tile
-tile background opacity on hover | same as above but for when the mouse is over the tile
-tile image URL | URL of an image to show on the tile
-tile image opacity | opacity for the tile image
-tile image URL on hover | same as above but for when the mouse is over the tile
-tile image opacity on hover | same as above but for when the mouse is over the tile
-tile image position | placement for the image within the tile (check [here](#position) for details)
-tile image width | width of the image
-tile image height | height of the image in pixels
-tile image padding | padding for the image in pixels
-tile FA class | Font-Awesome icon to use (check http://fortawesome.github.io/Font-Awesome/icons/ for details)
-tile FA color | color to use for the Font-Awesome icon (check [here](#color) for details)
-tile FA style | style to apply to the Font-Awesome icon
-tile FA opacity | opacity for the Font-Awesome icon
-tile FA class on hover | same as above but for when the mouse is over the tile
-tile FA color on hover | same as above but for when the mouse is over the tile
-tile FA style on hover | same as above but for when the mouse is over the tile
-tile FA opacity on hover | same as above but for when the mouse is over the tile
-tile FA position | placement for the Font-Awesome icon within the tile (check [here](#position) for details)
-tile FA padding | padding for the Font-Awesome icon
-tile link type | type of link to make the tile:<br /><br /><table><tr><th>none</th><td>no link</td></tr><tr><th>current window</th><td>link will open in the current page</td></tr><tr><th>new window</th><td>link will open in a new window</td></tr><tr><th>dialog</th><td>link will open in a SharePoint 2010 dialog</td></tr><tr><th>dialog (refresh window after save)</th><td>link will open in a SharePoint 2010 dialog and the entire page will be reloaded if a save is done in the dialog</td></tr><tr><th>dialog (refresh tiles after save)</th><td>link will open in a SharePoint 2010 dialog and just the tiles will be reloaded if a save is done in the dialog</td></tr></table>
-tile Link URL | URL for the link
-is heading | heading tiles have no slider
-heading content | text content to use for the tile or slider heading (can use HTML)
-heading font color | heading font color (check [here](#color) for details)
-heading content on hover | same as above but for when the mouse is over the tile
-heading font color on hover | same as above but for when the mouse is over the tile
-heading position | placement of the heading content within the tile (check [here](#position) for details)
-heading padding | padding for the heading
-heading font size | font size for the heading
-bold heading | should the heading be bolded
-heading style | additional/custom styles to apply to the heading
-slider heading height | how tall/high do you want the slider to 'peak' from the bottom of the tile
-tile image and FA slider heading push | for non-heading tiles, if the tile image or tile Font-Awesome icon are placed on the bottom then should they be pushed up so they are on top of the slider heading
-slider body content | text content to use for the slider body (can use HTML)
-slider body position | placement of the slider body content within the slider (check [here](#position) for details)
-slider body padding | padding for the slider content
-slider body font size | font size for the slider content
-slider body font color | slider content font color (check [here](#color) for details)
-slider body style | additional/custom styles to apply to the slider content
-slider background color | background color to use for the slider (check [here](#color) for details)
-slider background opacity | opacity for the slider background
-slider background color on hover | same as above but for when the mouse is over the tile
-slider background opacity on hover | same as above but for when the mouse is over the tile 
+WIP | WIP
 
 <a name="position">**Position Options**</a>
 
@@ -290,8 +207,8 @@ version | updates
 ### To Do / Enhancement Requests
 
  1. [x] publish initial 1.0 release
- 2. [ ] allow an alternate WebURL to use `nSPTiles` from a different SP site
- 3. [ ] allow running a custom function on tile click (can be used to run custom code to do things like Piwik click tracking)
+ 2. [x] allow an alternate WebURL to use `nSPTiles` from a different SP site
+ 3. [x] allow running a custom function on tile click (can be used to run custom code to do things like Piwik click tracking)
  4. [ ] real-time preview of tiles in the data sheet view of the `nSPTiles` list so you can see the effect of your changes immediately
  5. [ ] ...waiting for ideas/enhancement from users
 
