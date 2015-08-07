@@ -156,7 +156,7 @@
 <h3>
 <a id="use-a-cewp-to-render-tiles" class="anchor" href="#use-a-cewp-to-render-tiles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use A CEWP To Render Tiles</h3>
 
-<p>*** <em>If this is the first time you're using</em> <strong><em>nSPTiles</em></strong> <em>then download <a href="https://github.com/imthenachoman/nSPTiles/zipball/master">this zip file</a>, extract it's contents, and upload <code>nSPTiles.min.js</code> to a document library in your SharePoint site. You'll need to know the path to <code>nSPTiles.1.0.min.js</code> later.</em> ***</p>
+<p>*** <em>If this is the first time you're using</em> <strong><em>nSPTiles</em></strong> <em>then download <a href="http://imthenachoman.github.io/nSPTiles/files/nSPTiles.min.js">nSPTiles.min.js</a> and upload it to a document library in your SharePoint site. You'll need to know it's path later.</em> ***</p>
 
 <p>Using a CEWP uses client-side JavaScript to pull information from the <code>nSPTiles</code> list using SharePoint's REST API. The code is configured to run on page load which means the tiles will be visible before the page is drawn, however, it does add a slight delay to the page load.</p>
 
@@ -272,81 +272,17 @@ nSPTiles.init("nachoTiles", "group 4", {
 <h3>
 <a id="use-a-dvwp-to-render-tiles" class="anchor" href="#use-a-dvwp-to-render-tiles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use a DVWP To Render Tiles</h3>
 
-<p>****** <strong>IMPORTANT</strong> ******</p>
-
-<p><strong>DO NOT add the DVWP WebPart to a page until <a href="#use-a-cewp-to-render-tiles">you've used a CEWP</a> at least once so the <code>nSPTiles</code> list has been created.</strong></p>
-
-<p>****** <strong>IMPORTANT</strong> ******</p>
-
-<p>With a DVWP SharePoint pulls the tile data on the server side in an XML format, before it it send to the browser, and my XSL transforms it into the necessary HTML. Because it is done server-side the page load should be slightl faster.</p>
-
-<p>Using a DVWP uses JavaScript to pull information from the <code>nSPTiles</code> list using SharePoint's REST API. The code is configured to run on page load which means the tiles will be visible before the page is drawn, however, it does add a slight delay to the page load.</p>
-
-<ol>
-<li>add a WebPart to the page like you normally would</li>
-<li>in the section where you would select a WebPart to add upload the <code>nSPTiles.webpart</code> file (from the <a href="https://github.com/imthenachoman/nSPTiles/zipball/master">zip file</a> you downloaded <a href="#use-a-cewp-to-render-tiles">earlier</a>) and add it to the page (after it uploads you may have to go back to the add a WebPart wizard)</li>
-<li>
-<p>edit the <code>nSPTiles</code> webpart and under <code>Parameters Editor</code> change the <code>DefaultValue</code> for each line:</p>
-
-<div class="highlight highlight-xml"><pre>&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTilesJSPath<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTiles.1.0.min.js<span class="pl-pds">"</span></span>/&gt;
-&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>FontAwesomeCSSPath<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>font-awesome.min.css<span class="pl-pds">"</span></span>/&gt;
-&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>GroupName<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>group one<span class="pl-pds">"</span></span>/&gt;
-&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>AnimationSpeedInMillisecond<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>100<span class="pl-pds">"</span></span>/&gt;
-&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>AnimationTypeOn<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>slide<span class="pl-pds">"</span></span>/&gt;
-&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>AnimationTypeOff<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>bounce<span class="pl-pds">"</span></span>/&gt;</pre></div>
-</li>
-</ol>
-
-<p>Now you can use the <a href="#gui">GUI</a> to add/move/edit/delete tiles.</p>
+<p>UNDER CONSTRUCTION</p>
 
 <h3>
 <a id="dvwp-paramater-reference" class="anchor" href="#dvwp-paramater-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>DVWP Paramater Reference</h3>
 
-<table>
-<thead>
-<tr>
-<th>parameter name</th>
-<th>required</th>
-<th>explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>nSPTilesJSPath</td>
-<td>yes</td>
-<td>the path to <code>nSPTiles.1.0.min.js</code>
-</td>
-</tr>
-<tr>
-<td>FontAwesomeCSSPath</td>
-<td>optional</td>
-<td>the path to the Font-Awesome CSS</td>
-</tr>
-<tr>
-<td>GroupName</td>
-<td>yes</td>
-<td>the name of the tiles group to use</td>
-</tr>
-<tr>
-<td>AnimationSpeedInMillisecond</td>
-<td>optional</td>
-<td>the number of milliseconds tile animations should take</td>
-</tr>
-<tr>
-<td>AnimationTypeOn</td>
-<td>optional</td>
-<td>the type of animation to use when the mouse enters a tile; check <a href="#animationTypeOn">above</a> for options</td>
-</tr>
-<tr>
-<td>AnimationTypeOff</td>
-<td>optional</td>
-<td>the type of animation to use when the mouse enters a tile; check <a href="#animationTypeOn">above</a> for options</td>
-</tr>
-</tbody>
-</table>
+<p>UNDER CONSTRUCTION</p>
 
 <h3>
 <a id="nsptiles-list-reference" class="anchor" href="#nsptiles-list-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>nSPTiles List Reference</h3>
+
+<p>UNDER CONSTRUCTION</p>
 
 <p>Here are all the tile options and what they mean. Each one maps to a column/field in the <code>nSPTiles</code> list. Not all fields are required and not all fields are relevant depending on other settings.</p>
 
@@ -359,255 +295,8 @@ nSPTiles.init("nachoTiles", "group 4", {
 </thead>
 <tbody>
 <tr>
-<td><a name="groupName">group name</a></td>
-<td>group this tile belongs to</td>
-</tr>
-<tr>
-<td>active</td>
-<td>inactive tiles are not rendered</td>
-</tr>
-<tr>
-<td>tile custom ID</td>
-<td>lets you override the default tile ID of "nTile_ID" where ID is the ID of item in the list</td>
-</tr>
-<tr>
-<td>tile custom class(es)</td>
-<td>if you want to add custom classes to the main <code>div</code> of the tile</td>
-</tr>
-<tr>
-<td>tile width</td>
-<td>width of the tile in pixels</td>
-</tr>
-<tr>
-<td>tile height</td>
-<td>height of the tile in pixels</td>
-</tr>
-<tr>
-<td>tile left offset</td>
-<td>how far from the left the tile should be in pixels</td>
-</tr>
-<tr>
-<td>tile top offset</td>
-<td>how far from the top the tile should be in pixels</td>
-</tr>
-<tr>
-<td>tile border width</td>
-<td>if you want an empty gap/white-space beteween tiles</td>
-</tr>
-<tr>
-<td>tile zoom on hover</td>
-<td>
-<a name="zoom">zoom</a> effect for the tile by temporarilly making the tile border width 0 when the mouse is over the tile</td>
-</tr>
-<tr>
-<td>tile background color</td>
-<td>background color for the tile (check <a href="#color">here</a> for details)</td>
-</tr>
-<tr>
-<td>tile background opacity</td>
-<td>opacity for the background</td>
-</tr>
-<tr>
-<td>tile background color on hover</td>
-<td>same as above but for when the mouse is over the tile</td>
-</tr>
-<tr>
-<td>tile background opacity on hover</td>
-<td>same as above but for when the mouse is over the tile</td>
-</tr>
-<tr>
-<td>tile image URL</td>
-<td>URL of an image to show on the tile</td>
-</tr>
-<tr>
-<td>tile image opacity</td>
-<td>opacity for the tile image</td>
-</tr>
-<tr>
-<td>tile image URL on hover</td>
-<td>same as above but for when the mouse is over the tile</td>
-</tr>
-<tr>
-<td>tile image opacity on hover</td>
-<td>same as above but for when the mouse is over the tile</td>
-</tr>
-<tr>
-<td>tile image position</td>
-<td>placement for the image within the tile (check <a href="#position">here</a> for details)</td>
-</tr>
-<tr>
-<td>tile image width</td>
-<td>width of the image</td>
-</tr>
-<tr>
-<td>tile image height</td>
-<td>height of the image in pixels</td>
-</tr>
-<tr>
-<td>tile image padding</td>
-<td>padding for the image in pixels</td>
-</tr>
-<tr>
-<td>tile FA class</td>
-<td>Font-Awesome icon to use (check <a href="http://fortawesome.github.io/Font-Awesome/icons/">http://fortawesome.github.io/Font-Awesome/icons/</a> for details)</td>
-</tr>
-<tr>
-<td>tile FA color</td>
-<td>color to use for the Font-Awesome icon (check <a href="#color">here</a> for details)</td>
-</tr>
-<tr>
-<td>tile FA style</td>
-<td>style to apply to the Font-Awesome icon</td>
-</tr>
-<tr>
-<td>tile FA opacity</td>
-<td>opacity for the Font-Awesome icon</td>
-</tr>
-<tr>
-<td>tile FA class on hover</td>
-<td>same as above but for when the mouse is over the tile</td>
-</tr>
-<tr>
-<td>tile FA color on hover</td>
-<td>same as above but for when the mouse is over the tile</td>
-</tr>
-<tr>
-<td>tile FA style on hover</td>
-<td>same as above but for when the mouse is over the tile</td>
-</tr>
-<tr>
-<td>tile FA opacity on hover</td>
-<td>same as above but for when the mouse is over the tile</td>
-</tr>
-<tr>
-<td>tile FA position</td>
-<td>placement for the Font-Awesome icon within the tile (check <a href="#position">here</a> for details)</td>
-</tr>
-<tr>
-<td>tile FA padding</td>
-<td>padding for the Font-Awesome icon</td>
-</tr>
-<tr>
-<td>tile link type</td>
-<td>type of link to make the tile:<br><br><table>
-<tr>
-<th>none</th>
-<td>no link</td>
-</tr>
-<tr>
-<th>current window</th>
-<td>link will open in the current page</td>
-</tr>
-<tr>
-<th>new window</th>
-<td>link will open in a new window</td>
-</tr>
-<tr>
-<th>dialog</th>
-<td>link will open in a SharePoint 2010 dialog</td>
-</tr>
-<tr>
-<th>dialog (refresh window after save)</th>
-<td>link will open in a SharePoint 2010 dialog and the entire page will be reloaded if a save is done in the dialog</td>
-</tr>
-<tr>
-<th>dialog (refresh tiles after save)</th>
-<td>link will open in a SharePoint 2010 dialog and just the tiles will be reloaded if a save is done in the dialog</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td>tile Link URL</td>
-<td>URL for the link</td>
-</tr>
-<tr>
-<td>is heading</td>
-<td>heading tiles have no slider</td>
-</tr>
-<tr>
-<td>heading content</td>
-<td>text content to use for the tile or slider heading (can use HTML)</td>
-</tr>
-<tr>
-<td>heading font color</td>
-<td>heading font color (check <a href="#color">here</a> for details)</td>
-</tr>
-<tr>
-<td>heading content on hover</td>
-<td>same as above but for when the mouse is over the tile</td>
-</tr>
-<tr>
-<td>heading font color on hover</td>
-<td>same as above but for when the mouse is over the tile</td>
-</tr>
-<tr>
-<td>heading position</td>
-<td>placement of the heading content within the tile (check <a href="#position">here</a> for details)</td>
-</tr>
-<tr>
-<td>heading padding</td>
-<td>padding for the heading</td>
-</tr>
-<tr>
-<td>heading font size</td>
-<td>font size for the heading</td>
-</tr>
-<tr>
-<td>bold heading</td>
-<td>should the heading be bolded</td>
-</tr>
-<tr>
-<td>heading style</td>
-<td>additional/custom styles to apply to the heading</td>
-</tr>
-<tr>
-<td>slider heading height</td>
-<td>how tall/high do you want the slider to 'peak' from the bottom of the tile</td>
-</tr>
-<tr>
-<td>tile image and FA slider heading push</td>
-<td>for non-heading tiles, if the tile image or tile Font-Awesome icon are placed on the bottom then should they be pushed up so they are on top of the slider heading</td>
-</tr>
-<tr>
-<td>slider body content</td>
-<td>text content to use for the slider body (can use HTML)</td>
-</tr>
-<tr>
-<td>slider body position</td>
-<td>placement of the slider body content within the slider (check <a href="#position">here</a> for details)</td>
-</tr>
-<tr>
-<td>slider body padding</td>
-<td>padding for the slider content</td>
-</tr>
-<tr>
-<td>slider body font size</td>
-<td>font size for the slider content</td>
-</tr>
-<tr>
-<td>slider body font color</td>
-<td>slider content font color (check <a href="#color">here</a> for details)</td>
-</tr>
-<tr>
-<td>slider body style</td>
-<td>additional/custom styles to apply to the slider content</td>
-</tr>
-<tr>
-<td>slider background color</td>
-<td>background color to use for the slider (check <a href="#color">here</a> for details)</td>
-</tr>
-<tr>
-<td>slider background opacity</td>
-<td>opacity for the slider background</td>
-</tr>
-<tr>
-<td>slider background color on hover</td>
-<td>same as above but for when the mouse is over the tile</td>
-</tr>
-<tr>
-<td>slider background opacity on hover</td>
-<td>same as above but for when the mouse is over the tile</td>
+<td>WIP</td>
+<td>WIP</td>
 </tr>
 </tbody>
 </table>
@@ -704,8 +393,8 @@ nSPTiles.init("nachoTiles", "group 4", {
 
 <ol>
 <li>[x] publish initial 1.0 release</li>
-<li>[ ] allow an alternate WebURL to use <code>nSPTiles</code> from a different SP site</li>
-<li>[ ] allow running a custom function on tile click (can be used to run custom code to do things like Piwik click tracking)</li>
+<li>[x] allow an alternate WebURL to use <code>nSPTiles</code> from a different SP site</li>
+<li>[x] allow running a custom function on tile click (can be used to run custom code to do things like Piwik click tracking)</li>
 <li>[ ] real-time preview of tiles in the data sheet view of the <code>nSPTiles</code> list so you can see the effect of your changes immediately</li>
 <li>[ ] ...waiting for ideas/enhancement from users</li>
 </ol>
