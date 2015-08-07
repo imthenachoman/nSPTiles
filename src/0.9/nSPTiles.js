@@ -2,7 +2,7 @@
  * ----------------------------------------------------------------------------
  * a JavaScript library for Window 8 style live tiles
  *
- * version : 1.1
+ * version : 0.9
  * author  : Anchal Nigam
  * e-mail  : imthenachoman@gmail.com
  * url     : https://github.com/imthenachoman/nSPTiles
