@@ -45,6 +45,7 @@
 <a href="#how-to-use">How To Use</a>
 
 <ol>
+<li><a href="#download--files">Download / Files</a></li>
 <li><a href="#use-a-cewp-to-render-tiles">Use A CEWP To Render Tiles</a></li>
 <li><a href="#cewp-javascript-reference">CEWP JavaScript Reference</a></li>
 <li><a href="#gui">GUI</a></li>
@@ -154,9 +155,41 @@
 <p>The very first time you use <strong>nSPTiles</strong> follow the <a href="#use-a-cewp-to-render-tiles">CEWP</a> instructions.</p>
 
 <h3>
+<a id="download--files" class="anchor" href="#download--files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download / Files</h3>
+
+<p>Download the latest <code>nSPTiles.#.#.zip</code> file from <a href="https://github.com/imthenachoman/nSPTiles/releases">https://github.com/imthenachoman/nSPTiles/releases</a>. It consists of:</p>
+
+<table>
+<thead>
+<tr>
+<th>File Name</th>
+<th>Description</th>
+<th>Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nSPTiles.min.js</td>
+<td>packed <strong>nSPTiles</strong> javascript (using <a href="http://dean.edwards.name/packer/">http://dean.edwards.name/packer/</a>)</td>
+<td>upload to your SharePoint site; you will need it's path</td>
+</tr>
+<tr>
+<td>dvwp.webpart</td>
+<td>DVWP WebPart to use if the <strong>nSPTiles</strong> list exists on the same SharePoint site</td>
+<td>save on your computer</td>
+</tr>
+<tr>
+<td>dvwp_webURL.webpart</td>
+<td>DVWP WebPart to use if the <strong>nSPTiles</strong> list exists on another WebURL/site</td>
+<td>save on your computer</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
 <a id="use-a-cewp-to-render-tiles" class="anchor" href="#use-a-cewp-to-render-tiles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use A CEWP To Render Tiles</h3>
 
-<p>*** <em>If this is the first time you're using</em> <strong><em>nSPTiles</em></strong> <em>then download <a href="http://imthenachoman.github.io/nSPTiles/files/nSPTiles.min.js">nSPTiles.min.js</a> and upload it to a document library in your SharePoint site. You'll need to know it's path later.</em> ***</p>
+<p>*** <em>If this is the first time you're using</em> <strong><em>nSPTiles</em></strong> <em>then make sure you ploaded <code>nSPTiles.min.js</code> to a document library in your SharePoint site. You'll need to know it's path later.</em> ***</p>
 
 <p>Using a CEWP uses client-side JavaScript to pull information from the <code>nSPTiles</code> list using SharePoint's REST API. The code is configured to run on page load which means the tiles will be visible before the page is drawn, however, it does add a slight delay to the page load.</p>
 
@@ -164,14 +197,14 @@
 <li>
 <p>add a CEWP to a WebPart page and add code like below (either directly in the CEWP source code editor or link to an HTML file)</p>
 
-<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTiles.1.0.min.js<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTiles.min.js<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
 &lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>font-awesome.min.css<span class="pl-pds">"</span></span>&gt;
 &lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>nachoTiles<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
 <span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;</span>
 <span class="pl-s1">    nSPTiles.init(<span class="pl-s"><span class="pl-pds">"</span>nachoTiles<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>group one<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
 </li>
-<li>make sure to provide the correct path to <code>nSPTiles.1.0.min.js</code>
+<li>make sure to provide the correct path to <code>nSPTiles.min.js</code>
 </li>
 <li>(<em>optional</em>) update the path to the Font-Awesome CSS if you want to use Font-Awesome</li>
 <li>update the <code>id</code> of the <code>div</code> where you want the tiles to be rendered in (<code>nachoTiles</code> in the above example)</li>
@@ -232,7 +265,7 @@
 <th>
 <a name="animationTypeOn"></a>animationTypeOn</th>
 <td>string</td>
-<td>the type of animation to use when the mouse enters a tile (for <a href="#zoom">zooming</a> and sliding); options are:<br><br><ul>
+<td>the type of animation to use when the mouse enters a tile (for <a href="#zoom">zooming</a> and sliding)<br><br>options are:<br><br><ul>
 <li>slide</li>
 <li>bounce</li>
 <li>elastic</li>
@@ -243,6 +276,17 @@
 <th>animationTypeOff</th>
 <td>string</td>
 <td>the type of animation to use when the mouse leaves a tile; same options as above</td>
+</tr>
+<tr>
+<th>webURL</th>
+<td>string</td>
+<td>URL of the web where the nSPTiles list is (or should be created) (e.g. <code>'/'</code>, <code>'/subsite1'</code>, <code>'/subsite1/subsite2'</code>)</td>
+</tr>
+<tr>
+<th>onclick</th>
+<td>function</td>
+<td>function to call on tile clicks. can be used to run custom code like you would need for <a href="http://piwik.org/">Piwik</a>'s click tracking. the function will be passed two paramaters: the url and the type of link the tile is.<br><br>example:<br><code>function(url, link){...}</code>
+</td>
 </tr>
 </tbody></table>
 </td>
@@ -260,6 +304,17 @@ nSPTiles.init("nachoTiles", "group 4", {
     animationTypeOn: "bounce",
     animationTypeOff: "elastic"
 });
+nSPTiles.init("nachoTiles", "group 4", {
+    webURL: "/subsite"
+});
+nSPTiles.init("nachoTiles", "group 4", {
+    webURL: "/subsite/subsite",
+    onclick: function(url, type)
+    {
+        // register a click event in Piwik
+        _paq.push(['trackLink', url, 'link']);
+    }
+});
 </code></pre>
 
 <h3>
@@ -271,6 +326,12 @@ nSPTiles.init("nachoTiles", "group 4", {
 
 <h3>
 <a id="use-a-dvwp-to-render-tiles" class="anchor" href="#use-a-dvwp-to-render-tiles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use a DVWP To Render Tiles</h3>
+
+<p>****** <strong>IMPORTANT</strong> ******</p>
+
+<p><strong>DO NOT add the DVWP WebPart to a page until <a href="#use-a-cewp-to-render-tiles">you've used a CEWP</a> at least once so the <code>nSPTiles</code> list has been created.</strong></p>
+
+<p>****** <strong>IMPORTANT</strong> ******</p>
 
 <p>UNDER CONSTRUCTION</p>
 
