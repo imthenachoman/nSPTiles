@@ -13,12 +13,13 @@ http://nsptiles.js.org || http://imthenachoman.github.io/nSPTiles/
 	 3. [Features](#features)
 	 4. [Screenshots](#screenshots)
  5. [How To Use](#how-to-use)
-	 6. [Use A CEWP To Render Tiles](#use-a-cewp-to-render-tiles)
-	 7. [CEWP JavaScript Reference](#cewp-javascript-reference)
-	 8. [GUI](#gui)
-	 9. [Use a DVWP To Render Tiles](#use-a-dvwp-to-render-tiles)
-	 10. [DVWP Paramater Reference](#dvwp-paramater-reference)
-	 11. [nSPTiles List Reference](#nsptiles-list-reference)
+	 6. [Download / Files](#download--files)
+	 7. [Use A CEWP To Render Tiles](#use-a-cewp-to-render-tiles)
+	 8. [CEWP JavaScript Reference](#cewp-javascript-reference)
+	 9. [GUI](#gui)
+	 10. [Use a DVWP To Render Tiles](#use-a-dvwp-to-render-tiles)
+	 11. [DVWP Paramater Reference](#dvwp-paramater-reference)
+	 12. [nSPTiles List Reference](#nsptiles-list-reference)
  11. [Compatibility](#compatibility)
  12. [Change Log](#change-log)
  13. [To Do / Enhancement Requests](#to-do--enhancement-requests)
@@ -78,23 +79,33 @@ These instructions assume you know your way around SharePoint (how to upload fil
 
 The very first time you use **nSPTiles** follow the [CEWP](#use-a-cewp-to-render-tiles) instructions.
 
+### Download / Files
+
+Download the latest `nSPTiles.#.#.zip` file from https://github.com/imthenachoman/nSPTiles/releases. It consists of:
+
+File Name | Description | Destination
+--- | --- | ---
+nSPTiles.min.js | packed **nSPTiles** javascript (using http://dean.edwards.name/packer/) | upload to your SharePoint site; you will need it's path
+dvwp.webpart | DVWP WebPart to use if the **nSPTiles** list exists on the same SharePoint site | save on your computer
+dvwp_webURL.webpart | DVWP WebPart to use if the **nSPTiles** list exists on another WebURL/site | save on your computer
+
 ### Use A CEWP To Render Tiles
 
-\*\*\* *If this is the first time you're using* ***nSPTiles*** *then download [nSPTiles.min.js](http://imthenachoman.github.io/nSPTiles/files/nSPTiles.min.js) and upload it to a document library in your SharePoint site. You'll need to know it's path later.* \*\*\*
+\*\*\* *If this is the first time you're using* ***nSPTiles*** *then make sure you ploaded `nSPTiles.min.js` to a document library in your SharePoint site. You'll need to know it's path later.* \*\*\*
 
 Using a CEWP uses client-side JavaScript to pull information from the `nSPTiles` list using SharePoint's REST API. The code is configured to run on page load which means the tiles will be visible before the page is drawn, however, it does add a slight delay to the page load.
 
  1. add a CEWP to a WebPart page and add code like below (either directly in the CEWP source code editor or link to an HTML file)
 
     ```html
-    <script src="nSPTiles.1.0.min.js" type="text/javascript"></script>
+    <script src="nSPTiles.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="font-awesome.min.css">
     <div id="nachoTiles"></div>
     <script type="text/javascript">
         nSPTiles.init("nachoTiles", "group one");
     </script>
     ```
- 2. make sure to provide the correct path to `nSPTiles.1.0.min.js`
+ 2. make sure to provide the correct path to `nSPTiles.min.js`
  3. (*optional*) update the path to the Font-Awesome CSS if you want to use Font-Awesome
  4. update the `id` of the `div` where you want the tiles to be rendered in (`nachoTiles` in the above example)
  5. in the `nSPTiles.init` call update the parameters as necessary (check [below](#cewp-javascript-reference) for details)
@@ -122,7 +133,7 @@ parameter | required | explanation
 --- | --- | ---
 `ID` | yes | the ID of the `div` where you want the tiles to be created
 `groupName` | yes | the name of the tiles group to use
-`configOptions` | optional | a configuration object with the following options:<br /><br /><table><tbody><tr><th>animationTime</th><td>number</td><td>the number of milliseconds tile animations should take</td></tr><tr><th><a name="animationTypeOn"></a>animationTypeOn</th><td>string</td><td>the type of animation to use when the mouse enters a tile (for [zooming](#zoom) and sliding); options are:<br /><br /><ul><li>slide</li><li>bounce</li><li>elastic</li></ul></td></tr><tr><th>animationTypeOff</th><td>string</td><td>the type of animation to use when the mouse leaves a tile; same options as above</td></tr></tbody></table>
+`configOptions` | optional | a configuration object with the following options:<br /><br /><table><tbody><tr><th>animationTime</th><td>number</td><td>the number of milliseconds tile animations should take</td></tr><tr><th><a name="animationTypeOn"></a>animationTypeOn</th><td>string</td><td>the type of animation to use when the mouse enters a tile (for [zooming](#zoom) and sliding); options are:<br /><br /><ul><li>slide</li><li>bounce</li><li>elastic</li></ul></td></tr><tr><th>animationTypeOff</th><td>string</td><td>the type of animation to use when the mouse leaves a tile; same options as above</td></tr><tr><th>webURL</th><td>string</td><td>URL of the web where the nSPTiles list is (or should be created) (e.g. `'/'`, `'/subsite1'`, `'/subsite1/subsite2'`</td></tr></tbody></table>
 
 Examples:
 
