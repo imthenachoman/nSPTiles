@@ -3,11 +3,11 @@
  * a JavaScript library for Window 8 style live tiles
  *
  * version : 1.0
+ * url     : https://github.com/imthenachoman/nSPTiles
  * author  : Anchal Nigam
  * e-mail  : imthenachoman@gmail.com
- * url     : https://github.com/imthenachoman/nSPTiles
  *
- * Copyright (c) 2015 Anchal Nigam
+ * Copyright (c) 2015 Anchal Nigam (imthenachoman@gmail.com)
  * Licensed under the MIT license: http://opensource.org/licenses/MIT
  * ----------------------------------------------------------------------------
  * Compressed using packer by Dean Edwards (http://dean.edwards.name/packer/)
@@ -1027,7 +1027,7 @@ var nSPTiles = nSPTiles || (function()
                         {
                             if(list.get_effectiveBasePermissions().has(SP.PermissionKind.editListItems))
                             {
-                                createElement("span", holder, "nTileAdminLinks", {"innerHTML" : '<b>actions</b>:&nbsp;<a href="#" title="add a tile" onclick="nSPTiles.addOrMoveTile(this, \'New\', \'' + holderID + '\'); return false;">add</a>&nbsp;|&nbsp;<a href="#" title="move a tile" onclick="nSPTiles.moveCloneEditOrDeleteTile(this, \'Update\', \'' + holderID + '\'); return false;">move</a>&nbsp;|&nbsp;<a href="#" title="clone a tile" onclick="nSPTiles.moveCloneEditOrDeleteTile(this, \'New\', \'' + holderID + '\'); return false;">clone</a>&nbsp;|&nbsp;<a href="#" title="edit a tile" onclick="nSPTiles.moveCloneEditOrDeleteTile(this, \'Edit\', \'' + holderID + '\'); return false;">edit</a>&nbsp;|&nbsp;<a href="#" title="delete a tile" onclick="nSPTiles.moveCloneEditOrDeleteTile(this, \'Delete\', \'' + holderID + '\'); return false;">delete</a>&nbsp;|&nbsp;<a target="_blank" href="' + tilesData.siteURL + '/Lists/' + LIST_NAME + '?FilterField1=LinkTitle&FilterValue1=test%201">list</a>'});
+                                createElement("span", holder, "nTileAdminLinks", {"innerHTML" : '<b>actions</b>:&nbsp;<a href="#" title="add a tile" onclick="nSPTiles.addOrMoveTile(this, \'New\', \'' + holderID + '\'); return false;">add</a>&nbsp;|&nbsp;<a href="#" title="move a tile" onclick="nSPTiles.moveCloneEditOrDeleteTile(this, \'Update\', \'' + holderID + '\'); return false;">move</a>&nbsp;|&nbsp;<a href="#" title="clone a tile" onclick="nSPTiles.moveCloneEditOrDeleteTile(this, \'New\', \'' + holderID + '\'); return false;">clone</a>&nbsp;|&nbsp;<a href="#" title="edit a tile" onclick="nSPTiles.moveCloneEditOrDeleteTile(this, \'Edit\', \'' + holderID + '\'); return false;">edit</a>&nbsp;|&nbsp;<a href="#" title="delete a tile" onclick="nSPTiles.moveCloneEditOrDeleteTile(this, \'Delete\', \'' + holderID + '\'); return false;">delete</a>&nbsp;|&nbsp;<a target="_blank" href="' + tilesData.siteURL + '/Lists/' + LIST_NAME + '?FilterField1=LinkTitle&FilterValue1=' + tilesData.groupName + '">list</a>'});
                             }
                         }), Function.createDelegate(this, function(){}));
 
