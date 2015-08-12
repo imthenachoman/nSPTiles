@@ -871,7 +871,7 @@ var nSPTiles = nSPTiles || (function()
                 {
                     // return code 2 means the list doesn't exist so let the user create it
                     holder.innerHTML = "";
-                    createElement("input", holder, null, {value: "List '" + LIST_NAME + "' does not exist. Click here to create it.", type: "button", onclick: function()
+                    createElement("input", holder, null, {value: "List '" + LIST_NAME + "' does not exist at '" + tilesData.siteURL + "'. Click here to create it.", type: "button", onclick: function()
                     {
                         // the soap request to create the list
                         var soapBody = '';
