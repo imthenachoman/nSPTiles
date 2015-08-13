@@ -36,7 +36,13 @@
                 padding: 5px;
                 text-align: right;
                 top: 10px;
-                display: none;
+                opacity: 0;
+                transition: opacity .25s;
+            }
+            
+            #tocLinkHolder.show
+            {
+                opacity: 1;
             }
             
             #tocLink
@@ -53,7 +59,6 @@
                 color: rgba(255, 255, 255, 0.8);
                 background-color: rgba(30, 107, 184, 0.5);
             }
-
         </style>
         <script type="text/javascript">
             var tocLinkHolder, toc;
@@ -61,14 +66,13 @@
             function scrolling()
             {
                 var tocTop    = toc.getBoundingClientRect().top, tocBottom = toc.getBoundingClientRect().bottom;
-                console.log(tocBottom + " = " + window.innerHeight);
                 if(tocBottom * -1 >= window.innerHeight)
                 {
-                    tocLinkHolder.style.display = "block";
+                    tocLinkHolder.className = "show";
                 }
                 else
                 {
-                    tocLinkHolder.style.display = "none";
+                    tocLinkHolder.className = "";
                 }
             }
             
