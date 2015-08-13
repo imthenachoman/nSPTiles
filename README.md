@@ -8,7 +8,7 @@ Check http://nsptiles.js.org/ for the most up to date information.
 
 ## Support / Issues / Contact / Help
 
-If you are familiar with [GitHub](https://github.com) and know how to submit issues then please do so at https://github.com/imthenachoman/nSPTiles/issues. Or if you prefer you can e-mail me at imthenachoman (at) gmail (dot) com
+If you are familiar with [GitHub](https://github.com) and know how to submit issues then please do so at https://github.com/imthenachoman/nSPTiles/issues. Or if you prefer you can e-mail me at imthenachoman (at) gmail (dot) com. You may also leave comments at http://nsptiles.js.org/#disqus.
 
 ## References, Acknowledgement, and Gratitude
 
