@@ -168,7 +168,7 @@ If you have permissions to add items to the `nSPTiles#` list then when you hover
 
 \*\*\*\*\*\* **IMPORTANT** \*\*\*\*\*\*
 
-**DO NOT add the DVWP WebPart to a page until [you've used a CEWP](#use-a-cewp-to-render-tiles) at least once so the `nSPTiles#` list has been created.**
+**DO NOT add the DVWP WebPart to a page until [you've used a CEWP](#first-time-use--use-a-cewp-to-render-tiles) at least once so the `nSPTiles#` list has been created.**
 
 \*\*\*\*\*\* **IMPORTANT** \*\*\*\*\*\*
 
