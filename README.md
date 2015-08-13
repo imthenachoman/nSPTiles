@@ -104,14 +104,14 @@ A CEWP uses client-side JavaScript to pull information from the `nSPTiles#` list
 
  1. add a CEWP to a WebPart page and add code like below (either directly in the CEWP source code editor or link to an HTML file)
 
-    ```html
-    <script src="<nSPTiles.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="font-awesome.min.css">
-    <div id="nachoTiles"></div>
-    <script type="text/javascript">
-        nSPTiles.init("nachoTiles", "group one");
-    </script>
-    ```
+   ```html
+   <script src="<nSPTiles.min.js" type="text/javascript"></script>
+   <link rel="stylesheet" href="font-awesome.min.css">
+   <div id="nachoTiles"></div>
+   <script type="text/javascript">
+       nSPTiles.init("nachoTiles", "group one");
+   </script>
+   ```
  2. make sure to provide the correct path to `nSPTiles.min.js`
  3. (*optional*) update the path to the Font-Awesome CSS if you want to use Font-Awesome
  4. update the `id` of the `div` where you want the tiles to be rendered in (`nachoTiles` in the above example)
@@ -188,15 +188,15 @@ To add the DVWP to a WebPart page:
 
 DVWP paramaters look like this:
 
-	```xml
-	<ParameterBinding Name="nSPTilesJSPath" Location="None" DefaultValue="nSPTiles.1.0.min.js"/>
-	<ParameterBinding Name="FontAwesomeCSSPath" Location="None" DefaultValue="font-awesome.min.css"/>
-	<ParameterBinding Name="GroupName" Location="None" DefaultValue="group one"/>
-	<ParameterBinding Name="AnimationSpeedInMillisecond" Location="None" DefaultValue="100"/>
-	<ParameterBinding Name="AnimationTypeOn" Location="None" DefaultValue="slide"/>
-	<ParameterBinding Name="AnimationTypeOff" Location="None" DefaultValue="bounce"/>
-	<ParameterBinding Name="TileOnClick" Location="None" DefaultValue="function(url,type){}"/>
-	```
+```xml
+<ParameterBinding Name="nSPTilesJSPath" Location="None" DefaultValue="nSPTiles.1.0.min.js"/>
+<ParameterBinding Name="FontAwesomeCSSPath" Location="None" DefaultValue="font-awesome.min.css"/>
+<ParameterBinding Name="GroupName" Location="None" DefaultValue="group one"/>
+<ParameterBinding Name="AnimationSpeedInMillisecond" Location="None" DefaultValue="100"/>
+<ParameterBinding Name="AnimationTypeOn" Location="None" DefaultValue="slide"/>
+<ParameterBinding Name="AnimationTypeOff" Location="None" DefaultValue="bounce"/>
+<ParameterBinding Name="TileOnClick" Location="None" DefaultValue="function(url,type){}"/>
+```
 
 Change the `DefaultValue` as you need.
 
