@@ -1,7 +1,5 @@
 # nSPTiles
 
-http://nsptiles.js.org || http://imthenachoman.github.io/nSPTiles/
-
 **nSPTiles** is an easy to use JavaScript library for Windows style live tiles for SharePoint with numerous styling options and an admin GUI.
 
 ![screenshot](https://cloud.githubusercontent.com/assets/83817/8892362/e50bd494-3322-11e5-9b36-fb0aebf98a1d.PNG)
@@ -37,7 +35,7 @@ After I started using [SPJS-Tiles](http://spjsblog.com/2013/11/13/sharepoint-201
 
 ### How It Works
 
-The first time you use **nSPTiles** a SharePoint list is created. The list will be used to hold the tile data. It has numerous fields/columns for the various tile options/settings. There are also numerous calculated columns that are used internally by **nSPTiles**.
+The first time you use **nSPTiles** a SharePoint list called `nSPTiles#` is created. The list will be used to hold the tile data. It has numerous fields/columns for the various tile options/settings. There are also numerous calculated columns that are used internally by **nSPTiles**.
 
 After the list is created you can add items to the list. Each item in the list is a different tile. Tiles can be grouped by using the same [`group name`](#groupName). This way you can render different tiles on different pages/sections.
 
@@ -85,20 +83,26 @@ Download the latest `nSPTiles.#.#.zip` file from https://github.com/imthenachoma
 
 File Name | Description | Destination
 --- | --- | ---
-nSPTiles.min.js | packed **nSPTiles** javascript (using http://dean.edwards.name/packer/) | upload to your SharePoint site; you will need it's path
+nSPTiles.min.js | **nSPTiles** javascript (packed using http://dean.edwards.name/packer/) | upload to your SharePoint site; you will need it's path
 dvwp.webpart | DVWP WebPart to use if the **nSPTiles** list exists on the same SharePoint site | save on your computer
 dvwp_webURL.webpart | DVWP WebPart to use if the **nSPTiles** list exists on another WebURL/site | save on your computer
 
-### Use A CEWP To Render Tiles
+### Installation
 
-\*\*\* *If this is the first time you're using* ***nSPTiles*** *then make sure you ploaded `nSPTiles.min.js` to a document library in your SharePoint site. You'll need to know it's path later.* \*\*\*
+Upload the `nSPTiles.min.js` file to a document library in your SharePoint site. You will need to know it's path later.
 
-Using a CEWP uses client-side JavaScript to pull information from the `nSPTiles` list using SharePoint's REST API. The code is configured to run on page load which means the tiles will be visible before the page is drawn, however, it does add a slight delay to the page load.
+### First Time Use / Use A CEWP To Render Tiles
+
+\*\*\* *The first time you use* ***nSPTiles*** *you will see a message like this. Follow the instructions to create the `nSPTiles#` list.* \*\*\*
+
+![enter image description here](https://cloud.githubusercontent.com/assets/83817/8887698/8747710a-325b-11e5-8107-1c97315c14d6.PNG)
+
+A CEWP uses client-side JavaScript to pull information from the `nSPTiles#` list using SharePoint's REST API. The code is configured to run on page load which means the tiles should be visible before the page is drawn, however, this does add a slight delay to the page load.
 
  1. add a CEWP to a WebPart page and add code like below (either directly in the CEWP source code editor or link to an HTML file)
 
     ```html
-    <script src="nSPTiles.min.js" type="text/javascript"></script>
+    <script src="<nSPTiles.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="font-awesome.min.css">
     <div id="nachoTiles"></div>
     <script type="text/javascript">
@@ -110,10 +114,6 @@ Using a CEWP uses client-side JavaScript to pull information from the `nSPTiles`
  4. update the `id` of the `div` where you want the tiles to be rendered in (`nachoTiles` in the above example)
  5. in the `nSPTiles.init` call update the parameters as necessary (check [below](#cewp-javascript-reference) for details)
  6. save everything and reload the page
-
-\*\*\* *The first time you use* ***nSPTiles*** *you will see a message like this. Follow the instructions to create the `nSPTiles` list.* \*\*\*
-
-![enter image description here](https://cloud.githubusercontent.com/assets/83817/8887698/8747710a-325b-11e5-8107-1c97315c14d6.PNG)
 
 Now you can use the [GUI](#gui) to add/move/edit/delete tiles.
 
@@ -131,9 +131,9 @@ Paramater Reference:
 
 parameter | required | explanation
 --- | --- | ---
-`ID` | yes | the ID of the `div` where you want the tiles to be created
-`groupName` | yes | the name of the tiles group to use
-`configOptions` | optional | a configuration object with the following options:<br /><br /><table><tbody><tr><th>animationTime</th><td>number</td><td>the number of milliseconds tile animations should take</td></tr><tr><th><a name="animationTypeOn"></a>animationTypeOn</th><td>string</td><td>the type of animation to use when the mouse enters a tile (for [zooming](#zoom) and sliding)<br /><br />options are:<br /><br /><ul><li>slide</li><li>bounce</li><li>elastic</li></ul></td></tr><tr><th>animationTypeOff</th><td>string</td><td>the type of animation to use when the mouse leaves a tile; same options as above</td></tr><tr><th>webURL</th><td>string</td><td>URL of the web where the nSPTiles list is (or should be created) (e.g. `'/'`, `'/subsite1'`, `'/subsite1/subsite2'`)</td></tr><tr><th>onclick</th><td>function</td><td>function to call on tile clicks. can be used to run custom code like you would need for [Piwik](http://piwik.org/)'s click tracking. the function will be passed two paramaters: the url and the type of link the tile is.<br /><br />example:<br />`function(url, link){...}`</td></tr></tbody></table>
+`ID` | yes | the ID of the `div` where you want the tiles to be created in (`nachoTiles` in the above example)
+`groupName` | yes | the name of the tiles group to use (`group one` in the above example)
+`configOptions` | optional | a configuration object with the following options:<br /><br /><table><tbody><tr><th><a name="animationTime">animationTime</a></th><td>number</td><td>the number of milliseconds tile animations should take</td></tr><tr><th><a name="animationTypeOn"></a>animationTypeOn</th><td>string</td><td>the type of animation to use when the mouse enters a tile (for [zooming](#zoom) and sliding)<br /><br />options are:<br /><br /><ul><li>slide</li><li>bounce</li><li>elastic</li></ul></td></tr><tr><th><a name="animationTypeOff">animationTypeOff</a></th><td>string</td><td>the type of animation to use when the mouse leaves a tile; same options as above</td></tr><tr><th><a name="webURL">webURL</a></th><td>string</td><td>URL of the web where the nSPTiles list is (or should be created) (e.g. `'/'`, `'/subsite1'`, `'/subsite1/subsite2'`)</td></tr><tr><th><a name="onclick">onclick</a></th><td>function</td><td>function to call on tile clicks. can be used to run custom code like you would need for [Piwik](http://piwik.org/)'s click tracking. the function will be passed two paramaters: the url and the type of link the tile is.<br /><br />example:<br />`function(url, link){...}`</td></tr></tbody></table>
 
 Examples:
 
@@ -159,7 +159,7 @@ Examples:
 
 ### GUI
 
-If you have permissions to add items to the `nSPTiles` list then when you hover over the area where the tiles are (or should/would be) then you'll see admin links that will let you **add**, **move**, **edit**, or **delete** tiles. The **add** and **move** options will let you use a GUI to draw where you want the tile to be within the container. The **move**, **edit**, and **delete** options will let you select a tile you want to work on.
+If you have permissions to add items to the `nSPTiles#` list then when you hover over the area where the tiles are (or should/would be) then you'll see admin links that will let you **add**, **move**, **edit**, or **delete** tiles. The **add** and **move** options will let you use a GUI to draw where you want the tile to be within the container. The **move**, **edit**, and **delete** options will let you select a tile you want to work on.
 
 ![enter image description here](https://cloud.githubusercontent.com/assets/83817/8887700/874a9c2c-325b-11e5-870f-3b0ba78ded20.PNG)
 
@@ -167,25 +167,111 @@ If you have permissions to add items to the `nSPTiles` list then when you hover 
 
 \*\*\*\*\*\* **IMPORTANT** \*\*\*\*\*\*
 
-**DO NOT add the DVWP WebPart to a page until [you've used a CEWP](#use-a-cewp-to-render-tiles) at least once so the `nSPTiles` list has been created.**
+**DO NOT add the DVWP WebPart to a page until [you've used a CEWP](#use-a-cewp-to-render-tiles) at least once so the `nSPTiles#` list has been created.**
 
 \*\*\*\*\*\* **IMPORTANT** \*\*\*\*\*\*
 
-UNDER CONSTRUCTION
+A DVWP pulls the tile data on the server side in an XML format then passes it through an XSL transformation before it it sends to the browser for rendering. Because it is done server-side the page load should be slightly faster.
+
+**NOTE**: Because of deficiencies in how SharePoint manages DVWP WebParts, if you need to use `dvwp_webURL.webpart` because your `nSPTiles#` list is on a different SharePoint site then you need to edit the file before you can upload it to a WebPart page. Open the file in any text editor, search for the string `/test` (should be line 269) and change it to the webURL path you need then save the file. For example: `/subsite`, `/sites/teamSite`, etc...
+
+To add the DVWP to a WebPart page:
+
+ 1. add a WebPart like you normally would to the page
+ 2. use the upload option to upload and then add the DVWP file you want: `dvwp.webpart` or `dvwp_webURL.webpart`
+ 3. use the Parameters Editor option to change the parameters to your needs.
 
 ### DVWP Paramater Reference
 
-UNDER CONSTRUCTION
+DVWP paramaters look like this:
+
+    ```xml
+    <ParameterBinding Name="nSPTilesJSPath" Location="None" DefaultValue="nSPTiles.1.0.min.js"/>
+    <ParameterBinding Name="FontAwesomeCSSPath" Location="None" DefaultValue="font-awesome.min.css"/>
+    <ParameterBinding Name="GroupName" Location="None" DefaultValue="group one"/>
+    <ParameterBinding Name="AnimationSpeedInMillisecond" Location="None" DefaultValue="100"/>
+    <ParameterBinding Name="AnimationTypeOn" Location="None" DefaultValue="slide"/>
+    <ParameterBinding Name="AnimationTypeOff" Location="None" DefaultValue="bounce"/>
+    <ParameterBinding Name="TileOnClick" Location="None" DefaultValue="function(url,type){}"/>
+    ```
+
+Change the `DefaultValue` as you need.
+
+Check [CEWP JavaScript Reference](#cewp-javascript-reference) for details on each parameter. The DVWP parameters match the respective JavaScript paramaters:
+
+DVWP paramater name | CEWP paramater name | Note
+--- | ---
+nSPTilesJSPath | n/a | the path to the `nSPTiles.min.js` file
+FontAwesoeCSSPath | n/a | optional path to the Font-Awesome CSS
+GroupName | [groupName](#groupName)
+AnimationSpeedInMillisecond | [animationTime](#animationTime)
+AnimationTypeOn | [animationTypeOn](#animationTypeOn)
+AnimationTypeOff | [animationTypeOff](#animationTypeOff)
+TileOnClick | [onclick](#onclick) | the string value of `TileOnClick` can be a function string or a function name (i.e. `"function(url, type){}"` or `"someFunction"`)
 
 ### nSPTiles List Reference
 
 UNDER CONSTRUCTION
 
-Here are all the tile options and what they mean. Each one maps to a column/field in the `nSPTiles` list. Not all fields are required and not all fields are relevant depending on other settings.
+Here are all the tile options and what they mean. Each one maps to a column/field in the `nSPTiles#` list. Not all fields are required and not all fields are relevant depending on other settings.
 
 option (field/column name) | description
 --- | ---
-WIP | WIP
+group name | the group this tile belongs to
+active | can be used hide a tile without having to remove this entry
+tile width | the width of the tile in px
+tile height | the height of the tile in px
+tile left offset | the left offset of the tile in px
+tile top offset | the top offset of the tile in px
+tile border width | the empty space around the tile in px
+tile zoom on hover | zoom effect for the tile by making the tile border width 0 when the mouse is over the tile
+tile link type | the type of link to make
+tile link URL | the URL for the link
+is heading | heading tiles have no slider
+tile background color | HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)
+tile background opacity | opacity from 0 (transparent) to 100 (solid)<br /><br />leave blank for none
+tile background color on hover | undefined
+tile background opacity on hover | undefined
+tile image URL | URL of image to use in tile (must be less then 255 characters)
+tile image width | width of tile image. use just a number to specify in px or end with a % (e.g. 50 or 75%)<br /><br />helpful if the image is larger then the icon
+tile image height | height of tile image. use just a number to specify in px or end with a % (e.g. 50 or 75%)<br />helpful if the image is larger then the icon
+tile image opacity | opacity from 0 (transparent) to 100 (solid)<br />leave blank for none
+tile image padding | how far from the edge of the tile should the image be in px
+tile image style | css style to apply to the tile image (overrides above tile image options)
+tile image position | position of the image in the tile
+tile image URL on hover | undefined
+tile image style on hover | undefined
+tile FA class | Font Awesome icon class name
+tile FA color | HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)
+tile FA opacity | opacity from 0 (transparent) to 100 (solid)<br /><br />leave blank for none
+tile FA padding | how far from the edge of the tile should the icon be in px
+tile FA style | css style to apply to the FA icon (overrides above tile FA options)
+tile FA position | position of the icon in the tile
+tile FA class on hover | undefined
+tile FA style on hover | undefined
+heading content | can use HTML
+heading bolded | should the heading text be bold
+heading font color | HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)
+heading font size | font size for the heading in px
+heading padding | padding for the heading in px
+heading style | css style to apply to heading (overrides above heading options)
+heading position | position of the heading in the tile or slider heading
+heading content on hover | undefined
+heading style on hover | undefined
+slider heading height | height of the header for the slider in px
+slider body content | can use HTML
+slider body font color | HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)
+slider body font size | font size for the slider body in px
+slider body padding | padding of the slider body in px
+slider body style | css style to apply to slider body (overrides above slider body options)
+slider body position | position of the slider body in the slider
+slider background color | HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)
+slider background opacity | opacity from 0 (transparent) to 100 (solid)<br /><br />leave blank for none
+slider background color on hover | undefined
+slider background opacity on hover | undefined
+tile image and FA slider heading push | if the tile image and/or FA are positioned on the bottom then push them on top of the slider heading
+tile custom ID | custom ID to use for the tile<br /><br />default is nTile_[ID] where ID is the ID of the entry in the list
+tile custom class(es) | custom class(s) to add to the tile
 
 <a name="position">**Position Options**</a>
 
@@ -226,31 +312,34 @@ SharePoint Version | IE | Chrome | FireFox
 
 If anyone is able to test on other SharePoint installations and/or browsers, or knows where I can access/test on other SharePoint installations, I would appreciate feedback.
 
-### Change Log
+## Change Log
 
 version | updates
 --- | ---
 1.0 | initial release
 
-### To Do / Enhancement Requests
+## To Do / Enhancement Requests
 
  1. [x] publish initial 1.0 release
- 2. [x] allow an alternate WebURL to use `nSPTiles` from a different SP site
+ 2. [x] allow an alternate WebURL to use `nSPTiles#` from a different SP site
  3. [x] allow running a custom function on tile click (can be used to run custom code to do things like Piwik click tracking)
- 4. [ ] real-time preview of tiles in the data sheet view of the `nSPTiles` list so you can see the effect of your changes immediately
+ 4. [ ] real-time preview of tiles in the data sheet view of the `nSPTiles#` list so you can see the effect of your changes immediately
  5. [ ] ...waiting for ideas/enhancement from users
 
-### Support / Issues / Contact / Help
+## Support / Issues / Contact / Help
 
 If you are familiar with [GitHub](https://github.com) and know how to submit issues then please do so at https://github.com/imthenachoman/nSPTiles/issues. Or if you prefer you can e-mail me at imthenachoman (at) gmail (dot) com
 
-### References, Acknowledgement, and Gratitude
+## References, Acknowledgement, and Gratitude
 
  - [SPJS-Tiles](http://spjsblog.com/2013/11/13/sharepoint-2013-style-tiles/ "SPJS-Tiles") (http://spjsblog.com/2013/11/13/sharepoint-2013-style-tiles/) by [Alexander Bautz](http://spjsblog.com/about/ "about Alexander Bautz") for creating the original tiling system for SharePoint
  - [cross-browser requestAnimationFrame](https://gist.github.com/paulirish/1579671) (https://gist.github.com/paulirish/1579671) by Erik Möller
  - [generic animation using requestAnimationFrame](http://www.sitepoint.com/simple-animations-using-requestanimationframe/) (http://www.sitepoint.com/simple-animations-using-requestanimationframe/) by Dmitri Lau
  - [jQuery's easing functions](https://github.com/danro/jquery-easing/blob/master/jquery.easing.js) (https://github.com/danro/jquery-easing/blob/master/jquery.easing.js) by George McGinley Smith
 
-### License
+## License
 
 [MIT License](https://github.com/imthenachoman/nSPTiles/blob/master/LICENSE) -  https://github.com/imthenachoman/nSPTiles/blob/master/LICENSE
+
+## Disqus
+
