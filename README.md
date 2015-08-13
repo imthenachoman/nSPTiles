@@ -223,7 +223,7 @@ tile height | the height of the tile in px
 tile left offset | the left offset of the tile in px
 tile top offset | the top offset of the tile in px
 tile border width | the empty space around the tile in px
-tile zoom on hover | zoom effect for the tile by making the tile border width 0 when the mouse is over the tile
+<a name="zoom">tile zoom on hover</a> | zoom effect for the tile by making the tile border width 0 when the mouse is over the tile
 tile link type | the type of link to make
 tile link URL | the URL for the link
 is heading | heading tiles have no slider
