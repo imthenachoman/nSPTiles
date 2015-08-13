@@ -12,7 +12,7 @@
 	 4. [Screenshots](#screenshots)
  5. [How To Use](#how-to-use)
 	 6. [Download / Files](#download--files)
-	 7. [Use A CEWP To Render Tiles](#use-a-cewp-to-render-tiles)
+	 7. [First Time Use / Use A CEWP To Render Tiles](#first-time-use--use-a-cewp-to-render-tiles)
 	 8. [CEWP JavaScript Reference](#cewp-javascript-reference)
 	 9. [GUI](#gui)
 	 10. [Use a DVWP To Render Tiles](#use-a-dvwp-to-render-tiles)
@@ -24,6 +24,7 @@
  14. [Support / Issues / Contact / Help](#support--issues--contact--help)
  15. [References, Acknowledgement, and Gratitude](#references-acknowledgement-and-gratitude)
  16. [License](#license)
+ 17. [Disqus](#disqus)
 
 ## Overview
 
@@ -46,7 +47,7 @@ After the list is created you can add items to the list. Each item in the list i
  - **nSPTiles** is self-contained and does not need any additional JavaScript libraries like jQuery
  - uses SharePoint's built-in list system
  - [GUI](#gui) to help with tile placement
- - [CEWP/JavaScript](#use-a-cewp-to-render-tiles) or [DVWP](#use-a-dvwp-to-render-tiles) for rendering
+ - [CEWP/JavaScript](#first-time-use--use-a-cewp-to-render-tiles) or [DVWP](#use-a-dvwp-to-render-tiles) for rendering
  - each tile can [have](#nsptiles-list-reference):
   - a link
   - a background color
@@ -75,7 +76,7 @@ Screenshot | Description
 
 These instructions assume you know your way around SharePoint (how to upload files and edit them, add CEWPs or DVWPs and edit their configuration options, call JavaScript functions, etc...)
 
-The very first time you use **nSPTiles** follow the [CEWP](#use-a-cewp-to-render-tiles) instructions.
+The very first time you use **nSPTiles** follow the [CEWP](#first-time-use--use-a-cewp-to-render-tiles) instructions.
 
 ### Download / Files
 
@@ -132,7 +133,7 @@ Paramater Reference:
 parameter | required | explanation
 --- | --- | ---
 `ID` | yes | the ID of the `div` where you want the tiles to be created in (`nachoTiles` in the above example)
-`groupName` | yes | the name of the tiles group to use (`group one` in the above example)
+<a name="groupName">`groupName`</a> | yes | the name of the tiles group to use (`group one` in the above example)
 `configOptions` | optional | a configuration object with the following options:<br /><br /><table><tbody><tr><th><a name="animationTime">animationTime</a></th><td>number</td><td>the number of milliseconds tile animations should take</td></tr><tr><th><a name="animationTypeOn"></a>animationTypeOn</th><td>string</td><td>the type of animation to use when the mouse enters a tile (for [zooming](#zoom) and sliding)<br /><br />options are:<br /><br /><ul><li>slide</li><li>bounce</li><li>elastic</li></ul></td></tr><tr><th><a name="animationTypeOff">animationTypeOff</a></th><td>string</td><td>the type of animation to use when the mouse leaves a tile; same options as above</td></tr><tr><th><a name="webURL">webURL</a></th><td>string</td><td>URL of the web where the nSPTiles list is (or should be created) (e.g. `'/'`, `'/subsite1'`, `'/subsite1/subsite2'`)</td></tr><tr><th><a name="onclick">onclick</a></th><td>function</td><td>function to call on tile clicks. can be used to run custom code like you would need for [Piwik](http://piwik.org/)'s click tracking. the function will be passed two paramaters: the url and the type of link the tile is.<br /><br />example:<br />`function(url, link){...}`</td></tr></tbody></table>
 
 Examples:
@@ -210,8 +211,6 @@ AnimationTypeOff | [animationTypeOff](#animationTypeOff)
 TileOnClick | [onclick](#onclick) | the string value of `TileOnClick` can be a function string or a function name (i.e. `"function(url, type){}"` or `"someFunction"`)
 
 ### nSPTiles List Reference
-
-UNDER CONSTRUCTION
 
 Here are all the tile options and what they mean. Each one maps to a column/field in the `nSPTiles#` list. Not all fields are required and not all fields are relevant depending on other settings.
 
