@@ -203,7 +203,7 @@ Change the `DefaultValue` as you need.
 Check [CEWP JavaScript Reference](#cewp-javascript-reference) for details on each parameter. The DVWP parameters match the respective JavaScript paramaters:
 
 DVWP paramater name | CEWP paramater name | Note
---- | ---
+--- | --- | ---
 nSPTilesJSPath | n/a | the path to the `nSPTiles.min.js` file
 FontAwesoeCSSPath | n/a | optional path to the Font-Awesome CSS
 GroupName | [groupName](#groupName)
