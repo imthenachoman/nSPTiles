@@ -22,8 +22,6 @@
       <h1>
 <a id="nsptiles" class="anchor" href="#nsptiles" aria-hidden="true"><span class="octicon octicon-link"></span></a>nSPTiles</h1>
 
-<p><a href="http://nsptiles.js.org">http://nsptiles.js.org</a> || <a href="http://imthenachoman.github.io/nSPTiles/">http://imthenachoman.github.io/nSPTiles/</a></p>
-
 <p><strong>nSPTiles</strong> is an easy to use JavaScript library for Windows style live tiles for SharePoint with numerous styling options and an admin GUI.</p>
 
 <p><img src="https://cloud.githubusercontent.com/assets/83817/8892362/e50bd494-3322-11e5-9b36-fb0aebf98a1d.PNG" alt="screenshot"></p>
@@ -46,7 +44,7 @@
 
 <ol>
 <li><a href="#download--files">Download / Files</a></li>
-<li><a href="#use-a-cewp-to-render-tiles">Use A CEWP To Render Tiles</a></li>
+<li><a href="#first-time-use--use-a-cewp-to-render-tiles">First Time Use / Use A CEWP To Render Tiles</a></li>
 <li><a href="#cewp-javascript-reference">CEWP JavaScript Reference</a></li>
 <li><a href="#gui">GUI</a></li>
 <li><a href="#use-a-dvwp-to-render-tiles">Use a DVWP To Render Tiles</a></li>
@@ -60,6 +58,7 @@
 <li><a href="#support--issues--contact--help">Support / Issues / Contact / Help</a></li>
 <li><a href="#references-acknowledgement-and-gratitude">References, Acknowledgement, and Gratitude</a></li>
 <li><a href="#license">License</a></li>
+<li><a href="#disqus">Disqus</a></li>
 </ol>
 
 <h2>
@@ -74,7 +73,7 @@
 <h3>
 <a id="how-it-works" class="anchor" href="#how-it-works" aria-hidden="true"><span class="octicon octicon-link"></span></a>How It Works</h3>
 
-<p>The first time you use <strong>nSPTiles</strong> a SharePoint list is created. The list will be used to hold the tile data. It has numerous fields/columns for the various tile options/settings. There are also numerous calculated columns that are used internally by <strong>nSPTiles</strong>.</p>
+<p>The first time you use <strong>nSPTiles</strong> a SharePoint list called <code>nSPTiles#</code> is created. The list will be used to hold the tile data. It has numerous fields/columns for the various tile options/settings. There are also numerous calculated columns that are used internally by <strong>nSPTiles</strong>.</p>
 
 <p>After the list is created you can add items to the list. Each item in the list is a different tile. Tiles can be grouped by using the same <a href="#groupName"><code>group name</code></a>. This way you can render different tiles on different pages/sections.</p>
 
@@ -90,7 +89,7 @@
 <li>
 <a href="#gui">GUI</a> to help with tile placement</li>
 <li>
-<a href="#use-a-cewp-to-render-tiles">CEWP/JavaScript</a> or <a href="#use-a-dvwp-to-render-tiles">DVWP</a> for rendering</li>
+<a href="#first-time-use--use-a-cewp-to-render-tiles">CEWP/JavaScript</a> or <a href="#use-a-dvwp-to-render-tiles">DVWP</a> for rendering</li>
 <li>each tile can <a href="#nsptiles-list-reference">have</a>:
 
 <ul>
@@ -152,7 +151,7 @@
 
 <p>These instructions assume you know your way around SharePoint (how to upload files and edit them, add CEWPs or DVWPs and edit their configuration options, call JavaScript functions, etc...)</p>
 
-<p>The very first time you use <strong>nSPTiles</strong> follow the <a href="#use-a-cewp-to-render-tiles">CEWP</a> instructions.</p>
+<p>The very first time you use <strong>nSPTiles</strong> follow the <a href="#first-time-use--use-a-cewp-to-render-tiles">CEWP</a> instructions.</p>
 
 <h3>
 <a id="download--files" class="anchor" href="#download--files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download / Files</h3>
@@ -170,7 +169,8 @@
 <tbody>
 <tr>
 <td>nSPTiles.min.js</td>
-<td>packed <strong>nSPTiles</strong> javascript (using <a href="http://dean.edwards.name/packer/">http://dean.edwards.name/packer/</a>)</td>
+<td>
+<strong>nSPTiles</strong> javascript (packed using <a href="http://dean.edwards.name/packer/">http://dean.edwards.name/packer/</a>)</td>
 <td>upload to your SharePoint site; you will need it's path</td>
 </tr>
 <tr>
@@ -187,21 +187,30 @@
 </table>
 
 <h3>
-<a id="use-a-cewp-to-render-tiles" class="anchor" href="#use-a-cewp-to-render-tiles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use A CEWP To Render Tiles</h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
 
-<p>*** <em>If this is the first time you're using</em> <strong><em>nSPTiles</em></strong> <em>then make sure you ploaded <code>nSPTiles.min.js</code> to a document library in your SharePoint site. You'll need to know it's path later.</em> ***</p>
+<p>Upload the <code>nSPTiles.min.js</code> file to a document library in your SharePoint site. You will need to know it's path later.</p>
 
-<p>Using a CEWP uses client-side JavaScript to pull information from the <code>nSPTiles</code> list using SharePoint's REST API. The code is configured to run on page load which means the tiles will be visible before the page is drawn, however, it does add a slight delay to the page load.</p>
+<h3>
+<a id="first-time-use--use-a-cewp-to-render-tiles" class="anchor" href="#first-time-use--use-a-cewp-to-render-tiles" aria-hidden="true"><span class="octicon octicon-link"></span></a>First Time Use / Use A CEWP To Render Tiles</h3>
+
+<p>***
+<em>The first time you use</em> <strong><em>nSPTiles</em></strong> <em>you will see a message like this. Follow the instructions to create the <code>nSPTiles#</code> list.</em>
+***</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/83817/8887698/8747710a-325b-11e5-8107-1c97315c14d6.PNG" alt="enter image description here"></p>
+
+<p>A CEWP uses client-side JavaScript to pull information from the <code>nSPTiles#</code> list using SharePoint's REST API. The code is configured to run on page load which means the tiles should be visible before the page is drawn, however, this does add a slight delay to the page load.</p>
 
 <ol>
 <li>
 <p>add a CEWP to a WebPart page and add code like below (either directly in the CEWP source code editor or link to an HTML file)</p>
 
-<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTiles.min.js<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>&lt;nSPTiles.min.js<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
 &lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>font-awesome.min.css<span class="pl-pds">"</span></span>&gt;
 &lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>nachoTiles<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
 <span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;</span>
-<span class="pl-s1">    nSPTiles.<span class="pl-c1">init</span>(<span class="pl-s"><span class="pl-pds">"</span>nachoTiles<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>group one<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1">   nSPTiles.<span class="pl-c1">init</span>(<span class="pl-s"><span class="pl-pds">"</span>nachoTiles<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>group one<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
 </li>
 <li>make sure to provide the correct path to <code>nSPTiles.min.js</code>
@@ -211,10 +220,6 @@
 <li>in the <code>nSPTiles.init</code> call update the parameters as necessary (check <a href="#cewp-javascript-reference">below</a> for details)</li>
 <li>save everything and reload the page</li>
 </ol>
-
-<p>*** <em>The first time you use</em> <strong><em>nSPTiles</em></strong> <em>you will see a message like this. Follow the instructions to create the <code>nSPTiles</code> list.</em> ***</p>
-
-<p><img src="https://cloud.githubusercontent.com/assets/83817/8887698/8747710a-325b-11e5-8107-1c97315c14d6.PNG" alt="enter image description here"></p>
 
 <p>Now you can use the <a href="#gui">GUI</a> to add/move/edit/delete tiles.</p>
 
@@ -245,19 +250,19 @@
 <tr>
 <td><code>ID</code></td>
 <td>yes</td>
-<td>the ID of the <code>div</code> where you want the tiles to be created</td>
+<td>the ID of the <code>div</code> where you want the tiles to be created in (<code>nachoTiles</code> in the above example)</td>
 </tr>
 <tr>
-<td><code>groupName</code></td>
+<td><a name="groupName"><code>groupName</code></a></td>
 <td>yes</td>
-<td>the name of the tiles group to use</td>
+<td>the name of the tiles group to use (<code>group one</code> in the above example)</td>
 </tr>
 <tr>
 <td><code>configOptions</code></td>
 <td>optional</td>
 <td>a configuration object with the following options:<br><br><table><tbody>
 <tr>
-<th>animationTime</th>
+<th><a name="animationTime">animationTime</a></th>
 <td>number</td>
 <td>the number of milliseconds tile animations should take</td>
 </tr>
@@ -273,17 +278,17 @@
 </td>
 </tr>
 <tr>
-<th>animationTypeOff</th>
+<th><a name="animationTypeOff">animationTypeOff</a></th>
 <td>string</td>
 <td>the type of animation to use when the mouse leaves a tile; same options as above</td>
 </tr>
 <tr>
-<th>webURL</th>
+<th><a name="webURL">webURL</a></th>
 <td>string</td>
 <td>URL of the web where the nSPTiles list is (or should be created) (e.g. <code>'/'</code>, <code>'/subsite1'</code>, <code>'/subsite1/subsite2'</code>)</td>
 </tr>
 <tr>
-<th>onclick</th>
+<th><a name="onclick">onclick</a></th>
 <td>function</td>
 <td>function to call on tile clicks. can be used to run custom code like you would need for <a href="http://piwik.org/">Piwik</a>'s click tracking. the function will be passed two paramaters: the url and the type of link the tile is.<br><br>example:<br><code>function(url, link){...}</code>
 </td>
@@ -320,7 +325,7 @@ nSPTiles.init("nachoTiles", "group 4", {
 <h3>
 <a id="gui" class="anchor" href="#gui" aria-hidden="true"><span class="octicon octicon-link"></span></a>GUI</h3>
 
-<p>If you have permissions to add items to the <code>nSPTiles</code> list then when you hover over the area where the tiles are (or should/would be) then you'll see admin links that will let you <strong>add</strong>, <strong>move</strong>, <strong>edit</strong>, or <strong>delete</strong> tiles. The <strong>add</strong> and <strong>move</strong> options will let you use a GUI to draw where you want the tile to be within the container. The <strong>move</strong>, <strong>edit</strong>, and <strong>delete</strong> options will let you select a tile you want to work on.</p>
+<p>If you have permissions to add items to the <code>nSPTiles#</code> list then when you hover over the area where the tiles are (or should/would be) then you'll see admin links that will let you <strong>add</strong>, <strong>move</strong>, <strong>edit</strong>, or <strong>delete</strong> tiles. The <strong>add</strong> and <strong>move</strong> options will let you use a GUI to draw where you want the tile to be within the container. The <strong>move</strong>, <strong>edit</strong>, and <strong>delete</strong> options will let you select a tile you want to work on.</p>
 
 <p><img src="https://cloud.githubusercontent.com/assets/83817/8887700/874a9c2c-325b-11e5-870f-3b0ba78ded20.PNG" alt="enter image description here"></p>
 
@@ -329,23 +334,91 @@ nSPTiles.init("nachoTiles", "group 4", {
 
 <p>****** <strong>IMPORTANT</strong> ******</p>
 
-<p><strong>DO NOT add the DVWP WebPart to a page until <a href="#use-a-cewp-to-render-tiles">you've used a CEWP</a> at least once so the <code>nSPTiles</code> list has been created.</strong></p>
+<p><strong>DO NOT add the DVWP WebPart to a page until <a href="#first-time-use--use-a-cewp-to-render-tiles">you've used a CEWP</a> at least once so the <code>nSPTiles#</code> list has been created.</strong></p>
 
 <p>****** <strong>IMPORTANT</strong> ******</p>
 
-<p>UNDER CONSTRUCTION</p>
+<p>A DVWP pulls the tile data on the server side in an XML format then passes it through an XSL transformation before it it sends to the browser for rendering. Because it is done server-side the page load should be slightly faster.</p>
+
+<p><strong>NOTE</strong>: Because of deficiencies in how SharePoint manages DVWP WebParts, if you need to use <code>dvwp_webURL.webpart</code> because your <code>nSPTiles#</code> list is on a different SharePoint site then you need to edit the file before you can upload it to a WebPart page. Open the file in any text editor, search for the string <code>/test</code> (should be line 269) and change it to the webURL path you need then save the file. For example: <code>/subsite</code>, <code>/sites/teamSite</code>, etc...</p>
+
+<p>To add the DVWP to a WebPart page:</p>
+
+<ol>
+<li>add a WebPart like you normally would to the page</li>
+<li>use the upload option to upload and then add the DVWP file you want: <code>dvwp.webpart</code> or <code>dvwp_webURL.webpart</code>
+</li>
+<li>use the Parameters Editor option to change the parameters to your needs.</li>
+</ol>
 
 <h3>
 <a id="dvwp-paramater-reference" class="anchor" href="#dvwp-paramater-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>DVWP Paramater Reference</h3>
 
-<p>UNDER CONSTRUCTION</p>
+<p>DVWP paramaters look like this:</p>
+
+<div class="highlight highlight-xml"><pre>&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTilesJSPath<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTiles.1.0.min.js<span class="pl-pds">"</span></span>/&gt;
+&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>FontAwesomeCSSPath<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>font-awesome.min.css<span class="pl-pds">"</span></span>/&gt;
+&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>GroupName<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>group one<span class="pl-pds">"</span></span>/&gt;
+&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>AnimationSpeedInMillisecond<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>100<span class="pl-pds">"</span></span>/&gt;
+&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>AnimationTypeOn<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>slide<span class="pl-pds">"</span></span>/&gt;
+&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>AnimationTypeOff<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>bounce<span class="pl-pds">"</span></span>/&gt;
+&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>TileOnClick<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>function(url,type){}<span class="pl-pds">"</span></span>/&gt;</pre></div>
+
+<p>Change the <code>DefaultValue</code> as you need.</p>
+
+<p>Check <a href="#cewp-javascript-reference">CEWP JavaScript Reference</a> for details on each parameter. The DVWP parameters match the respective JavaScript paramaters:</p>
+
+<table>
+<thead>
+<tr>
+<th>DVWP paramater name</th>
+<th>CEWP paramater name</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nSPTilesJSPath</td>
+<td>n/a</td>
+<td>the path to the <code>nSPTiles.min.js</code> file</td>
+</tr>
+<tr>
+<td>FontAwesoeCSSPath</td>
+<td>n/a</td>
+<td>optional path to the Font-Awesome CSS</td>
+</tr>
+<tr>
+<td>GroupName</td>
+<td><a href="#groupName">groupName</a></td>
+<td></td>
+</tr>
+<tr>
+<td>AnimationSpeedInMillisecond</td>
+<td><a href="#animationTime">animationTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td>AnimationTypeOn</td>
+<td><a href="#animationTypeOn">animationTypeOn</a></td>
+<td></td>
+</tr>
+<tr>
+<td>AnimationTypeOff</td>
+<td><a href="#animationTypeOff">animationTypeOff</a></td>
+<td></td>
+</tr>
+<tr>
+<td>TileOnClick</td>
+<td><a href="#onclick">onclick</a></td>
+<td>the string value of <code>TileOnClick</code> can be a function string or a function name (i.e. <code>"function(url, type){}"</code> or <code>"someFunction"</code>)</td>
+</tr>
+</tbody>
+</table>
 
 <h3>
 <a id="nsptiles-list-reference" class="anchor" href="#nsptiles-list-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>nSPTiles List Reference</h3>
 
-<p>UNDER CONSTRUCTION</p>
-
-<p>Here are all the tile options and what they mean. Each one maps to a column/field in the <code>nSPTiles</code> list. Not all fields are required and not all fields are relevant depending on other settings.</p>
+<p>Here are all the tile options and what they mean. Each one maps to a column/field in the <code>nSPTiles#</code> list. Not all fields are required and not all fields are relevant depending on other settings.</p>
 
 <table>
 <thead>
@@ -356,8 +429,224 @@ nSPTiles.init("nachoTiles", "group 4", {
 </thead>
 <tbody>
 <tr>
-<td>WIP</td>
-<td>WIP</td>
+<td>group name</td>
+<td>the group this tile belongs to</td>
+</tr>
+<tr>
+<td>active</td>
+<td>can be used hide a tile without having to remove this entry</td>
+</tr>
+<tr>
+<td>tile width</td>
+<td>the width of the tile in px</td>
+</tr>
+<tr>
+<td>tile height</td>
+<td>the height of the tile in px</td>
+</tr>
+<tr>
+<td>tile left offset</td>
+<td>the left offset of the tile in px</td>
+</tr>
+<tr>
+<td>tile top offset</td>
+<td>the top offset of the tile in px</td>
+</tr>
+<tr>
+<td>tile border width</td>
+<td>the empty space around the tile in px</td>
+</tr>
+<tr>
+<td><a name="zoom">tile zoom on hover</a></td>
+<td>zoom effect for the tile by making the tile border width 0 when the mouse is over the tile</td>
+</tr>
+<tr>
+<td>tile link type</td>
+<td>the type of link to make</td>
+</tr>
+<tr>
+<td>tile link URL</td>
+<td>the URL for the link</td>
+</tr>
+<tr>
+<td>is heading</td>
+<td>heading tiles have no slider</td>
+</tr>
+<tr>
+<td>tile background color</td>
+<td>HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)</td>
+</tr>
+<tr>
+<td>tile background opacity</td>
+<td>opacity from 0 (transparent) to 100 (solid)<br><br>leave blank for none</td>
+</tr>
+<tr>
+<td>tile background color on hover</td>
+<td></td>
+</tr>
+<tr>
+<td>tile background opacity on hover</td>
+<td></td>
+</tr>
+<tr>
+<td>tile image URL</td>
+<td>URL of image to use in tile (must be less then 255 characters)</td>
+</tr>
+<tr>
+<td>tile image width</td>
+<td>width of tile image. use just a number to specify in px or end with a % (e.g. 50 or 75%)<br><br>helpful if the image is larger then the icon</td>
+</tr>
+<tr>
+<td>tile image height</td>
+<td>height of tile image. use just a number to specify in px or end with a % (e.g. 50 or 75%)<br>helpful if the image is larger then the icon</td>
+</tr>
+<tr>
+<td>tile image opacity</td>
+<td>opacity from 0 (transparent) to 100 (solid)<br>leave blank for none</td>
+</tr>
+<tr>
+<td>tile image padding</td>
+<td>how far from the edge of the tile should the image be in px</td>
+</tr>
+<tr>
+<td>tile image style</td>
+<td>css style to apply to the tile image (overrides above tile image options)</td>
+</tr>
+<tr>
+<td>tile image position</td>
+<td>position of the image in the tile</td>
+</tr>
+<tr>
+<td>tile image URL on hover</td>
+<td></td>
+</tr>
+<tr>
+<td>tile image style on hover</td>
+<td></td>
+</tr>
+<tr>
+<td>tile FA class</td>
+<td>Font Awesome icon class name</td>
+</tr>
+<tr>
+<td>tile FA color</td>
+<td>HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)</td>
+</tr>
+<tr>
+<td>tile FA opacity</td>
+<td>opacity from 0 (transparent) to 100 (solid)<br><br>leave blank for none</td>
+</tr>
+<tr>
+<td>tile FA padding</td>
+<td>how far from the edge of the tile should the icon be in px</td>
+</tr>
+<tr>
+<td>tile FA style</td>
+<td>css style to apply to the FA icon (overrides above tile FA options)</td>
+</tr>
+<tr>
+<td>tile FA position</td>
+<td>position of the icon in the tile</td>
+</tr>
+<tr>
+<td>tile FA class on hover</td>
+<td></td>
+</tr>
+<tr>
+<td>tile FA style on hover</td>
+<td></td>
+</tr>
+<tr>
+<td>heading content</td>
+<td>can use HTML</td>
+</tr>
+<tr>
+<td>heading bolded</td>
+<td>should the heading text be bold</td>
+</tr>
+<tr>
+<td>heading font color</td>
+<td>HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)</td>
+</tr>
+<tr>
+<td>heading font size</td>
+<td>font size for the heading in px</td>
+</tr>
+<tr>
+<td>heading padding</td>
+<td>padding for the heading in px</td>
+</tr>
+<tr>
+<td>heading style</td>
+<td>css style to apply to heading (overrides above heading options)</td>
+</tr>
+<tr>
+<td>heading position</td>
+<td>position of the heading in the tile or slider heading</td>
+</tr>
+<tr>
+<td>heading content on hover</td>
+<td></td>
+</tr>
+<tr>
+<td>heading style on hover</td>
+<td></td>
+</tr>
+<tr>
+<td>slider heading height</td>
+<td>height of the header for the slider in px</td>
+</tr>
+<tr>
+<td>slider body content</td>
+<td>can use HTML</td>
+</tr>
+<tr>
+<td>slider body font color</td>
+<td>HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)</td>
+</tr>
+<tr>
+<td>slider body font size</td>
+<td>font size for the slider body in px</td>
+</tr>
+<tr>
+<td>slider body padding</td>
+<td>padding of the slider body in px</td>
+</tr>
+<tr>
+<td>slider body style</td>
+<td>css style to apply to slider body (overrides above slider body options)</td>
+</tr>
+<tr>
+<td>slider body position</td>
+<td>position of the slider body in the slider</td>
+</tr>
+<tr>
+<td>slider background color</td>
+<td>HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)</td>
+</tr>
+<tr>
+<td>slider background opacity</td>
+<td>opacity from 0 (transparent) to 100 (solid)<br><br>leave blank for none</td>
+</tr>
+<tr>
+<td>slider background color on hover</td>
+<td></td>
+</tr>
+<tr>
+<td>slider background opacity on hover</td>
+<td></td>
+</tr>
+<tr>
+<td>tile image and FA slider heading push</td>
+<td>if the tile image and/or FA are positioned on the bottom then push them on top of the slider heading</td>
+</tr>
+<tr>
+<td>tile custom ID</td>
+<td>custom ID to use for the tile<br><br>default is nTile_[ID] where ID is the ID of the entry in the list</td>
+</tr>
+<tr>
+<td>tile custom class(es)</td>
+<td>custom class(s) to add to the tile</td>
 </tr>
 </tbody>
 </table>
@@ -431,8 +720,8 @@ nSPTiles.init("nachoTiles", "group 4", {
 
 <p>If anyone is able to test on other SharePoint installations and/or browsers, or knows where I can access/test on other SharePoint installations, I would appreciate feedback.</p>
 
-<h3>
-<a id="change-log" class="anchor" href="#change-log" aria-hidden="true"><span class="octicon octicon-link"></span></a>Change Log</h3>
+<h2>
+<a id="change-log" class="anchor" href="#change-log" aria-hidden="true"><span class="octicon octicon-link"></span></a>Change Log</h2>
 
 <table>
 <thead>
@@ -449,24 +738,24 @@ nSPTiles.init("nachoTiles", "group 4", {
 </tbody>
 </table>
 
-<h3>
-<a id="to-do--enhancement-requests" class="anchor" href="#to-do--enhancement-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>To Do / Enhancement Requests</h3>
+<h2>
+<a id="to-do--enhancement-requests" class="anchor" href="#to-do--enhancement-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>To Do / Enhancement Requests</h2>
 
 <ol>
 <li>[x] publish initial 1.0 release</li>
-<li>[x] allow an alternate WebURL to use <code>nSPTiles</code> from a different SP site</li>
+<li>[x] allow an alternate WebURL to use <code>nSPTiles#</code> from a different SP site</li>
 <li>[x] allow running a custom function on tile click (can be used to run custom code to do things like Piwik click tracking)</li>
-<li>[ ] real-time preview of tiles in the data sheet view of the <code>nSPTiles</code> list so you can see the effect of your changes immediately</li>
+<li>[ ] real-time preview of tiles in the data sheet view of the <code>nSPTiles#</code> list so you can see the effect of your changes immediately</li>
 <li>[ ] ...waiting for ideas/enhancement from users</li>
 </ol>
 
-<h3>
-<a id="support--issues--contact--help" class="anchor" href="#support--issues--contact--help" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support / Issues / Contact / Help</h3>
+<h2>
+<a id="support--issues--contact--help" class="anchor" href="#support--issues--contact--help" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support / Issues / Contact / Help</h2>
 
 <p>If you are familiar with <a href="https://github.com">GitHub</a> and know how to submit issues then please do so at <a href="https://github.com/imthenachoman/nSPTiles/issues">https://github.com/imthenachoman/nSPTiles/issues</a>. Or if you prefer you can e-mail me at imthenachoman (at) gmail (dot) com</p>
 
-<h3>
-<a id="references-acknowledgement-and-gratitude" class="anchor" href="#references-acknowledgement-and-gratitude" aria-hidden="true"><span class="octicon octicon-link"></span></a>References, Acknowledgement, and Gratitude</h3>
+<h2>
+<a id="references-acknowledgement-and-gratitude" class="anchor" href="#references-acknowledgement-and-gratitude" aria-hidden="true"><span class="octicon octicon-link"></span></a>References, Acknowledgement, and Gratitude</h2>
 
 <ul>
 <li>
@@ -479,10 +768,13 @@ nSPTiles.init("nachoTiles", "group 4", {
 <a href="https://github.com/danro/jquery-easing/blob/master/jquery.easing.js">jQuery's easing functions</a> (<a href="https://github.com/danro/jquery-easing/blob/master/jquery.easing.js">https://github.com/danro/jquery-easing/blob/master/jquery.easing.js</a>) by George McGinley Smith</li>
 </ul>
 
-<h3>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h3>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p><a href="https://github.com/imthenachoman/nSPTiles/blob/master/LICENSE">MIT License</a> -  <a href="https://github.com/imthenachoman/nSPTiles/blob/master/LICENSE">https://github.com/imthenachoman/nSPTiles/blob/master/LICENSE</a></p>
+
+<h2>
+<a id="disqus" class="anchor" href="#disqus" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disqus</h2>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/imthenachoman/nSPTiles">nSPTiles</a> is maintained by <a href="https://github.com/imthenachoman">imthenachoman</a>.</span>
