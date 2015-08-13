@@ -231,8 +231,8 @@ tile link URL | the URL for the link
 is heading | heading tiles have no slider
 tile background color | HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)
 tile background opacity | opacity from 0 (transparent) to 100 (solid)<br /><br />leave blank for none
-tile background color on hover | undefined
-tile background opacity on hover | undefined
+tile background color on hover | 
+tile background opacity on hover | 
 tile image URL | URL of image to use in tile (must be less then 255 characters)
 tile image width | width of tile image. use just a number to specify in px or end with a % (e.g. 50 or 75%)<br /><br />helpful if the image is larger then the icon
 tile image height | height of tile image. use just a number to specify in px or end with a % (e.g. 50 or 75%)<br />helpful if the image is larger then the icon
@@ -240,16 +240,16 @@ tile image opacity | opacity from 0 (transparent) to 100 (solid)<br />leave blan
 tile image padding | how far from the edge of the tile should the image be in px
 tile image style | css style to apply to the tile image (overrides above tile image options)
 tile image position | position of the image in the tile
-tile image URL on hover | undefined
-tile image style on hover | undefined
+tile image URL on hover | 
+tile image style on hover | 
 tile FA class | Font Awesome icon class name
 tile FA color | HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)
 tile FA opacity | opacity from 0 (transparent) to 100 (solid)<br /><br />leave blank for none
 tile FA padding | how far from the edge of the tile should the icon be in px
 tile FA style | css style to apply to the FA icon (overrides above tile FA options)
 tile FA position | position of the icon in the tile
-tile FA class on hover | undefined
-tile FA style on hover | undefined
+tile FA class on hover | 
+tile FA style on hover | 
 heading content | can use HTML
 heading bolded | should the heading text be bold
 heading font color | HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)
@@ -257,8 +257,8 @@ heading font size | font size for the heading in px
 heading padding | padding for the heading in px
 heading style | css style to apply to heading (overrides above heading options)
 heading position | position of the heading in the tile or slider heading
-heading content on hover | undefined
-heading style on hover | undefined
+heading content on hover | 
+heading style on hover | 
 slider heading height | height of the header for the slider in px
 slider body content | can use HTML
 slider body font color | HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)
@@ -268,8 +268,8 @@ slider body style | css style to apply to slider body (overrides above slider bo
 slider body position | position of the slider body in the slider
 slider background color | HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)
 slider background opacity | opacity from 0 (transparent) to 100 (solid)<br /><br />leave blank for none
-slider background color on hover | undefined
-slider background opacity on hover | undefined
+slider background color on hover | 
+slider background opacity on hover | 
 tile image and FA slider heading push | if the tile image and/or FA are positioned on the bottom then push them on top of the slider heading
 tile custom ID | custom ID to use for the tile<br /><br />default is nTile_[ID] where ID is the ID of the entry in the list
 tile custom class(es) | custom class(s) to add to the tile
