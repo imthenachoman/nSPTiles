@@ -95,7 +95,9 @@ Upload the `nSPTiles.min.js` file to a document library in your SharePoint site.
 ### First Time Use / Use A CEWP To Render Tiles
 
 \*\*\*
+
 *The first time you use* ***nSPTiles*** *you will see a message like this. Follow the instructions to create the `nSPTiles#` list.*
+
 \*\*\*
 
 ![enter image description here](https://cloud.githubusercontent.com/assets/83817/8887698/8747710a-325b-11e5-8107-1c97315c14d6.PNG)
