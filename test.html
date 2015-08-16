@@ -6,6 +6,7 @@
     </head>
 
     <body>
-        {% include_relative README.md %}
+        {% capture README %}{% include_relative README.md %}{% endcapture %}
+        {{ README | markdownify }}
     </body>
 </html>
