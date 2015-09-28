@@ -99,7 +99,7 @@
         <section class="page-header">
             <h1 class="project-name">nSPTiles</h1>
             <h2 class="project-tagline">Windows style tiles for SharePoint</h2>
-            <a class="btn" href="https://github.com/imthenachoman/nSPTiles/releases/download/1.0/nSPTiles.1.0.zip">download nSPTiles.1.0.zip</a> <a class="btn" href="https://github.com/imthenachoman/nSPTiles">View on GitHub</a>
+            <a class="btn" href="https://github.com/imthenachoman/nSPTiles/releases/download/1.1/nSPTiles.1.1.zip">download nSPTiles.1.1.zip</a> <a class="btn" href="https://github.com/imthenachoman/nSPTiles">View on GitHub</a>
         </section>
         <section class="main-content">
             <h1><a class="anchor" href="#nsptiles" id="nsptiles"><span class="octicon octicon-link"></span></a>nSPTiles</h1>
@@ -450,7 +450,7 @@ nSPTiles.init("nachoTiles", "group 4", {
             </p>
             <div class="highlight highlight-xml">
                 <pre>
-&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTilesJSPath<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTiles.1.0.min.js<span class="pl-pds">"</span></span>/&gt;
+&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTilesJSPath<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTiles.1.1.min.js<span class="pl-pds">"</span></span>/&gt;
 &lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>FontAwesomeCSSPath<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>font-awesome.min.css<span class="pl-pds">"</span></span>/&gt;
 &lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>GroupName<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>group one<span class="pl-pds">"</span></span>/&gt;
 &lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>AnimationSpeedInMillisecond<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>100<span class="pl-pds">"</span></span>/&gt;
@@ -852,6 +852,15 @@ nSPTiles.init("nachoTiles", "group 4", {
                     <tr>
                         <td>1.0</td>
                         <td>initial release</td>
+                    </tr>
+                    <tr>
+                        <td>1.1</td>
+                        <td>
+                            <ul>
+                                <li>fixed a bug where when cloning a tile the info tile still said "New"</li>
+                                <li>for the admin menu, hovering over the tiles now shows "..." until the mouse is over the "..."</li>
+                            </ul>
+                        </td>
                     </tr>
                 </tbody>
             </table>
