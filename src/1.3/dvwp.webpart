@@ -8,7 +8,7 @@
       <properties>
         <property name="InitialAsyncDataFetch" type="bool">False</property>
         <property name="ChromeType" type="chrometype">None</property>
-        <property name="Title" type="string">nSPTiles1_2</property>
+        <property name="Title" type="string">nSPTiles1_3</property>
         <property name="Height" type="string" />
         <property name="CacheXslStorage" type="bool">True</property>
         <property name="XslLink" type="string" null="true" />
@@ -265,7 +265,7 @@
         <property name="TitleUrl" type="string" />
         <property name="CatalogIconImageUrl" type="string" />
         <property name="DataSourcesString" type="string">&lt;%@ Register TagPrefix="sharepoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %&gt;&lt;%@ Register TagPrefix="webpartpages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %&gt;&lt;sharepoint:SPDataSource runat="server" DataSourceMode="List" SelectCommand="&amp;lt;View&amp;gt;&amp;lt;Query&amp;gt;&amp;lt;Where&amp;gt;&amp;lt;And&amp;gt;&amp;lt;Eq&amp;gt;&amp;lt;FieldRef Name=&amp;quot;Title&amp;quot;/&amp;gt;&amp;lt;Value Type=&amp;quot;Text&amp;quot;&amp;gt;{GroupName}&amp;lt;/Value&amp;gt;&amp;lt;/Eq&amp;gt;&amp;lt;Eq&amp;gt;&amp;lt;FieldRef Name=&amp;quot;nActive&amp;quot;/&amp;gt;&amp;lt;Value Type=&amp;quot;Boolean&amp;quot;&amp;gt;1&amp;lt;/Value&amp;gt;&amp;lt;/Eq&amp;gt;&amp;lt;/And&amp;gt;&amp;lt;/Where&amp;gt;&amp;lt;/Query&amp;gt;&amp;lt;/View&amp;gt;" UpdateCommand="" InsertCommand="" DeleteCommand="" UseInternalName="True" ID="dataformwebpart1"&gt;&lt;SelectParameters&gt;
-&lt;asp:Parameter DefaultValue="nSPTiles1_2" Name="ListName"&gt;&lt;/asp:Parameter&gt;
+&lt;asp:Parameter DefaultValue="nSPTiles1_3" Name="ListName"&gt;&lt;/asp:Parameter&gt;
 &lt;webpartpages:DataFormParameter ParameterKey="GroupName" PropertyName="ParameterValues" DefaultValue="group 1" Name="GroupName"&gt;&lt;/webpartpages:DataFormParameter&gt;
 &lt;/SelectParameters&gt;
 &lt;/sharepoint:SPDataSource&gt;
