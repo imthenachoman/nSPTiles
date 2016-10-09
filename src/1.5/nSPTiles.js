@@ -1277,11 +1277,11 @@ var nSPTiles = nSPTiles || (function()
         {
         	var fields = rows[i];
         	soapBody += '<Method ID="' + (i + 1) + '" Cmd="' + action + '">';
-        	for(var i in fields)
+        	for(var j in fields)
 	        {
-	            if(fields.hasOwnProperty(i))
+	            if(fields.hasOwnProperty(j))
 	            {
-	                soapBody += '<Field Name="' + i + '">' + fields[i] + '</Field>';
+	                soapBody += '<Field Name="' + j + '">' + fields[j] + '</Field>';
 	            }
 	        }
 
@@ -2211,7 +2211,7 @@ var nSPTiles = nSPTiles || (function()
  *
  * Open source under the BSD License.
  *
- * Copyright © 2001 Robert Penner
+ * Copyright Â© 2001 Robert Penner
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
