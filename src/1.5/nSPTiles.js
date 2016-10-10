@@ -485,9 +485,9 @@ var nSPTiles = nSPTiles || (function()
                 MaxLength: "255"
             },
             {
-            	DisplayName: "tile HTML override",
-            	Type: "Note",
-            	Description: "override all header and slider settings and use this HTML for the tile content instead",
+                DisplayName: "tile HTML override",
+                Type: "Note",
+                Description: "override all header and slider settings and use this HTML for the tile content instead",
                 Default: "",
                 Required: "FALSE",
                 NumLines: "5",
@@ -1010,7 +1010,7 @@ var nSPTiles = nSPTiles || (function()
                     // something else went wrong
                     else
                     {
-                    	completeFunc(4);
+                        completeFunc(4);
                     }
                 }
                 return;
@@ -1064,7 +1064,7 @@ var nSPTiles = nSPTiles || (function()
                     var doZoom = nTileZoomOnHover === "Yes" || nTileZoomOnHover === "1";
                     
                     var tileClass = (row.getAttribute("ows_nTileCustomClassEs") || "") + " nTile nTile_" + row.getAttribute("ows_ID");
-					
+                    
                     // the on mouse over function for the tile
                     var tileOnMouseEnter = "nSPTiles.hover(true, this, " + !(isHeadingTile || !!nTileHTMLOverride) + ", " + doZoom + ")";
                     var tileOnMouseLeave = "nSPTiles.hover(false, this, " + !(isHeadingTile || !!nTileHTMLOverride) + ", " + doZoom + ")";
@@ -1075,8 +1075,8 @@ var nSPTiles = nSPTiles || (function()
                     }
                     
                     var tileOnClick = "nSPTiles.openLink(this, '" + row.getAttribute("ows_nTileLinkType") + "', '" + escape(row.getAttribute("ows_nTileLinkURL") || "") + "', false)";
-					
-					// find the max bottom and right edge so we know the size of the tiles wrapper/container
+                    
+                    // find the max bottom and right edge so we know the size of the tiles wrapper/container
                     if(maxRightEdge < nCcTileRightEdge)
                     {
                         maxRightEdge = nCcTileRightEdge;
@@ -1085,7 +1085,7 @@ var nSPTiles = nSPTiles || (function()
                     {
                         maxBottomEdge = nCcTileBottomEdge;
                     }
-					
+                    
                     // start the HTML for the tile
                     var thisTileHTML = '<div class="nTileContentWrapper" style="' + row.getAttribute("ows_nCcTileContentWrapperStyle").replace(/^[a-z]*?;#/i, "") + '">';
 
@@ -1131,16 +1131,16 @@ var nSPTiles = nSPTiles || (function()
                         // if we have a tile FA
                         if(nCcTileFAClass)
                         {
-                        	//var makePositionHTML = function(className, tableStyle, row1Style, cell1Content, row2Style, cell2Content)
-                        	var thisTilePositionContent = nTileFAHTMLOverride;
-                        	if(thisTilePositionContent == "")
-                        	{
-	                        	thisTilePositionContent = '<span class="' + nCcTileFAClass  + '" style="' + (row.getAttribute("ows_nCcTileFAStyle").replace(/^[a-z]*?;#/i, "")) +'"></span>';
-	                            if(nCcTileFAClassOnHover)
-	                            {
-	                                thisTilePositionContent += '<span class="' + nCcTileFAClassOnHover  + '" style="' + (row.getAttribute("ows_nCcTileFAStyleOnHover").replace(/^[a-z]*?;#/i, "")) +'"></span>';
-	                            }
-                        	}
+                            //var makePositionHTML = function(className, tableStyle, row1Style, cell1Content, row2Style, cell2Content)
+                            var thisTilePositionContent = nTileFAHTMLOverride;
+                            if(thisTilePositionContent == "")
+                            {
+                                thisTilePositionContent = '<span class="' + nCcTileFAClass  + '" style="' + (row.getAttribute("ows_nCcTileFAStyle").replace(/^[a-z]*?;#/i, "")) +'"></span>';
+                                if(nCcTileFAClassOnHover)
+                                {
+                                    thisTilePositionContent += '<span class="' + nCcTileFAClassOnHover  + '" style="' + (row.getAttribute("ows_nCcTileFAStyleOnHover").replace(/^[a-z]*?;#/i, "")) +'"></span>';
+                                }
+                            }
 
                             thisTileHTML += makePositionHTML("nTileFAPositionWrapper", (row.getAttribute("ows_nCcTileImageAndFaTableStyle").replace(/^[a-z]*?;#/i, "")), (row.getAttribute("ows_nCcTileFAPositionStyle").replace(/^[a-z]*?;#/i, "")), thisTilePositionContent);
                         }
@@ -1193,7 +1193,7 @@ var nSPTiles = nSPTiles || (function()
                     thisTileHTML += '</div>';
                     
                     // add this tile's HTML to the master HTML
-                    tilesHTML += '<div id="' + (row.getAttribute("ows_nTileCustomID") || "nTile_" + row.getAttribute("ows_ID")) +'" class="' + tileClass + '" style="' + row.getAttribute("ows_nCcTileStyle").replace(/^[a-z]*?;#/i, "") + '" onmouseenter="' + tileOnMouseEnter + '" onmouseleave="' + tileOnMouseLeave + '" onclick="' + tileOnClick	 + '">' + thisTileHTML + '</div>';
+                    tilesHTML += '<div id="' + (row.getAttribute("ows_nTileCustomID") || "nTile_" + row.getAttribute("ows_ID")) +'" class="' + tileClass + '" style="' + row.getAttribute("ows_nCcTileStyle").replace(/^[a-z]*?;#/i, "") + '" onmouseenter="' + tileOnMouseEnter + '" onmouseleave="' + tileOnMouseLeave + '" onclick="' + tileOnClick     + '">' + thisTileHTML + '</div>';
                 }
                 
                 // if we have a max bottom and right
@@ -1275,17 +1275,17 @@ var nSPTiles = nSPTiles || (function()
         
         for(var i = 0, numRows = rows.length; i < numRows; ++i)
         {
-        	var fields = rows[i];
-        	soapBody += '<Method ID="' + (i + 1) + '" Cmd="' + action + '">';
-        	for(var j in fields)
-	        {
-	            if(fields.hasOwnProperty(j))
-	            {
-	                soapBody += '<Field Name="' + j + '">' + fields[j] + '</Field>';
-	            }
-	        }
+            var fields = rows[i];
+            soapBody += '<Method ID="' + (i + 1) + '" Cmd="' + action + '">';
+            for(var j in fields)
+            {
+                if(fields.hasOwnProperty(j))
+                {
+                    soapBody += '<Field Name="' + j + '">' + fields[j] + '</Field>';
+                }
+            }
 
-        	soapBody += '</Method>';
+            soapBody += '</Method>';
         }
         
         soapBody += '</Batch>';
@@ -1298,65 +1298,65 @@ var nSPTiles = nSPTiles || (function()
     // opens a tile link
     var openLink = tiles.openLink = function(tile, type, url, isDVWP)
     {
-		if(type === "none") return;
+        if(type === "none") return;
         var holderID = tile.parentNode.parentNode.id;
-		if(isDVWP) url = createElement("div", null, null, {innerHTML : url}).innerText;
-		else url = unescape(url);
-		
+        if(isDVWP) url = createElement("div", null, null, {innerHTML : url}).innerText;
+        else url = unescape(url);
+        
         if(/^mailto:.*?@.*$/.test(url))
         {
-        	window.location = url;
+            window.location = url;
         }
         else
         {
-	        var options = {"url" : url};
-	        switch(type)
-	        {
-				case "javascript":
-					eval(url);
-					break;
-				case "sub-group":
-					nSPTiles.init(holderID, url);
-					break;
-	        	case "mailto":
-	        		location.href = "mailto:" + url;
-	        		break;
-	            case "current window":
-	                location.href = url;
-	                break;
-	            case "new window":
-	                window.open(url);
-	                break;
-	            case "dialog":
-	                SP.UI.ModalDialog.showModalDialog(options);
-	                break;
-	            case "dialog (refresh window after save)":
-	                options.dialogReturnValueCallback = function(dialogResult)
-	                {
-	                    if(dialogResult == SP.UI.DialogResult.OK)
-	                    {
-	                        location.href = location.href;
-	                    }
-	                };
-	                SP.UI.ModalDialog.showModalDialog(options);
-	                break;
-	            case "dialog (refresh tiles after save)":
-	                options.dialogReturnValueCallback = function(dialogResult)
-	                {
-	                    if(dialogResult == SP.UI.DialogResult.OK)
-	                    {
-	                        reload(tile.parentNode.parentNode.id, true);
-	                    }
-	                };
-	                SP.UI.ModalDialog.showModalDialog(options);
-	                break;
-	            default:
-	                alert("I don't know how to handle open a link of type '" + type + "'.");
-	                break;
-	        }
-	    }
-	    
-	    if(tilesTracker[holderID].onclick) tilesTracker[holderID].onclick(url, type, holderID, tilesTracker[holderID].groupName, tile.id, tile.className.match(/\bnTile_(\d+)\b/)[1]);
+            var options = {"url" : url};
+            switch(type)
+            {
+                case "javascript":
+                    eval(url);
+                    break;
+                case "sub-group":
+                    nSPTiles.init(holderID, url);
+                    break;
+                case "mailto":
+                    location.href = "mailto:" + url;
+                    break;
+                case "current window":
+                    location.href = url;
+                    break;
+                case "new window":
+                    window.open(url);
+                    break;
+                case "dialog":
+                    SP.UI.ModalDialog.showModalDialog(options);
+                    break;
+                case "dialog (refresh window after save)":
+                    options.dialogReturnValueCallback = function(dialogResult)
+                    {
+                        if(dialogResult == SP.UI.DialogResult.OK)
+                        {
+                            location.href = location.href;
+                        }
+                    };
+                    SP.UI.ModalDialog.showModalDialog(options);
+                    break;
+                case "dialog (refresh tiles after save)":
+                    options.dialogReturnValueCallback = function(dialogResult)
+                    {
+                        if(dialogResult == SP.UI.DialogResult.OK)
+                        {
+                            reload(tile.parentNode.parentNode.id, true);
+                        }
+                    };
+                    SP.UI.ModalDialog.showModalDialog(options);
+                    break;
+                default:
+                    alert("I don't know how to handle open a link of type '" + type + "'.");
+                    break;
+            }
+        }
+        
+        if(tilesTracker[holderID].onclick) tilesTracker[holderID].onclick(url, type, holderID, tilesTracker[holderID].groupName, tile.id, tile.className.match(/\bnTile_(\d+)\b/)[1]);
     };
 
     // hover over a tile
@@ -1502,7 +1502,7 @@ var nSPTiles = nSPTiles || (function()
                     holder.innerHTML = "";
                     createElement("input", holder, null, {value: "List '" + LIST_NAME + "' does not exist at '" + tilesData.siteURL + "'. Click here to create it.", type: "button", onclick: function()
                     {
-                    	holder.innerHTML = "creating list...";
+                        holder.innerHTML = "creating list...";
                         // the soap request to create the list
                         var soapBody = '';
                         soapBody += '<AddList xmlns="http://schemas.microsoft.com/sharepoint/soap/">';
@@ -1516,7 +1516,7 @@ var nSPTiles = nSPTiles || (function()
                         {
                             if(!status)
                             {
-                            	holder.innerHTML += "error";
+                                holder.innerHTML += "error";
                             }
                             else
                             {
@@ -1620,131 +1620,131 @@ var nSPTiles = nSPTiles || (function()
                                     {
                                         if(status)
                                         {
-                                        	holder.innerHTML += "done<br />adding webpart to new and edit forms...";
-                                        	
-                                        	// update the form to be able to toggle rows
-                                        	ExecuteOrDelayUntilScriptLoaded(function()
-						                    {
-						                    	var webPartXml = '';
-												webPartXml += '<?xml version="1.0" encoding="utf-8"?>';
-												webPartXml += '<WebPart xmlns="http://schemas.microsoft.com/WebPart/v2">';
-												webPartXml += '    <Assembly>Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c</Assembly>';
-												webPartXml += '    <TypeName>Microsoft.SharePoint.WebPartPages.ContentEditorWebPart</TypeName>';
-												webPartXml += '    <Title>hidden</Title>';
-												webPartXml += '    <Description>$Resources:core,ContentEditorWebPartDescription;</Description>';
-												webPartXml += '    <PartImageLarge>/_layouts/15/images/mscontl.gif</PartImageLarge>';
-												webPartXml += '    <Content xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor"><![CDATA[<style type="text/css">.expand, .collapse{font-family: courier} .expanded .expand{display: none;} .collapsed .collapse{display: none;}</style><script type="text/javascript">function toggle(a, count){var newDisplay = a.className == "expanded" ? "none" : "table-row";var tr = a.parentNode.parentNode;while(count--){tr = "nextElementSibling" in tr ? tr.nextElementSibling : tr.nextSibling;tr.style.display = newDisplay;}a.className = a.className == "expanded" ? "collapsed" : "expanded";}function addHeading(start, count, text){var td = table.insertRow(start).insertCell(0);td.colSpan = 2;td.className = "ms-formbody";td.innerHTML = "<a href=\'#\' class=\'expanded\' onclick=\'toggle(this, " + count + "); return false\' style=\'font-size: x-large; font-weight: bold;\'><span class=\'expand\'>+</span><span class=\'collapse\'>-</span>&nbsp;" + text + "</a>&nbsp;&nbsp;&nbsp;&nbsp;(click to show/hide)";td.querySelector("a").click();}var table = document.querySelector(".ms-formtable tbody");var rows = document.querySelectorAll(".ms-formtable tr");addHeading(2, 3, "heading and slider content");addHeading(6, 7, "layout");addHeading(14, 2, "link");addHeading(17, 9, "image");addHeading(27, 9, "Font Awesome");addHeading(37, 4, "background");addHeading(42, 7, "heading style");addHeading(50, 10, "slider style");addHeading(61, 4, "misc");addHeading(66, 2, "view permissions");</script>]]></Content>';
-												webPartXml += '    <IsVisible>false</IsVisible>';
-												webPartXml += '</WebPart>';
+                                            holder.innerHTML += "done<br />adding webpart to new and edit forms...";
+                                            
+                                            // update the form to be able to toggle rows
+                                            ExecuteOrDelayUntilScriptLoaded(function()
+                                            {
+                                                var webPartXml = '';
+                                                webPartXml += '<?xml version="1.0" encoding="utf-8"?>';
+                                                webPartXml += '<WebPart xmlns="http://schemas.microsoft.com/WebPart/v2">';
+                                                webPartXml += '    <Assembly>Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c</Assembly>';
+                                                webPartXml += '    <TypeName>Microsoft.SharePoint.WebPartPages.ContentEditorWebPart</TypeName>';
+                                                webPartXml += '    <Title>hidden</Title>';
+                                                webPartXml += '    <Description>$Resources:core,ContentEditorWebPartDescription;</Description>';
+                                                webPartXml += '    <PartImageLarge>/_layouts/15/images/mscontl.gif</PartImageLarge>';
+                                                webPartXml += '    <Content xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor"><![CDATA[<style type="text/css">.expand, .collapse{font-family: courier} .expanded .expand{display: none;} .collapsed .collapse{display: none;}</style><script type="text/javascript">function toggle(a, count){var newDisplay = a.className == "expanded" ? "none" : "table-row";var tr = a.parentNode.parentNode;while(count--){tr = "nextElementSibling" in tr ? tr.nextElementSibling : tr.nextSibling;tr.style.display = newDisplay;}a.className = a.className == "expanded" ? "collapsed" : "expanded";}function addHeading(start, count, text){var td = table.insertRow(start).insertCell(0);td.colSpan = 2;td.className = "ms-formbody";td.innerHTML = "<a href=\'#\' class=\'expanded\' onclick=\'toggle(this, " + count + "); return false\' style=\'font-size: x-large; font-weight: bold;\'><span class=\'expand\'>+</span><span class=\'collapse\'>-</span>&nbsp;" + text + "</a>&nbsp;&nbsp;&nbsp;&nbsp;(click to show/hide)";td.querySelector("a").click();}var table = document.querySelector(".ms-formtable tbody");var rows = document.querySelectorAll(".ms-formtable tr");addHeading(2, 3, "heading and slider content");addHeading(6, 7, "layout");addHeading(14, 2, "link");addHeading(17, 9, "image");addHeading(27, 9, "Font Awesome");addHeading(37, 4, "background");addHeading(42, 7, "heading style");addHeading(50, 10, "slider style");addHeading(61, 4, "misc");addHeading(66, 2, "view permissions");</script>]]></Content>';
+                                                webPartXml += '    <IsVisible>false</IsVisible>';
+                                                webPartXml += '</WebPart>';
 
-											    var clientContext = new SP.ClientContext(tilesData.webURL);
-											    var web = clientContext.get_web();
-											    
-											    var newFormFile = web.getFileByServerRelativeUrl(tilesData.webURL + "Lists/" + LIST_NAME + "/NewForm.aspx");
-											    var newFormWebPartManager = newFormFile.getLimitedWebPartManager(SP.WebParts.PersonalizationScope.shared);
-											    var newFormwebPartDefinition = newFormWebPartManager.importWebPart(webPartXml);
-											    var newFormWebPart = newFormwebPartDefinition.get_webPart();
-											    newFormWebPartManager.addWebPart(newFormWebPart, "Main", 10);
-											    clientContext.load(newFormWebPart);
-											    
-											    var editFormFile = web.getFileByServerRelativeUrl(tilesData.webURL + "Lists/" + LIST_NAME + "/EditForm.aspx");
-											    var editFormWebPartManager = editFormFile.getLimitedWebPartManager(SP.WebParts.PersonalizationScope.shared);
-											    var editFormwebPartDefinition = editFormWebPartManager.importWebPart(webPartXml);
-											    var editFormWebPart = editFormwebPartDefinition.get_webPart();
-											    editFormWebPartManager.addWebPart(editFormWebPart, "Left", 10);
-											    clientContext.load(editFormWebPart);
-											    
-											    clientContext.executeQueryAsync(Function.createDelegate(this, function()
-											    {
-											    	holder.innerHTML += "done<br />updating default view...";
-													
-		                                            // update the default view to add the edit and ID columns
-		                                        	var soapBody = '';
-												    soapBody += '<UpdateView xmlns="http://schemas.microsoft.com/sharepoint/soap/">'
-												    soapBody += '    <listName>' + LIST_NAME + '</listName>'
-												    soapBody += '    <query><Query><OrderBy><FieldRef Name="ID" /></OrderBy></Query></query>'
-												    soapBody += '    <viewFields><ViewFields><FieldRef Name="Edit" /><FieldRef Name="LinkTitle" />' + getFieldRefXML() + '</ViewFields></viewFields>';
-												    soapBody += '    <rowLimit><RowLimit Paged="True">1000</RowLimit></rowLimit>'
-												    soapBody += '</UpdateView>'
-												    
-												    SPWebServiceCall(tilesData.siteURL, "views.asmx?op=UpdateView", "http://schemas.microsoft.com/sharepoint/soap/UpdateView", soapBody, function(status, xhr)
-												    {
-												        if(status)
-												        {
+                                                var clientContext = new SP.ClientContext(tilesData.webURL);
+                                                var web = clientContext.get_web();
+                                                
+                                                var newFormFile = web.getFileByServerRelativeUrl(tilesData.webURL + "Lists/" + LIST_NAME + "/NewForm.aspx");
+                                                var newFormWebPartManager = newFormFile.getLimitedWebPartManager(SP.WebParts.PersonalizationScope.shared);
+                                                var newFormwebPartDefinition = newFormWebPartManager.importWebPart(webPartXml);
+                                                var newFormWebPart = newFormwebPartDefinition.get_webPart();
+                                                newFormWebPartManager.addWebPart(newFormWebPart, "Main", 10);
+                                                clientContext.load(newFormWebPart);
+                                                
+                                                var editFormFile = web.getFileByServerRelativeUrl(tilesData.webURL + "Lists/" + LIST_NAME + "/EditForm.aspx");
+                                                var editFormWebPartManager = editFormFile.getLimitedWebPartManager(SP.WebParts.PersonalizationScope.shared);
+                                                var editFormwebPartDefinition = editFormWebPartManager.importWebPart(webPartXml);
+                                                var editFormWebPart = editFormwebPartDefinition.get_webPart();
+                                                editFormWebPartManager.addWebPart(editFormWebPart, "Left", 10);
+                                                clientContext.load(editFormWebPart);
+                                                
+                                                clientContext.executeQueryAsync(Function.createDelegate(this, function()
+                                                {
+                                                    holder.innerHTML += "done<br />updating default view...";
+                                                    
+                                                    // update the default view to add the edit and ID columns
+                                                    var soapBody = '';
+                                                    soapBody += '<UpdateView xmlns="http://schemas.microsoft.com/sharepoint/soap/">'
+                                                    soapBody += '    <listName>' + LIST_NAME + '</listName>'
+                                                    soapBody += '    <query><Query><OrderBy><FieldRef Name="ID" /></OrderBy></Query></query>'
+                                                    soapBody += '    <viewFields><ViewFields><FieldRef Name="Edit" /><FieldRef Name="LinkTitle" />' + getFieldRefXML() + '</ViewFields></viewFields>';
+                                                    soapBody += '    <rowLimit><RowLimit Paged="True">1000</RowLimit></rowLimit>'
+                                                    soapBody += '</UpdateView>'
+                                                    
+                                                    SPWebServiceCall(tilesData.siteURL, "views.asmx?op=UpdateView", "http://schemas.microsoft.com/sharepoint/soap/UpdateView", soapBody, function(status, xhr)
+                                                    {
+                                                        if(status)
+                                                        {
                                                             holder.innerHTML += "done<br />checking if 'nSPTiles1_4' exists...";
                                                             
-												        	// check if the previous version of the list exists
-												        	// if it does, copy the old data to the new list
-												        	var soapBody = '';
-															soapBody += '<GetListItems xmlns="http://schemas.microsoft.com/sharepoint/soap/">';
-															soapBody += '<listName>nSPTiles1_4</listName>';
-															soapBody += '<rowLimit>0</rowLimit>';
-															soapBody += '    <viewFields><ViewFields><FieldRef Name="Title" /><FieldRef Name="nActive" /><FieldRef Name="nTileWidth" /><FieldRef Name="nTileHeight" /><FieldRef Name="nTileLeftOffset" /><FieldRef Name="nTileTopOffset" /><FieldRef Name="nTileBorderWidth" /><FieldRef Name="nTileZoomOnHover" /><FieldRef Name="nTileLinkType" /><FieldRef Name="nTileLinkURL" /><FieldRef Name="nIsHeading" /><FieldRef Name="nTileBackgroundColor" /><FieldRef Name="nTileBackgroundOpacity" /><FieldRef Name="nTileBackgroundColorOnHover" /><FieldRef Name="nTileBackgroundOpacityOnHover" /><FieldRef Name="nTileImageURL" /><FieldRef Name="nTileImageWidth" /><FieldRef Name="nTileImageHeight" /><FieldRef Name="nTileImageOpacity" /><FieldRef Name="nTileImagePadding" /><FieldRef Name="nTileImageStyle" /><FieldRef Name="nTileImagePosition" /><FieldRef Name="nTileImageURLOnHover" /><FieldRef Name="nTileImageStyleOnHover" /><FieldRef Name="nTileFAClass" /><FieldRef Name="nTileFAColor" /><FieldRef Name="nTileFAOpacity" /><FieldRef Name="nTileFAPadding" /><FieldRef Name="nTileFAStyle" /><FieldRef Name="nTileFAPosition" /><FieldRef Name="nTileFAClassOnHover" /><FieldRef Name="nTileFAStyleOnHover" /><FieldRef Name="nHeadingContent" /><FieldRef Name="nHeadingBolded" /><FieldRef Name="nHeadingFontColor" /><FieldRef Name="nHeadingFontSize" /><FieldRef Name="nHeadingPadding" /><FieldRef Name="nHeadingStyle" /><FieldRef Name="nHeadingPosition" /><FieldRef Name="nHeadingContentOnHover" /><FieldRef Name="nHeadingStyleOnHover" /><FieldRef Name="nSliderHeadingHeight" /><FieldRef Name="nSliderBodyContent" /><FieldRef Name="nSliderBodyFontColor" /><FieldRef Name="nSliderBodyFontSize" /><FieldRef Name="nSliderBodyPadding" /><FieldRef Name="nSliderBodyStyle" /><FieldRef Name="nSliderBodyPosition" /><FieldRef Name="nSliderBackgroundColor" /><FieldRef Name="nSliderBackgroundOpacity" /><FieldRef Name="nSliderBackgroundColorOnHover" /><FieldRef Name="nSliderBackgroundOpacityOnHover" /><FieldRef Name="nTileImageAndFASliderHeadingPush" /><FieldRef Name="nTileCustomID" /><FieldRef Name="nTileCustomClassEs" /></ViewFields></viewFields>';
-												    		soapBody += '</GetListItems>';
-															
-															SPWebServiceCall(tilesData.siteURL, "Lists.asmx?op=GetListItems", "http://schemas.microsoft.com/sharepoint/soap/GetListItems", soapBody, function(status, xhr)
-															{
-															    if(status)
-															    {
+                                                            // check if the previous version of the list exists
+                                                            // if it does, copy the old data to the new list
+                                                            var soapBody = '';
+                                                            soapBody += '<GetListItems xmlns="http://schemas.microsoft.com/sharepoint/soap/">';
+                                                            soapBody += '<listName>nSPTiles1_4</listName>';
+                                                            soapBody += '<rowLimit>0</rowLimit>';
+                                                            soapBody += '    <viewFields><ViewFields><FieldRef Name="Title" /><FieldRef Name="nActive" /><FieldRef Name="nTileWidth" /><FieldRef Name="nTileHeight" /><FieldRef Name="nTileLeftOffset" /><FieldRef Name="nTileTopOffset" /><FieldRef Name="nTileBorderWidth" /><FieldRef Name="nTileZoomOnHover" /><FieldRef Name="nTileLinkType" /><FieldRef Name="nTileLinkURL" /><FieldRef Name="nIsHeading" /><FieldRef Name="nTileBackgroundColor" /><FieldRef Name="nTileBackgroundOpacity" /><FieldRef Name="nTileBackgroundColorOnHover" /><FieldRef Name="nTileBackgroundOpacityOnHover" /><FieldRef Name="nTileImageURL" /><FieldRef Name="nTileImageWidth" /><FieldRef Name="nTileImageHeight" /><FieldRef Name="nTileImageOpacity" /><FieldRef Name="nTileImagePadding" /><FieldRef Name="nTileImageStyle" /><FieldRef Name="nTileImagePosition" /><FieldRef Name="nTileImageURLOnHover" /><FieldRef Name="nTileImageStyleOnHover" /><FieldRef Name="nTileFAClass" /><FieldRef Name="nTileFAColor" /><FieldRef Name="nTileFAOpacity" /><FieldRef Name="nTileFAPadding" /><FieldRef Name="nTileFAStyle" /><FieldRef Name="nTileFAPosition" /><FieldRef Name="nTileFAClassOnHover" /><FieldRef Name="nTileFAStyleOnHover" /><FieldRef Name="nHeadingContent" /><FieldRef Name="nHeadingBolded" /><FieldRef Name="nHeadingFontColor" /><FieldRef Name="nHeadingFontSize" /><FieldRef Name="nHeadingPadding" /><FieldRef Name="nHeadingStyle" /><FieldRef Name="nHeadingPosition" /><FieldRef Name="nHeadingContentOnHover" /><FieldRef Name="nHeadingStyleOnHover" /><FieldRef Name="nSliderHeadingHeight" /><FieldRef Name="nSliderBodyContent" /><FieldRef Name="nSliderBodyFontColor" /><FieldRef Name="nSliderBodyFontSize" /><FieldRef Name="nSliderBodyPadding" /><FieldRef Name="nSliderBodyStyle" /><FieldRef Name="nSliderBodyPosition" /><FieldRef Name="nSliderBackgroundColor" /><FieldRef Name="nSliderBackgroundOpacity" /><FieldRef Name="nSliderBackgroundColorOnHover" /><FieldRef Name="nSliderBackgroundOpacityOnHover" /><FieldRef Name="nTileImageAndFASliderHeadingPush" /><FieldRef Name="nTileCustomID" /><FieldRef Name="nTileCustomClassEs" /></ViewFields></viewFields>';
+                                                            soapBody += '</GetListItems>';
+                                                            
+                                                            SPWebServiceCall(tilesData.siteURL, "Lists.asmx?op=GetListItems", "http://schemas.microsoft.com/sharepoint/soap/GetListItems", soapBody, function(status, xhr)
+                                                            {
+                                                                if(status)
+                                                                {
                                                                     holder.innerHTML += "done<br />copying items from 'nSPTiles1_4'...";
-															    	// get the rows from the old list
-															    	var rows = getXMLNodesByTagName(xhr.responseXML, "row", "z");
-															    	
-															    	var tilesToCreateData = [];
-															    	
-															    	// get the data in those rows
-															    	for(var i = 0, numRows = rows.length; i < numRows; ++i)
-															    	{
-															    		var newTileData = {};
-															    		var thisTileFields = rows[i].attributes;
-															    		for(var j = 0, numFields = thisTileFields.length; j < numFields; ++j)
-															    		{
-															    			var thisFieldName = thisTileFields[j].name.match(/^ows_(Title|n[A-Z].*)$/);
-															    			if(thisFieldName)
-															    			{
-															    				newTileData[thisFieldName[1]] = createElement("div", null, null, {"innerText" : thisTileFields[j].value}).innerHTML;
-															    			}
-															    		}
-															    		tilesToCreateData.push(newTileData);
-															    	}
-															    	
-															    	// add the rows
-															    	addEditDeleteTiles(tilesData.siteURL, "New", tilesToCreateData, function(status, xhr)
-															    	{
-															    		if(status)
-															    		{
-															    			holder.innerHTML += "done";
-															    			alert("Finished.\n\nReloading the page.\n\nHappy tiling!");
+                                                                    // get the rows from the old list
+                                                                    var rows = getXMLNodesByTagName(xhr.responseXML, "row", "z");
+                                                                    
+                                                                    var tilesToCreateData = [];
+                                                                    
+                                                                    // get the data in those rows
+                                                                    for(var i = 0, numRows = rows.length; i < numRows; ++i)
+                                                                    {
+                                                                        var newTileData = {};
+                                                                        var thisTileFields = rows[i].attributes;
+                                                                        for(var j = 0, numFields = thisTileFields.length; j < numFields; ++j)
+                                                                        {
+                                                                            var thisFieldName = thisTileFields[j].name.match(/^ows_(Title|n[A-Z].*)$/);
+                                                                            if(thisFieldName)
+                                                                            {
+                                                                                newTileData[thisFieldName[1]] = createElement("div", null, null, {"innerText" : thisTileFields[j].value}).innerHTML;
+                                                                            }
+                                                                        }
+                                                                        tilesToCreateData.push(newTileData);
+                                                                    }
+                                                                    
+                                                                    // add the rows
+                                                                    addEditDeleteTiles(tilesData.siteURL, "New", tilesToCreateData, function(status, xhr)
+                                                                    {
+                                                                        if(status)
+                                                                        {
+                                                                            holder.innerHTML += "done";
+                                                                            alert("Finished.\n\nReloading the page.\n\nHappy tiling!");
                                                                             location.reload();
-															    		}
-															    		else
-															    		{
+                                                                        }
+                                                                        else
+                                                                        {
                                                                             holder.innerHTML += "error";
-															    		}
-															    		
-															    	});
-															    }
-															    else
-															    {
-																    alert("Finished.\n\nReloading the page.\n\nHappy tiling!");
-			                                            			location.reload();
-																}
-															});
-												        }
-												        else
-												        {
-												        	holder.innerHTML += "error";
-												        }
-												    });
-											    }), Function.createDelegate(this, function()
-											    {
-											    	holder.innerHTML += "error";
-											    }));
-						                    }, "sp.js");
+                                                                        }
+                                                                        
+                                                                    });
+                                                                }
+                                                                else
+                                                                {
+                                                                    alert("Finished.\n\nReloading the page.\n\nHappy tiling!");
+                                                                    location.reload();
+                                                                }
+                                                            });
+                                                        }
+                                                        else
+                                                        {
+                                                            holder.innerHTML += "error";
+                                                        }
+                                                    });
+                                                }), Function.createDelegate(this, function()
+                                                {
+                                                    holder.innerHTML += "error";
+                                                }));
+                                            }, "sp.js");
                                         }
                                         else
                                         {
-                                        	holder.innerHTML += "error";
+                                            holder.innerHTML += "error";
                                         }
                                     });
 
@@ -1906,7 +1906,7 @@ var nSPTiles = nSPTiles || (function()
                     "ID" : (action == "New" || action == "Clone") ? "New" : selectedTileID,
                     "Title" : tilesData.groupName
                 };
-				
+                
                 // if action is new and we have a selected tile ID then we're cloning so find the existing tile's data and add it to list for the new tile
                 if(action == "Clone")
                 {
@@ -1946,11 +1946,11 @@ var nSPTiles = nSPTiles || (function()
                     
                     action = "New";
                 }
-				else if(action == "New")
-				{
-					tileObject.nTileBackgroundColor = "rgb(" + Math.floor(Math.random() * 256) + ", " + Math.floor(Math.random() * 256) + ", " + Math.floor(Math.random() * 256) + ")";
-				}
-				
+                else if(action == "New")
+                {
+                    tileObject.nTileBackgroundColor = "rgb(" + Math.floor(Math.random() * 256) + ", " + Math.floor(Math.random() * 256) + ", " + Math.floor(Math.random() * 256) + ")";
+                }
+                
                 // the size the user wanted for the new tile
                 tileObject.nTileWidth = tileWidth;
                 tileObject.nTileHeight = tileHeight;
