@@ -1702,9 +1702,7 @@ var nSPTiles = nSPTiles || (function()
 															    			var thisFieldName = thisTileFields[j].name.match(/^ows_(Title|n[A-Z].*)$/);
 															    			if(thisFieldName)
 															    			{
-															    				newTileData[thisFieldName[1]] = thisTileFields[j].value;
-															    				
-															    				if(thisFieldName[1] == "nSliderBodyContent") newTileData[thisFieldName[1]] = createElement("div", null, null, {"innerText" : thisTileFields[j].value}).innerHTML;
+															    				newTileData[thisFieldName[1]] = createElement("div", null, null, {"innerText" : thisTileFields[j].value}).innerHTML;
 															    			}
 															    		}
 															    		tilesToCreateData.push(newTileData);
@@ -2211,7 +2209,7 @@ var nSPTiles = nSPTiles || (function()
  *
  * Open source under the BSD License.
  *
- * Copyright Â© 2001 Robert Penner
+ * Copyright © 2001 Robert Penner
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
