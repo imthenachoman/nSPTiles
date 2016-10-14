@@ -1281,7 +1281,8 @@ var nSPTiles = nSPTiles || (function()
             {
                 if(fields.hasOwnProperty(j))
                 {
-                    soapBody += '<Field Name="' + j + '">' + createElement("div", null, null, {"innerText" : fields[j]}).innerHTML + '</Field>';
+                    //soapBody += '<Field Name="' + j + '">' + createElement("div", null, null, {"innerText" : fields[j]}).innerHTML + '</Field>';
+                    soapBody += '<Field Name="' + j + '">' + fields[j] + '</Field>';
                 }
             }
 
