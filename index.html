@@ -99,7 +99,7 @@
         <section class="page-header">
             <h1 class="project-name">nSPTiles</h1>
             <h2 class="project-tagline">Windows style tiles for SharePoint</h2>
-            <a class="btn" href="https://github.com/imthenachoman/nSPTiles/releases/download/1.4/nSPTiles.1.4.zip">download nSPTiles.1.4.zip</a> <a class="btn" href="https://github.com/imthenachoman/nSPTiles">View on GitHub</a>
+            <a class="btn" href="https://github.com/imthenachoman/nSPTiles/releases/download/1.5/nSPTiles.1.5.zip">download nSPTiles.1.5.zip</a> <a class="btn" href="https://github.com/imthenachoman/nSPTiles">View on GitHub</a>
         </section>
         <section class="main-content">
             <h1><a class="anchor" href="#nsptiles" id="nsptiles"><span class="octicon octicon-link"></span></a>nSPTiles</h1>
@@ -147,11 +147,11 @@
                 <strong>nSPTiles</strong> is my my own version of (and wouldn't have been possible without) <a href="http://spjsblog.com/2013/11/13/sharepoint-2013-style-tiles/" title="SPJS-Tiles">SPJS-Tiles</a> by <a href="http://spjsblog.com/about/" title="about Alexander Bautz">Alexander Bautz</a>. You can find his at <a href="http://spjsblog.com/2013/11/13/sharepoint-2013-style-tiles/">http://spjsblog.com/2013/11/13/sharepoint-2013-style-tiles/</a>.
             </p>
             <p>
-                After I started using <a href="http://spjsblog.com/2013/11/13/sharepoint-2013-style-tiles/">SPJS-Tiles</a> more and more I had a need for some enhancements and additional features -- specifically a DVWP way to render the tiles so they load faster. And so I set out to address my needs and ended up with <strong>nSPTiles</strong>.
+                After I started using <a href="http://spjsblog.com/2013/11/13/sharepoint-2013-style-tiles/">SPJS-Tiles</a> more and more I had a need for some enhancements and additional features -- specifically a DVWP way to render the tiles so they load faster and a GUI to make it easier to add tiles. And so I set out to address my needs and ended up with <strong>nSPTiles</strong>.
             </p>
             <h3><a class="anchor" href="#how-it-works" id="how-it-works"><span class="octicon octicon-link"></span></a>How It Works</h3>
             <p>
-                The first time you use <strong>nSPTiles</strong> a SharePoint list called <code>nSPTiles#</code> is created. The list will be used to hold the tile data. It has numerous fields/columns for the various tile options/settings. There are also numerous calculated columns that are used internally by <strong>nSPTiles</strong>.
+                The first time you use <strong>nSPTiles</strong> a SharePoint list called <code>nSPTiles#_#</code> is created. The list will be used to hold the tile data. It has numerous fields/columns for the various tile options/settings. There are also numerous calculated columns that are used internally by <strong>nSPTiles</strong>.
             </p>
             <p>
                 After the list is created you can add items to the list. Each item in the list is a different tile. Tiles can be grouped by using the same <a href="#groupName"><code>group name</code></a>. This way you can render different tiles on different pages/sections.
@@ -179,12 +179,14 @@
                         <li>a tile heading</li>
                         <li>slider text that slides up on hover</li>
                         <li>different color/image/FA/heading when the mouse is over a tile (hovering)</li>
+                        <li>unique permissions to control who can see what tiles (new in 1.5)</li>
                     </ul>
                 </li>
                 <li>quickly specify <a href="#position">placement</a> for tile image, Font-Awesome icon, heading text and slider text without custom CSS</li>
                 <li>numerous pre-set styling options</li>
                 <li>additional styling can be applied with custom CSS</li>
                 <li>three tile <a href="#animationTypeOn">animation</a> options (slide, bounce and elastic)</li>
+                <li>version 1.5 will import tiles from version 1.4</li>
             </ul>
             <h3><a class="anchor" href="#screenshots" id="screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h3>
             <table>
@@ -242,35 +244,30 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>nSPTiles.min.js</td>
+                        <td>nSPTiles.js</td>
                         <td><strong>nSPTiles</strong> javascript (packed using <a href="http://dean.edwards.name/packer/">http://dean.edwards.name/packer/</a>)</td>
                         <td>upload to your SharePoint site; you will need it's path</td>
                     </tr>
                     <tr>
                         <td>dvwp.webpart</td>
-                        <td>DVWP WebPart to use if the <strong>nSPTiles</strong> list exists on the same SharePoint site</td>
-                        <td>save on your computer</td>
-                    </tr>
-                    <tr>
-                        <td>dvwp_webURL.webpart</td>
-                        <td>DVWP WebPart to use if the <strong>nSPTiles</strong> list exists on another WebURL/site</td>
+                        <td>DVWP WebPart</td>
                         <td>save on your computer</td>
                     </tr>
                 </tbody>
             </table>
             <h3><a class="anchor" href="#installation" id="installation"><span class="octicon octicon-link"></span></a>Installation</h3>
             <p>
-                Upload the <code>nSPTiles.min.js</code> file to a document library in your SharePoint site. You will need to know it's path later.
+                Upload the <code>nSPTiles.js</code> file to a document library in your SharePoint site. You will need to know it's path later.
             </p>
             <h3><a class="anchor" href="#first-time-use--use-a-cewp-to-render-tiles" id="first-time-use--use-a-cewp-to-render-tiles"><span class="octicon octicon-link"></span></a>First Time Use / Use A CEWP To Render Tiles</h3>
             <p>
-                *** <em>The first time you use</em> <strong><em>nSPTiles</em></strong> <em>you will see a message like this. Follow the instructions to create the <code>nSPTiles#</code> list.</em> ***
+                *** <em>The first time you use</em> <strong><em>nSPTiles</em></strong> <em>you will see a message like this. Follow the instructions to create the <code>nSPTiles#_#</code> list.</em> ***
             </p>
             <p>
                 <img alt="enter image description here" src="https://cloud.githubusercontent.com/assets/83817/8887698/8747710a-325b-11e5-8107-1c97315c14d6.PNG">
             </p>
             <p>
-                A CEWP uses client-side JavaScript to pull information from the <code>nSPTiles#</code> list using SharePoint's REST API. The code is configured to run on page load which means the tiles should be visible before the page is drawn, however, this does add a slight delay to the page load.
+                A CEWP uses client-side JavaScript to pull information from the <code>nSPTiles#_#</code> list using SharePoint's REST API. The code is configured to run on page load which means the tiles should be visible before the page is drawn, however, this does add a slight delay to the page load.
             </p>
             <ol>
                 <li>
@@ -415,7 +412,7 @@ nSPTiles.init("nachoTiles", "group 4", {
 </pre>
             <h3><a class="anchor" href="#gui" id="gui"><span class="octicon octicon-link"></span></a>GUI</h3>
             <p>
-                If you have permissions to add items to the <code>nSPTiles#</code> list then when you hover over the area where the tiles are (or should/would be) then you'll see admin links that will let you <strong>add</strong>, <strong>move</strong>, <strong>edit</strong>, or <strong>delete</strong> tiles. The <strong>add</strong> and <strong>move</strong> options will let you use a GUI to draw where you want the tile to be within the container. The <strong>move</strong>, <strong>edit</strong>, and <strong>delete</strong> options will let you select a tile you want to work on.
+                If you have permissions to add items to the <code>nSPTiles#_#</code> list then when you hover over the area where the tiles are (or should/would be) then you'll see admin links that will let you <strong>add</strong>, <strong>move</strong>, <strong>edit</strong>, or <strong>delete</strong> tiles. The <strong>add</strong> and <strong>move</strong> options will let you use a GUI to draw where you want the tile to be within the container. The <strong>move</strong>, <strong>edit</strong>, and <strong>delete</strong> options will let you select a tile you want to work on.
             </p>
             <p>
                 <img alt="enter image description here" src="https://cloud.githubusercontent.com/assets/83817/8887700/874a9c2c-325b-11e5-870f-3b0ba78ded20.PNG">
@@ -425,7 +422,7 @@ nSPTiles.init("nachoTiles", "group 4", {
                 ****** <strong>IMPORTANT</strong> ******
             </p>
             <p>
-                <strong>DO NOT add the DVWP WebPart to a page until <a href="#first-time-use--use-a-cewp-to-render-tiles">you've used a CEWP</a> at least once so the <code>nSPTiles#</code> list has been created.</strong>
+                <strong>DO NOT add the DVWP WebPart to a page until <a href="#first-time-use--use-a-cewp-to-render-tiles">you've used a CEWP</a> at least once so the <code>nSPTiles#_#</code> list has been created.</strong>
             </p>
             <p>
                 ****** <strong>IMPORTANT</strong> ******
@@ -434,7 +431,7 @@ nSPTiles.init("nachoTiles", "group 4", {
                 A DVWP pulls the tile data on the server side in an XML format then passes it through an XSL transformation before it it sends to the browser for rendering. Because it is done server-side the page load should be slightly faster.
             </p>
             <p>
-                <strong>NOTE</strong>: Because of deficiencies in how SharePoint manages DVWP WebParts, if you need to use <code>dvwp_webURL.webpart</code> because your <code>nSPTiles#</code> list is on a different SharePoint site then you need to edit the file before you can upload it to a WebPart page. Open the file in any text editor, search for the string <code>/test</code> (should be line 269) and change it to the webURL path you need then save the file. For example: <code>/subsite</code>, <code>/sites/teamSite</code>, etc...
+                <strong>NOTE</strong>: Because of deficiencies in how SharePoint manages DVWP WebParts, if you need to use <code>dvwp_webURL.webpart</code> because your <code>nSPTiles#_#</code> list is on a different SharePoint site then you need to edit the file before you can upload it to a WebPart page. Open the file in any text editor, search for the string <code>/test</code> (should be line 269) and change it to the webURL path you need then save the file. For example: <code>/subsite</code>, <code>/sites/teamSite</code>, etc...
             </p>
             <p>
                 To add the DVWP to a WebPart page:
@@ -513,7 +510,7 @@ nSPTiles.init("nachoTiles", "group 4", {
             </table>
             <h3><a class="anchor" href="#nsptiles-list-reference" id="nsptiles-list-reference"><span class="octicon octicon-link"></span></a>nSPTiles List Reference</h3>
             <p>
-                Here are all the tile options and what they mean. Each one maps to a column/field in the <code>nSPTiles#</code> list. Not all fields are required and not all fields are relevant depending on other settings.
+                Here are all the tile options and what they mean. Each one maps to a column/field in the <code>nSPTiles#_#</code> list. Not all fields are required and not all fields are relevant depending on other settings.
             </p>
             <table>
                 <thead>
@@ -905,9 +902,9 @@ nSPTiles.init("nachoTiles", "group 4", {
             <h2><a class="anchor" href="#to-do--enhancement-requests" id="to-do--enhancement-requests"><span class="octicon octicon-link"></span></a>To Do / Enhancement Requests</h2>
             <ol class="task-list">
                 <li><input type="checkbox" checked="checked" disabled="disabled">publish initial 1.0 release</li>
-                <li><input type="checkbox" checked="checked" disabled="disabled">allow an alternate WebURL to use <code>nSPTiles#</code> from a different SP site</li>
+                <li><input type="checkbox" checked="checked" disabled="disabled">allow an alternate WebURL to use <code>nSPTiles#_#</code> from a different SP site</li>
                 <li><input type="checkbox" checked="checked" disabled="disabled">allow running a custom function on tile click (can be used to run custom code to do things like Piwik click tracking)</li>
-                <li><input type="checkbox" disabled="disabled">real-time preview of tiles in the data sheet view of the <code>nSPTiles#</code> list so you can see the effect of your changes immediately</li>
+                <li><input type="checkbox" disabled="disabled">real-time preview of tiles in the data sheet view of the <code>nSPTiles#_#</code> list so you can see the effect of your changes immediately</li>
                 <li><input type="checkbox" disabled="disabled">allow stacking of Font-Awesome icons (added November 2015 by request from J. Mayo)</li>
                 <li><input type="checkbox" disabled="disabled">allow for custom dialog dimensions/options (added August 2016 by request from J. Mayo)</li>
                 <li><input type="checkbox" disabled="disabled">provide spreadsheet of sample data (including all scenarios but specifically FA samples) for testing purposes (added August 2016 by request from <a href="https://disqus.com/by/disqus_I1UgNwdwGg/" taret="_blank">nyalex</a>)</li>
