@@ -579,7 +579,20 @@ nSPTiles.init("nachoTiles", "group 4", {
                     </tr>
                     <tr>
                         <td>tile link type</td>
-                        <td>the type of link to make</td>
+                        <td>
+                            the type of link to make
+                            <ul>
+                                <li><b>none</b></li>
+                                <li><b>current window</b> - open link in the current window</li>
+                                <li><b>new window</b> - open link in a new window</li>
+                                <li><b>mailto</b> - open mail</li>
+                                <li><b>dialog</b> - open link in a dialog</li>
+                                <li><b>dialog (refresh window after save)</b> - open link in a dialog and refresh the window if the user saves</li>
+                                <li><b>dialog (refresh tiles after save)</b> - open link in a dialog and refresh the tiles if the user saves</li>
+                                <li><b>sub-group</b> - open a sub tile group</li>
+                                <li><b>javascript</b> - execute javascript</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <td>tile link URL</td>
