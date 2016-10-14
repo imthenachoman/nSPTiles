@@ -1281,7 +1281,7 @@ var nSPTiles = nSPTiles || (function()
             {
                 if(fields.hasOwnProperty(j))
                 {
-                    soapBody += '<Field Name="' + j + '">' + fields[j] + '</Field>';
+                    soapBody += '<Field Name="' + j + '">' + createElement("div", null, null, {"innerText" : fields[j]}).innerHTML + '</Field>';
                 }
             }
 
@@ -2219,7 +2219,7 @@ var nSPTiles = nSPTiles || (function()
  *
  * Open source under the BSD License.
  *
- * Copyright © 2001 Robert Penner
+ * Copyright Â© 2001 Robert Penner
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
