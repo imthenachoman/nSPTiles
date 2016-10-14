@@ -373,10 +373,10 @@
                                         <th><a id="onclick" name="onclick"></a>onclick</th>
                                         <td>function</td>
                                         <td>
-                                            function to call on tile clicks. can be used to run custom code like you would need for <a href="http://piwik.org/">Piwik</a>'s click tracking. the function will be passed two paramaters: the url and the type of link the tile is.<br>
+                                            function to call on tile clicks. can be used to run custom code like you would need for <a href="http://piwik.org/">Piwik</a>'s click tracking. the function will be passed three paramaters: the url, the type of link the tile is, the ID of the tiles holder, the tiles group name, the tile HTML ID, and the tile SharePoint List ID.<br>
                                             <br>
                                             example:<br>
-                                            <code>function(url, link){...}</code>
+                                            <code>function(url, type, holderID, groupName, tileID, ID){...}</code>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -580,7 +580,7 @@ nSPTiles.init("nachoTiles", "group 4", {
                     <tr>
                         <td>tile link type</td>
                         <td>
-                            the type of link to make
+                            the type of link to make<br />
                             <ul>
                                 <li><b>none</b></li>
                                 <li><b>current window</b> - open link in the current window</li>
