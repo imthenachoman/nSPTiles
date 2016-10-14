@@ -276,7 +276,7 @@
                     </p>
                     <div class="highlight highlight-html">
                         <pre>
-&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTiles.min.js<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTiles.js<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
 &lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>font-awesome.min.css<span class="pl-pds">"</span></span>&gt;
 &lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>nachoTiles<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
 <span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;</span>
@@ -285,7 +285,7 @@
 </pre>
                     </div>
                 </li>
-                <li>make sure to provide the correct path to <code>nSPTiles.min.js</code></li>
+                <li>make sure to provide the correct path to <code>nSPTiles.js</code></li>
                 <li>(<em>optional</em>) update the path to the Font-Awesome CSS if you want to use Font-Awesome</li>
                 <li>update the <code>id</code> of the <code>div</code> where you want the tiles to be rendered in (<code>nachoTiles</code> in the above example)</li>
                 <li>in the <code>nSPTiles.init</code> call update the parameters as necessary (check <a href="#cewp-javascript-reference">below</a> for details)</li>
@@ -412,7 +412,7 @@ nSPTiles.init("nachoTiles", "group 4", {
 </pre>
             <h3><a class="anchor" href="#gui" id="gui"><span class="octicon octicon-link"></span></a>GUI</h3>
             <p>
-                If you have permissions to add items to the <code>nSPTiles#_#</code> list then when you hover over the area where the tiles are (or should/would be) then you'll see admin links that will let you <strong>add</strong>, <strong>move</strong>, <strong>edit</strong>, or <strong>delete</strong> tiles. The <strong>add</strong> and <strong>move</strong> options will let you use a GUI to draw where you want the tile to be within the container. The <strong>move</strong>, <strong>edit</strong>, and <strong>delete</strong> options will let you select a tile you want to work on.
+                If you have permissions to add items to the <code>nSPTiles#_#</code> list then when you hover over the area where the tiles are (or should/would be) then you'll see admin links that will let you <strong>add</strong>, <strong>move</strong>, <strong>clone</strong>, <strong>edit</strong>, or <strong>delete</strong> tiles or get <strong>info</strong> about a tile. The <strong>add</strong>, <strong>move</strong>, and <strong>clone</strong> options will let you use a GUI to draw where you want the tile to be within the container. The <strong>move</strong>, <strong>clone</strong>, <strong>edit</strong>, <strong>delete</strong>, and <strong>info</strong> options will let you select a tile you want to work on.
             </p>
             <p>
                 <img alt="enter image description here" src="https://cloud.githubusercontent.com/assets/83817/8887700/874a9c2c-325b-11e5-870f-3b0ba78ded20.PNG">
@@ -431,7 +431,7 @@ nSPTiles.init("nachoTiles", "group 4", {
                 A DVWP pulls the tile data on the server side in an XML format then passes it through an XSL transformation before it it sends to the browser for rendering. Because it is done server-side the page load should be slightly faster.
             </p>
             <p>
-                <strong>NOTE</strong>: Because of deficiencies in how SharePoint manages DVWP WebParts, if you need to use <code>dvwp_webURL.webpart</code> because your <code>nSPTiles#_#</code> list is on a different SharePoint site then you need to edit the file before you can upload it to a WebPart page. Open the file in any text editor, search for the string <code>/test</code> (should be line 269) and change it to the webURL path you need then save the file. For example: <code>/subsite</code>, <code>/sites/teamSite</code>, etc...
+                <strong>NOTE</strong>: Because of deficiencies in how SharePoint manages DVWP WebParts, if you need to use a <code>nSPTiles#_#</code> list that is on a different SharePoint site then you need to edit the file before you can upload it to a WebPart page. Open the file in any text editor, search for the string <code>&lt;asp:Parameter DefaultValue="/" Name="WebURL"&gt;&lt;/asp:Parameter&gt;</code> (should be line 296) and change the value inside the <code>""</code> for the <code>DefaultValue</code> attribute to the site URL and then save the file. For example: <code>/subsite</code>, <code>/sites/teamSite</code>, etc...
             </p>
             <p>
                 To add the DVWP to a WebPart page:
@@ -447,7 +447,7 @@ nSPTiles.init("nachoTiles", "group 4", {
             </p>
             <div class="highlight highlight-xml">
                 <pre>
-&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTilesJSPath<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTiles.min.js<span class="pl-pds">"</span></span>/&gt;
+&lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTilesJSPath<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>nSPTiles.js<span class="pl-pds">"</span></span>/&gt;
 &lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>FontAwesomeCSSPath<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>font-awesome.min.css<span class="pl-pds">"</span></span>/&gt;
 &lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>GroupName<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>group one<span class="pl-pds">"</span></span>/&gt;
 &lt;<span class="pl-ent">ParameterBinding</span> <span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>AnimationSpeedInMillisecond<span class="pl-pds">"</span></span> <span class="pl-e">Location</span>=<span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span> <span class="pl-e">DefaultValue</span>=<span class="pl-s"><span class="pl-pds">"</span>100<span class="pl-pds">"</span></span>/&gt;
@@ -474,7 +474,7 @@ nSPTiles.init("nachoTiles", "group 4", {
                     <tr>
                         <td>nSPTilesJSPath</td>
                         <td>n/a</td>
-                        <td>the path to the <code>nSPTiles.min.js</code> file</td>
+                        <td>the path to the <code>nSPTiles.js</code> file</td>
                     </tr>
                     <tr>
                         <td>FontAwesoeCSSPath</td>
@@ -529,6 +529,24 @@ nSPTiles.init("nachoTiles", "group 4", {
                         <td>can be used hide a tile without having to remove this entry</td>
                     </tr>
                     <tr>
+                        <th colSpan="2">heading and slider content</th>
+                    </tr>
+                    <tr>
+                        <td>heading content</td>
+                        <td>can use HTML</td>
+                    </tr>
+                    <tr>
+                        <td>heading content on hover</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>slider body content</td>
+                        <td>can use HTML</td>
+                    </tr>
+                    <tr>
+                        <th colSpan="2">layout</th>
+                    </tr>
+                    <tr>
                         <td>tile width</td>
                         <td>the width of the tile in px</td>
                     </tr>
@@ -553,6 +571,13 @@ nSPTiles.init("nachoTiles", "group 4", {
                         <td>zoom effect for the tile by making the tile border width 0 when the mouse is over the tile</td>
                     </tr>
                     <tr>
+                        <td>is heading</td>
+                        <td>heading tiles have no slider</td>
+                    </tr>
+                    <tr>
+                        <th colSpan="2">link</th>
+                    </tr>
+                    <tr>
                         <td>tile link type</td>
                         <td>the type of link to make</td>
                     </tr>
@@ -561,28 +586,7 @@ nSPTiles.init("nachoTiles", "group 4", {
                         <td>the URL for the link</td>
                     </tr>
                     <tr>
-                        <td>is heading</td>
-                        <td>heading tiles have no slider</td>
-                    </tr>
-                    <tr>
-                        <td>tile background color</td>
-                        <td>HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)</td>
-                    </tr>
-                    <tr>
-                        <td>tile background opacity</td>
-                        <td>
-                            opacity from 0 (transparent) to 100 (solid)<br>
-                            <br>
-                            leave blank for none
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>tile background color on hover</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>tile background opacity on hover</td>
-                        <td></td>
+                        <th colSpan="2">image</th>
                     </tr>
                     <tr>
                         <td>tile image URL</td>
@@ -633,6 +637,9 @@ nSPTiles.init("nachoTiles", "group 4", {
                         <td></td>
                     </tr>
                     <tr>
+                        <th colSpan="2">Font Awesome</th>
+                    </tr>
+                    <tr>
                         <td>tile FA class</td>
                         <td>Font Awesome icon class name</td>
                     </tr>
@@ -669,8 +676,34 @@ nSPTiles.init("nachoTiles", "group 4", {
                         <td></td>
                     </tr>
                     <tr>
-                        <td>heading content</td>
-                        <td>can use HTML</td>
+                        <td>tile FA HTML override</td>
+                        <td>custom HTML to override the tile Font-Awesome icon class, color, opacity, padding, and style.<br /><br />can be used to do custom things like stacked icons and animations</td>
+                    </tr>
+                    <tr>
+                        <th colSpan="2">background</th>
+                    </tr>
+                    <tr>
+                        <td>tile background color</td>
+                        <td>HTML/CSS friendly color or .className (e.g.: red, #0099ff, rgb(0,150,255), .color1)</td>
+                    </tr>
+                    <tr>
+                        <td>tile background opacity</td>
+                        <td>
+                            opacity from 0 (transparent) to 100 (solid)<br>
+                            <br>
+                            leave blank for none
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>tile background color on hover</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>tile background opacity on hover</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th colSpan="2">heading style</th>
                     </tr>
                     <tr>
                         <td>heading bolded</td>
@@ -697,20 +730,15 @@ nSPTiles.init("nachoTiles", "group 4", {
                         <td>position of the heading in the tile or slider heading</td>
                     </tr>
                     <tr>
-                        <td>heading content on hover</td>
-                        <td></td>
-                    </tr>
-                    <tr>
                         <td>heading style on hover</td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td>slider heading height</td>
-                        <td>height of the header for the slider in px</td>
+                        <th colSpan="2">slider style</th>
                     </tr>
                     <tr>
-                        <td>slider body content</td>
-                        <td>can use HTML</td>
+                        <td>slider heading height</td>
+                        <td>height of the header for the slider in px</td>
                     </tr>
                     <tr>
                         <td>slider body font color</td>
@@ -753,6 +781,9 @@ nSPTiles.init("nachoTiles", "group 4", {
                         <td></td>
                     </tr>
                     <tr>
+                        <th colSpan="2">misc</th>
+                    </tr>
+                    <tr>
                         <td>tile image and FA slider heading push</td>
                         <td>if the tile image and/or FA are positioned on the bottom then push them on top of the slider heading</td>
                     </tr>
@@ -767,6 +798,21 @@ nSPTiles.init("nachoTiles", "group 4", {
                     <tr>
                         <td>tile custom class(es)</td>
                         <td>custom class(s) to add to the tile</td>
+                    </tr>
+                    <tr>
+                        <td>tile HTML override</td>
+                        <td>override all header and slider settings and use this HTML for the tile content instead</td>
+                    </tr>
+                    <tr>
+                        <th colSpan="2">view permissions</th>
+                    </tr>
+                    <tr>
+                        <td>tile view permissions</td>
+                        <td>who should be able to see this tile<br /><br />leave blank for everyone<br /><br />note: this only controls if a tile is drawn or not -- it does not prevent the user from seeing this list item in the list</td>
+                    </tr>
+                    <tr>
+                        <td>tile not rendered check</td>
+                        <td>only show this tile if the tile with this ID <b>is not</b> rendered</td>
                     </tr>
                 </tbody>
             </table>
