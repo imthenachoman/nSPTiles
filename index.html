@@ -154,7 +154,7 @@
                 The first time you use <strong>nSPTiles</strong> a SharePoint list called <code>nSPTiles#_#</code> is created. The list will be used to hold the tile data. It has numerous fields/columns for the various tile options/settings. There are also numerous calculated columns that are used internally by <strong>nSPTiles</strong>.
             </p>
             <p>
-                After the list is created you can add items to the list. Each item in the list is a different tile. Tiles can be grouped by using the same <a href="#groupName"><code>group name</code></a>. This way you can render different tiles on different pages/sections.
+                After the list is created you can add items to the list. Each item in the list is a different tile. Tiles can be grouped by using the same <a href="#groupNameOrUrlKey"><code>group name</code></a>. This way you can render different tiles on different pages/sections.
             </p>
             <p>
                 <strong><em>It is important that you do not change any of the list settings, especially the calculated columns.</em></strong>
@@ -299,14 +299,14 @@
                 The <code>nSPTiles.init</code> function takes three parameters:
             </p>
             <pre>
-<code>nSPTiles.init(ID, groupName)
+<code>nSPTiles.init(ID, groupNameOrUrlKey)
 </code>
 </pre>
             <p>
                 -- OR --
             </p>
             <pre>
-<code> nSPTiles.init(ID, groupName, configOptions)
+<code> nSPTiles.init(ID, groupNameOrUrlKey, configOptions)
 </code>
 </pre>
             <p>
@@ -327,9 +327,9 @@
                         <td>the ID of the <code>div</code> where you want the tiles to be created in (<code>nachoTiles</code> in the above example)</td>
                     </tr>
                     <tr>
-                        <td><a id="groupName" name="groupName"></a><code>groupName</code></td>
+                        <td><a id="groupNameOrUrlKey" name="groupNameOrUrlKey"></a><code>groupNameOrUrlKey</code></td>
                         <td>yes</td>
-                        <td>the name of the tiles group to use (<code>group one</code> in the above example)</td>
+                        <td>the name of the tiles group to use (<code>group one</code> in the above example) or the name of a URL key from which to get the group name</td>
                     </tr>
                     <tr>
                         <td><code>configOptions</code></td>
@@ -378,7 +378,7 @@
                                                 <li>the url</li>
                                                 <li>the type of link the tile is</li>
                                                 <li>the ID of the tiles holder</li>
-                                                <li>the tiles group name (same as <code>groupName</code>)</li>
+                                                <li>the tiles group name</li>
                                                 <li>the tile HTML ID</li>
                                                 <li>the tile SharePoint list ID</li>
                                             </ul>
@@ -490,8 +490,8 @@ nSPTiles.init("nachoTiles", "group 4", {
                     </tr>
                     <tr>
                         <td>GroupName</td>
-                        <td><a href="#groupName">groupName</a></td>
-                        <td></td>
+                        <td>n/a</td>
+                        <td>in the DVWP it is not possible to get this value from a URL paramater</td>
                     </tr>
                     <tr>
                         <td>AnimationSpeedInMillisecond</td>
