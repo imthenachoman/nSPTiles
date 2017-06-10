@@ -415,6 +415,12 @@ nSPTiles.init("nachoTiles", "group 4", {
         _paq.push(['trackLink', url, 'link']);
     }
 });
+
+// in the below example
+// if groupName is a paramater passed in the URL
+// then it will use that parameter's value
+// i.e. for the url "http://sp/home.aspx?groupName=homepage%20tiles" the groupName will be"homepage tiles"
+nSPTiles.init("nachoTiles", "groupName"); 
 </code>
 </pre>
             <h3><a class="anchor" href="#gui" id="gui"><span class="octicon octicon-link"></span></a>GUI</h3>
