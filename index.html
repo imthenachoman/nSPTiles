@@ -299,14 +299,14 @@
                 The <code>nSPTiles.init</code> function takes three parameters:
             </p>
             <pre>
-<code>nSPTiles.init(ID, groupNameOrUrlKey)
+<code>nSPTiles.init(holderID, groupNameOrUrlKey)
 </code>
 </pre>
             <p>
                 -- OR --
             </p>
             <pre>
-<code> nSPTiles.init(ID, groupNameOrUrlKey, configOptions)
+<code> nSPTiles.init(holderID, groupNameOrUrlKey, configOptions)
 </code>
 </pre>
             <p>
@@ -322,7 +322,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><code>ID</code></td>
+                        <td><a id="holderID" name="holderID"></a><code>holderID</code></td>
                         <td>yes</td>
                         <td>the ID of the <code>div</code> where you want the tiles to be created in (<code>nachoTiles</code> in the above example)</td>
                     </tr>
@@ -377,13 +377,39 @@
                                             <ul>
                                                 <li>the url</li>
                                                 <li>the type of link the tile is</li>
-                                                <li>the ID of the tiles holder</li>
+                                                <li><a href="#holderID">`holderID`</a></li>
                                                 <li>the tiles group name</li>
                                                 <li>the tile HTML ID</li>
                                                 <li>the tile SharePoint list ID</li>
                                             </ul>
                                             example:<br>
                                             <code>function(url, type, holderID, groupName, tileID, ID){...}</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th><a id="oninit" name="oninit"></a>oninit</th>
+                                        <td>function</td>
+                                        <td>
+                                            function to call <b>before</b> tiles are loaded. the function will be passed two paramaters:<br /><br />
+                                            <ul>
+                                                <li><a href="#holderID">`holderID`</a></li>
+                                                <li>the tiles group name</li>
+                                            </ul>
+                                            example:<br>
+                                            <code>function(holderID, groupName){...}</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th><a id="oncomplete" name="oncomplete"></a>oncomplete</th>
+                                        <td>function</td>
+                                        <td>
+                                            function to call <b>after</b> tiles are done loading. the function will be passed two paramaters:<br /><br />
+                                            <ul>
+                                                <li><a href="#holderID">`holderID`</a></li>
+                                                <li>the tiles group name</li>
+                                            </ul>
+                                            example:<br>
+                                            <code>function(holderID, groupName){...}</code>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -973,11 +999,24 @@ nSPTiles.init("nachoTiles", "groupName");
                         <td>1.5</td>
                         <td>
                             <ul>
-                                <li>fixed issue 4 - run javascript on tile click (<a href="https://github.com/imthenachoman/nSPTiles/issues/4">https://github.com/imthenachoman/nSPTiles/issues/4</a>)</li>
+                                <li><a href="https://github.com/imthenachoman/nSPTiles/issues/4">issue 4</a> - run javascript on tile click</li>
                                 <li>added a tile HTML override option</li>
                                 <li>added a tile FA HTML override option</li>
                                 <li>added a tile view permissions</li>
                                 <li>added ability to add/move/edit/clone tiles in bulk</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1.5.1</td>
+                        <td>
+                            <ul>
+                                <li>pure javascript update; does not create a new list</li>
+                                <li><a href="https://github.com/imthenachoman/nSPTiles/issues/5">fixed issue #5</a> - fixed bug with IE 11 not reading XPATH</li>
+                                <li><a href="https://github.com/imthenachoman/nSPTiles/issues/6">fixed issue #6</a> - fixed bug where SITE_URL would not take the websites port into account</li>
+                                <li><a href="https://github.com/imthenachoman/nSPTiles/issues/7">added issue #7</a> - load tiles based on <a href="#groupNameOrUrlKey">URL paramater</a></li>
+                                <li><a href="https://github.com/imthenachoman/nSPTiles/issues/11">added issue #11</a> - added two links <a href="#oninit">two new/edit form</a></li>
+                                <li><a href="https://github.com/imthenachoman/nSPTiles/issues/12">added issue #12</a> - added `oninit` and `oncomplete` functions</li>
                             </ul>
                         </td>
                     </tr>
