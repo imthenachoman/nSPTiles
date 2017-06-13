@@ -1,0 +1,31 @@
+﻿<script src="/nacho/Site%20Stuff/nSPTiles/1.5.1/nSPTiles.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/nacho/Site%20Stuff/fa/css/font-awesome.min.css">
+
+<!-- custom styling for the tiles -->
+<style type="text/css">
+    #nachoSlider
+    {
+    }
+</style>
+
+<!-- the DIV where I want the slider -->
+<div id="nachoSlider"></div>
+
+<script type="text/javascript">
+    function blah(url, type, holderID, groupName, tileID, ID)
+    {
+        if(console && console.log) console.log([url, type, holderID, groupName, tileID, ID]);
+    }
+    nSPTiles.init("nachoSlider", "dingo", {
+        animationTime: 200,
+        onclick: "blah1",
+        oninit: function(holderID, groupName)
+        {
+            if(console && console.log) console.log(["init", holderID, groupName]);
+        },
+        oncomplete: function(holderID, groupName)
+        {
+            if(console && console.log) console.log(["complete", holderID, groupName]);
+        }
+    });
+</script>
